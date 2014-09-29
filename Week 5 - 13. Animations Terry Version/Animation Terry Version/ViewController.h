@@ -18,6 +18,7 @@
 
 @property (nonatomic) UIDynamicAnimator *myAnimator;
 
+@property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 
 
 @property (strong, nonatomic) IBOutlet UIStepper *myStepper;
