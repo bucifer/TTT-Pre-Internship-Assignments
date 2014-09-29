@@ -10,4 +10,28 @@
 
 @interface ViewController : UIViewController
 
+
+
+
+- (IBAction)gravityActionButton:(id)sender;
+
+
+@property (nonatomic) UIDynamicAnimator *myAnimator;
+
+
+
+@property (strong, nonatomic) IBOutlet UIStepper *myStepper;
+
+@property (strong, nonatomic) IBOutlet UISwitch *mySwitch;
+
+@property (strong, nonatomic) IBOutlet UILabel *myLabel;
+
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *mySegmentedControl;
+
+
+@property (strong, nonatomic) IBOutlet UISlider *mySlider;
+
+
+
 @end

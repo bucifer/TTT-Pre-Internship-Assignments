@@ -20,10 +20,35 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+
+
+
+-(void) initAnimation {
+    
+    UIDynamicAnimator *animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    
+    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc]initWithItems:@[self.myLabel, self.mySegmentedControl, self.mySlider, self.myStepper,self.mySwitch]];
+    
+    [animator addBehavior:gravityBehavior];
+    
+    self.myAnimator = animator;
+    
+}
+
+
+
+
+
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)gravityActionButton:(id)sender {
+    [self initAnimation];
+}
 @end
