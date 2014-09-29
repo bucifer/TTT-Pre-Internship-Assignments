@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DEMO3ViewController">
+            <connections>
+                <outlet property="imgapp" destination="75" id="85"/>
+                <outlet property="view" destination="2" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Our Philosophy" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="21">
+                    <rect key="frame" x="33" y="147" width="728" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="23"/>
+                        <constraint firstAttribute="width" constant="728" id="93"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="TamilSangamMN" family="Tamil Sangam MN" pointSize="36"/>
+                    <color key="textColor" red="0.61255944289999997" green="0.16534992670000001" blue="0.1942584778" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="33">
+                    <rect key="frame" x="81" y="264" width="606" height="446"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="446" id="34"/>
+                        <constraint firstAttribute="width" constant="606" id="35"/>
+                    </constraints>
+                    <mutableString key="text">
+Technologies change daily. Android. iOS. Ruby on rails. Node.js. .NET Java Clojure AWS etc. etc. etc. are all in flux. What they are today won’t be what they are tomorrow. Should one even specialize in any of these?
+
+The real question is – what is the best way to invest your time?
+
+We believe we have the answer – stay focused on fundamentals as you build real world products.
+
+Because fundamentals change like glaciers – surely but really slowly. And working on real world products is the best way to understand how technologies are used in real life.
+
+Someone with a solid grasp of fundamentals will easily navigate changing technologies. And someone without – will often be stuck in their field, unable to navigate their way around when technologies change.
+
+We know Google has most of the answers – and in a few short months, we’ll make sure you’re always able to ask the right questions as you progress in your career.</mutableString>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75">
+                    <rect key="frame" x="20" y="49" width="247" height="230"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="247" id="87"/>
+                        <constraint firstAttribute="height" constant="230" id="91"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="75" firstAttribute="top" secondItem="2" secondAttribute="top" constant="49" id="80"/>
+                <constraint firstItem="75" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="81"/>
+                <constraint firstItem="33" firstAttribute="top" secondItem="2" secondAttribute="top" constant="264" id="89"/>
+                <constraint firstItem="21" firstAttribute="top" secondItem="2" secondAttribute="top" constant="147" id="92"/>
+                <constraint firstItem="21" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="33" id="95"/>
+                <constraint firstItem="33" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="96"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+        </view>
+    </objects>
+</document>

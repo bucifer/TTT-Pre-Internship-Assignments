@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4835FBD61832370000A2179E /* q1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4835FBD31832370000A2179E /* q1.jpg */; };
+		4835FBD71832370000A2179E /* q2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4835FBD41832370000A2179E /* q2.jpg */; };
+		4835FBD918323D9100A2179E /* tt.png in Resources */ = {isa = PBXBuildFile; fileRef = 4835FBD818323D9100A2179E /* tt.png */; };
+		4835FBDB183241BA00A2179E /* logo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4835FBDA183241BA00A2179E /* logo1.gif */; };
+		488CB97D18321F7B007D9797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CB97C18321F7B007D9797 /* UIKit.framework */; };
+		488CB97F18321F7B007D9797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CB97E18321F7B007D9797 /* Foundation.framework */; };
+		488CB98118321F7B007D9797 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CB98018321F7B007D9797 /* CoreGraphics.framework */; };
+		488CB98718321F7B007D9797 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 488CB98518321F7B007D9797 /* InfoPlist.strings */; };
+		488CB98918321F7B007D9797 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 488CB98818321F7B007D9797 /* main.m */; };
+		488CB98D18321F7B007D9797 /* DEMOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 488CB98C18321F7B007D9797 /* DEMOAppDelegate.m */; };
+		488CB98F18321F7C007D9797 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 488CB98E18321F7C007D9797 /* Default.png */; };
+		488CB99118321F7C007D9797 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488CB99018321F7C007D9797 /* Default@2x.png */; };
+		488CB99318321F7C007D9797 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488CB99218321F7C007D9797 /* Default-568h@2x.png */; };
+		488CB99618321F7C007D9797 /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 488CB99518321F7C007D9797 /* DEMOFirstViewController.m */; };
+		488CB99818321F7C007D9797 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 488CB99718321F7C007D9797 /* first.png */; };
+		488CB99A18321F7C007D9797 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488CB99918321F7C007D9797 /* first@2x.png */; };
+		488CB99D18321F7C007D9797 /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 488CB99C18321F7C007D9797 /* DEMOSecondViewController.m */; };
+		488CB99F18321F7C007D9797 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 488CB99E18321F7C007D9797 /* second.png */; };
+		488CB9A118321F7C007D9797 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 488CB9A018321F7C007D9797 /* second@2x.png */; };
+		488CB9A418321F7C007D9797 /* DEMOFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488CB9A218321F7C007D9797 /* DEMOFirstViewController.xib */; };
+		488CB9A718321F7C007D9797 /* DEMOSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488CB9A518321F7C007D9797 /* DEMOSecondViewController.xib */; };
+		488CB9AF18321F7C007D9797 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CB9AE18321F7C007D9797 /* SenTestingKit.framework */; };
+		488CB9B018321F7C007D9797 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CB97C18321F7B007D9797 /* UIKit.framework */; };
+		488CB9B118321F7C007D9797 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488CB97E18321F7B007D9797 /* Foundation.framework */; };
+		488CB9B918321F7C007D9797 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 488CB9B718321F7C007D9797 /* InfoPlist.strings */; };
+		488CB9BC18321F7C007D9797 /* SimpleTABAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 488CB9BB18321F7C007D9797 /* SimpleTABAPPTests.m */; };
+		488CB9DB1832311E007D9797 /* DEMO3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 488CB9D91832311E007D9797 /* DEMO3ViewController.m */; };
+		488CB9DC1832311E007D9797 /* DEMO3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488CB9DA1832311E007D9797 /* DEMO3ViewController.xib */; };
+		488CB9E018323141007D9797 /* DEMO4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 488CB9DE18323141007D9797 /* DEMO4ViewController.m */; };
+		488CB9E118323141007D9797 /* DEMO4ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488CB9DF18323141007D9797 /* DEMO4ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		488CB9B218321F7C007D9797 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 488CB97118321F7B007D9797 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 488CB97818321F7B007D9797;
+			remoteInfo = SimpleTABAPP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4835FBD31832370000A2179E /* q1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = q1.jpg; sourceTree = "<group>"; };
+		4835FBD41832370000A2179E /* q2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = q2.jpg; sourceTree = "<group>"; };
+		4835FBD818323D9100A2179E /* tt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tt.png; sourceTree = "<group>"; };
+		4835FBDA183241BA00A2179E /* logo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo1.gif; sourceTree = "<group>"; };
+		488CB97918321F7B007D9797 /* SimpleTABAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTABAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		488CB97C18321F7B007D9797 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		488CB97E18321F7B007D9797 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		488CB98018321F7B007D9797 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		488CB98418321F7B007D9797 /* SimpleTABAPP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleTABAPP-Info.plist"; sourceTree = "<group>"; };
+		488CB98618321F7B007D9797 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		488CB98818321F7B007D9797 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		488CB98A18321F7B007D9797 /* SimpleTABAPP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleTABAPP-Prefix.pch"; sourceTree = "<group>"; };
+		488CB98B18321F7B007D9797 /* DEMOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DEMOAppDelegate.h; sourceTree = "<group>"; };
+		488CB98C18321F7B007D9797 /* DEMOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DEMOAppDelegate.m; sourceTree = "<group>"; };
+		488CB98E18321F7C007D9797 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		488CB99018321F7C007D9797 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		488CB99218321F7C007D9797 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		488CB99418321F7C007D9797 /* DEMOFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DEMOFirstViewController.h; sourceTree = "<group>"; };
+		488CB99518321F7C007D9797 /* DEMOFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DEMOFirstViewController.m; sourceTree = "<group>"; };
+		488CB99718321F7C007D9797 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		488CB99918321F7C007D9797 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		488CB99B18321F7C007D9797 /* DEMOSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DEMOSecondViewController.h; sourceTree = "<group>"; };
+		488CB99C18321F7C007D9797 /* DEMOSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DEMOSecondViewController.m; sourceTree = "<group>"; };
+		488CB99E18321F7C007D9797 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		488CB9A018321F7C007D9797 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		488CB9A318321F7C007D9797 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DEMOFirstViewController.xib; sourceTree = "<group>"; };
+		488CB9A618321F7C007D9797 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DEMOSecondViewController.xib; sourceTree = "<group>"; };
+		488CB9AD18321F7C007D9797 /* SimpleTABAPPTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTABAPPTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		488CB9AE18321F7C007D9797 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		488CB9B618321F7C007D9797 /* SimpleTABAPPTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleTABAPPTests-Info.plist"; sourceTree = "<group>"; };
+		488CB9B818321F7C007D9797 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		488CB9BA18321F7C007D9797 /* SimpleTABAPPTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTABAPPTests.h; sourceTree = "<group>"; };
+		488CB9BB18321F7C007D9797 /* SimpleTABAPPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleTABAPPTests.m; sourceTree = "<group>"; };
+		488CB9D81832311E007D9797 /* DEMO3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMO3ViewController.h; sourceTree = "<group>"; };
+		488CB9D91832311E007D9797 /* DEMO3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMO3ViewController.m; sourceTree = "<group>"; };
+		488CB9DA1832311E007D9797 /* DEMO3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DEMO3ViewController.xib; sourceTree = "<group>"; };
+		488CB9DD18323140007D9797 /* DEMO4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMO4ViewController.h; sourceTree = "<group>"; };
+		488CB9DE18323141007D9797 /* DEMO4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMO4ViewController.m; sourceTree = "<group>"; };
+		488CB9DF18323141007D9797 /* DEMO4ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DEMO4ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		488CB97618321F7B007D9797 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488CB97D18321F7B007D9797 /* UIKit.framework in Frameworks */,
+				488CB97F18321F7B007D9797 /* Foundation.framework in Frameworks */,
+				488CB98118321F7B007D9797 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		488CB9A918321F7C007D9797 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488CB9AF18321F7C007D9797 /* SenTestingKit.framework in Frameworks */,
+				488CB9B018321F7C007D9797 /* UIKit.framework in Frameworks */,
+				488CB9B118321F7C007D9797 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		488CB97018321F7B007D9797 = {
+			isa = PBXGroup;
+			children = (
+				488CB98218321F7B007D9797 /* SimpleTABAPP */,
+				488CB9B418321F7C007D9797 /* SimpleTABAPPTests */,
+				488CB97B18321F7B007D9797 /* Frameworks */,
+				488CB97A18321F7B007D9797 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		488CB97A18321F7B007D9797 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				488CB97918321F7B007D9797 /* SimpleTABAPP.app */,
+				488CB9AD18321F7C007D9797 /* SimpleTABAPPTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		488CB97B18321F7B007D9797 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				488CB97C18321F7B007D9797 /* UIKit.framework */,
+				488CB97E18321F7B007D9797 /* Foundation.framework */,
+				488CB98018321F7B007D9797 /* CoreGraphics.framework */,
+				488CB9AE18321F7C007D9797 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		488CB98218321F7B007D9797 /* SimpleTABAPP */ = {
+			isa = PBXGroup;
+			children = (
+				488CB98B18321F7B007D9797 /* DEMOAppDelegate.h */,
+				488CB98C18321F7B007D9797 /* DEMOAppDelegate.m */,
+				488CB99418321F7C007D9797 /* DEMOFirstViewController.h */,
+				488CB99518321F7C007D9797 /* DEMOFirstViewController.m */,
+				488CB99B18321F7C007D9797 /* DEMOSecondViewController.h */,
+				488CB99C18321F7C007D9797 /* DEMOSecondViewController.m */,
+				488CB9A218321F7C007D9797 /* DEMOFirstViewController.xib */,
+				488CB9A518321F7C007D9797 /* DEMOSecondViewController.xib */,
+				488CB9DA1832311E007D9797 /* DEMO3ViewController.xib */,
+				488CB9DF18323141007D9797 /* DEMO4ViewController.xib */,
+				488CB9D81832311E007D9797 /* DEMO3ViewController.h */,
+				488CB9D91832311E007D9797 /* DEMO3ViewController.m */,
+				488CB9DD18323140007D9797 /* DEMO4ViewController.h */,
+				488CB9DE18323141007D9797 /* DEMO4ViewController.m */,
+				488CB99718321F7C007D9797 /* first.png */,
+				488CB99918321F7C007D9797 /* first@2x.png */,
+				488CB99E18321F7C007D9797 /* second.png */,
+				488CB9A018321F7C007D9797 /* second@2x.png */,
+				488CB98318321F7B007D9797 /* Supporting Files */,
+			);
+			path = SimpleTABAPP;
+			sourceTree = "<group>";
+		};
+		488CB98318321F7B007D9797 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				488CB98418321F7B007D9797 /* SimpleTABAPP-Info.plist */,
+				488CB98518321F7B007D9797 /* InfoPlist.strings */,
+				488CB98818321F7B007D9797 /* main.m */,
+				488CB98A18321F7B007D9797 /* SimpleTABAPP-Prefix.pch */,
+				488CB98E18321F7C007D9797 /* Default.png */,
+				488CB99018321F7C007D9797 /* Default@2x.png */,
+				488CB99218321F7C007D9797 /* Default-568h@2x.png */,
+				4835FBD818323D9100A2179E /* tt.png */,
+				4835FBD31832370000A2179E /* q1.jpg */,
+				4835FBDA183241BA00A2179E /* logo1.gif */,
+				4835FBD41832370000A2179E /* q2.jpg */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		488CB9B418321F7C007D9797 /* SimpleTABAPPTests */ = {
+			isa = PBXGroup;
+			children = (
+				488CB9BA18321F7C007D9797 /* SimpleTABAPPTests.h */,
+				488CB9BB18321F7C007D9797 /* SimpleTABAPPTests.m */,
+				488CB9B518321F7C007D9797 /* Supporting Files */,
+			);
+			path = SimpleTABAPPTests;
+			sourceTree = "<group>";
+		};
+		488CB9B518321F7C007D9797 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				488CB9B618321F7C007D9797 /* SimpleTABAPPTests-Info.plist */,
+				488CB9B718321F7C007D9797 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		488CB97818321F7B007D9797 /* SimpleTABAPP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 488CB9BF18321F7C007D9797 /* Build configuration list for PBXNativeTarget "SimpleTABAPP" */;
+			buildPhases = (
+				488CB97518321F7B007D9797 /* Sources */,
+				488CB97618321F7B007D9797 /* Frameworks */,
+				488CB97718321F7B007D9797 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleTABAPP;
+			productName = SimpleTABAPP;
+			productReference = 488CB97918321F7B007D9797 /* SimpleTABAPP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		488CB9AC18321F7C007D9797 /* SimpleTABAPPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 488CB9C218321F7C007D9797 /* Build configuration list for PBXNativeTarget "SimpleTABAPPTests" */;
+			buildPhases = (
+				488CB9A818321F7C007D9797 /* Sources */,
+				488CB9A918321F7C007D9797 /* Frameworks */,
+				488CB9AA18321F7C007D9797 /* Resources */,
+				488CB9AB18321F7C007D9797 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				488CB9B318321F7C007D9797 /* PBXTargetDependency */,
+			);
+			name = SimpleTABAPPTests;
+			productName = SimpleTABAPPTests;
+			productReference = 488CB9AD18321F7C007D9797 /* SimpleTABAPPTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		488CB97118321F7B007D9797 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DEMO;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Aditya;
+			};
+			buildConfigurationList = 488CB97418321F7B007D9797 /* Build configuration list for PBXProject "SimpleTABAPP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 488CB97018321F7B007D9797;
+			productRefGroup = 488CB97A18321F7B007D9797 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				488CB97818321F7B007D9797 /* SimpleTABAPP */,
+				488CB9AC18321F7C007D9797 /* SimpleTABAPPTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		488CB97718321F7B007D9797 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488CB98718321F7B007D9797 /* InfoPlist.strings in Resources */,
+				488CB98F18321F7C007D9797 /* Default.png in Resources */,
+				488CB99118321F7C007D9797 /* Default@2x.png in Resources */,
+				488CB99318321F7C007D9797 /* Default-568h@2x.png in Resources */,
+				488CB99818321F7C007D9797 /* first.png in Resources */,
+				488CB99A18321F7C007D9797 /* first@2x.png in Resources */,
+				488CB99F18321F7C007D9797 /* second.png in Resources */,
+				488CB9A118321F7C007D9797 /* second@2x.png in Resources */,
+				488CB9A418321F7C007D9797 /* DEMOFirstViewController.xib in Resources */,
+				488CB9A718321F7C007D9797 /* DEMOSecondViewController.xib in Resources */,
+				488CB9DC1832311E007D9797 /* DEMO3ViewController.xib in Resources */,
+				488CB9E118323141007D9797 /* DEMO4ViewController.xib in Resources */,
+				4835FBD61832370000A2179E /* q1.jpg in Resources */,
+				4835FBD71832370000A2179E /* q2.jpg in Resources */,
+				4835FBD918323D9100A2179E /* tt.png in Resources */,
+				4835FBDB183241BA00A2179E /* logo1.gif in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		488CB9AA18321F7C007D9797 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488CB9B918321F7C007D9797 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		488CB9AB18321F7C007D9797 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		488CB97518321F7B007D9797 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488CB98918321F7B007D9797 /* main.m in Sources */,
+				488CB98D18321F7B007D9797 /* DEMOAppDelegate.m in Sources */,
+				488CB99618321F7C007D9797 /* DEMOFirstViewController.m in Sources */,
+				488CB99D18321F7C007D9797 /* DEMOSecondViewController.m in Sources */,
+				488CB9DB1832311E007D9797 /* DEMO3ViewController.m in Sources */,
+				488CB9E018323141007D9797 /* DEMO4ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		488CB9A818321F7C007D9797 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488CB9BC18321F7C007D9797 /* SimpleTABAPPTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		488CB9B318321F7C007D9797 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 488CB97818321F7B007D9797 /* SimpleTABAPP */;
+			targetProxy = 488CB9B218321F7C007D9797 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		488CB98518321F7B007D9797 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				488CB98618321F7B007D9797 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		488CB9A218321F7C007D9797 /* DEMOFirstViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				488CB9A318321F7C007D9797 /* en */,
+			);
+			name = DEMOFirstViewController.xib;
+			sourceTree = "<group>";
+		};
+		488CB9A518321F7C007D9797 /* DEMOSecondViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				488CB9A618321F7C007D9797 /* en */,
+			);
+			name = DEMOSecondViewController.xib;
+			sourceTree = "<group>";
+		};
+		488CB9B718321F7C007D9797 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				488CB9B818321F7C007D9797 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		488CB9BD18321F7C007D9797 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		488CB9BE18321F7C007D9797 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		488CB9C018321F7C007D9797 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleTABAPP/SimpleTABAPP-Prefix.pch";
+				INFOPLIST_FILE = "SimpleTABAPP/SimpleTABAPP-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		488CB9C118321F7C007D9797 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleTABAPP/SimpleTABAPP-Prefix.pch";
+				INFOPLIST_FILE = "SimpleTABAPP/SimpleTABAPP-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		488CB9C318321F7C007D9797 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SimpleTABAPP.app/SimpleTABAPP";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleTABAPP/SimpleTABAPP-Prefix.pch";
+				INFOPLIST_FILE = "SimpleTABAPPTests/SimpleTABAPPTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		488CB9C418321F7C007D9797 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SimpleTABAPP.app/SimpleTABAPP";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleTABAPP/SimpleTABAPP-Prefix.pch";
+				INFOPLIST_FILE = "SimpleTABAPPTests/SimpleTABAPPTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		488CB97418321F7B007D9797 /* Build configuration list for PBXProject "SimpleTABAPP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488CB9BD18321F7C007D9797 /* Debug */,
+				488CB9BE18321F7C007D9797 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		488CB9BF18321F7C007D9797 /* Build configuration list for PBXNativeTarget "SimpleTABAPP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488CB9C018321F7C007D9797 /* Debug */,
+				488CB9C118321F7C007D9797 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		488CB9C218321F7C007D9797 /* Build configuration list for PBXNativeTarget "SimpleTABAPPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488CB9C318321F7C007D9797 /* Debug */,
+				488CB9C418321F7C007D9797 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 488CB97118321F7B007D9797 /* Project object */;
+}
