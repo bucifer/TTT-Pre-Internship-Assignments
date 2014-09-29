@@ -27,9 +27,18 @@
     
     UIDynamicAnimator *animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
+    //gravity
     UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc]initWithItems:@[self.myLabel, self.mySegmentedControl, self.mySlider, self.myStepper,self.mySwitch]];
-    
     [animator addBehavior:gravityBehavior];
+    
+    //collision
+    UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.myLabel, self.mySegmentedControl, self.mySlider, self.myStepper,self.mySwitch]];
+    
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    collisionBehavior.collisionDelegate = self;
+    
+    [animator addBehavior:collisionBehavior];
+    
     
     self.myAnimator = animator;
     
