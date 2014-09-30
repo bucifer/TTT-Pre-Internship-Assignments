@@ -1,18 +1,18 @@
 //
-//  NavCtrlTests.m
-//  NavCtrlTests
+//  Raywenderlich_SplitviewTests.m
+//  Raywenderlich-SplitviewTests
 //
-//  Created by Aditya Narayan on 10/22/13.
-//  Copyright (c) 2013 Aditya Narayan. All rights reserved.
+//  Created by Aditya Narayan on 9/30/14.
+//  Copyright (c) 2014 NM. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface NavCtrlTests : XCTestCase
+@interface Raywenderlich_SplitviewTests : XCTestCase
 
 @end
 
-@implementation NavCtrlTests
+@implementation Raywenderlich_SplitviewTests
 
 - (void)setUp
 {

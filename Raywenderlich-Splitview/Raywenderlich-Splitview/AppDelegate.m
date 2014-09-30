@@ -1,57 +1,18 @@
 //
-//  qcdDemoAppDelegate.m
-//  NavCtrl
+//  AppDelegate.m
+//  Raywenderlich-Splitview
 //
-//  Created by Aditya Narayan on 10/22/13.
-//  Copyright (c) 2013 Aditya Narayan. All rights reserved.
+//  Created by Aditya Narayan on 9/30/14.
+//  Copyright (c) 2014 NM. All rights reserved.
 //
 
-#import "qcdDemoAppDelegate.h"
-#import "qcdDemoViewController.h"
-#import "Reachability.h"
+#import "AppDelegate.h"
 
-@implementation qcdDemoAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Initialize Reachability
-    Reachability *reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
-    
-    reachability.reachableBlock = ^(Reachability *reachability) {
-//        NSLog(@"Network is reachable.");
-    };
-    
-    reachability.unreachableBlock = ^(Reachability *reachability) {
-//        NSLog(@"Network is unreachable.");
-    };
-    
-    // Start Monitoring
-    [reachability startNotifier];
-    
-    
-    // Override point for customization after application launch.
-    UIViewController *rootController =
-    [[qcdDemoViewController alloc]
-     initWithNibName:@"qcdDemoViewController" bundle:nil];
-    
-    self.navigationController = [[UINavigationController alloc]
-                            initWithRootViewController:rootController];
-    
-    self.window = [[UIWindow alloc]
-                   initWithFrame:[[UIScreen mainScreen] bounds]];
-//  self.window addSubview:self.navigationController.view];
-    [self.window setRootViewController:self.navigationController];
-    [self.window makeKeyAndVisible];
     return YES;
-    
-    
-    /*
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
-     */
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -78,8 +39,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-
 
 @end

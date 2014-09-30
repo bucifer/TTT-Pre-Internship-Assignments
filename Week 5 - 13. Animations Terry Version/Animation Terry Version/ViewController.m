@@ -21,8 +21,6 @@
 }
 
 
-
-
 -(void) initAnimation {
     
     UIDynamicAnimator *animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];

@@ -1,20 +1,18 @@
 //
-//  ChildViewController.m
-//  NavCtrl
-///Users/adityanarayan/Desktop/TerryBu/Week 3 - 3. navCtrl/NavCtrl/ChildViewController.h
-//  Created by Aditya Narayan on 10/22/13.
-//  Copyright (c) 2013 Aditya Narayan. All rights reserved.
+//  LeftTableViewController.m
+//  Raywenderlich-Splitview
+//
+//  Created by Aditya Narayan on 9/30/14.
+//  Copyright (c) 2014 NM. All rights reserved.
 //
 
-#import "ChildViewController.h"
-#import "WebViewController.h"
-#import "DAO.h"
+#import "LeftTableViewController.h"
 
-@interface ChildViewController ()
+@interface LeftTableViewController ()
 
 @end
 
-@implementation ChildViewController
+@implementation LeftTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,15 +29,9 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-            
+ 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    [self.tableView reloadData];
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,30 +45,22 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-     return self.company.products.count;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     // Configure the cell...
     
-    Product *product_pt = [self.company.products objectAtIndex:[indexPath row]];
-    cell.textLabel.text = product_pt.name;
-    [[cell imageView] setImage: [UIImage imageNamed:product_pt.image]];
-  
     return cell;
 }
 
@@ -119,40 +103,16 @@
 }
 */
 
+/*
+#pragma mark - Navigation
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    Product* selectedProduct = [self.company.products objectAtIndex:[indexPath row]];
-    [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:selectedProduct.url] ] ];
-    
-    // Push the view controller.
-    [self.navigationController
-     pushViewController:self.webVC
-     animated:YES];
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
 
+ */
 
-#pragma mark Delete Action
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        // Update the array and table view.
-        Product *productToBeDeleted = [self.company.products objectAtIndex:indexPath.row];
-        [self.dao deleteProduct: productToBeDeleted];
-        self.dao.selectedCompany = self.company;
-        [self.company.products removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }
-}
-
-
-- (void)dealloc {
-    [_webVC release];
-    [_myWebView release];
-    [super dealloc];
-}
 @end

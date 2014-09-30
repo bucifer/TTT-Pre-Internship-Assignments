@@ -1,18 +1,18 @@
 //
-//  WebViewController.m
-//  NavCtrl
+//  RightViewController.m
+//  Raywenderlich-Splitview
 //
-//  Created by Aditya Narayan on 9/15/14.
-//  Copyright (c) 2014 Aditya Narayan. All rights reserved.
+//  Created by Aditya Narayan on 9/30/14.
+//  Copyright (c) 2014 NM. All rights reserved.
 //
 
-#import "WebViewController.h"
+#import "RightViewController.h"
 
-@interface WebViewController ()
+@interface RightViewController ()
 
 @end
 
-@implementation WebViewController
+@implementation RightViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,8 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,7 +35,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 @end

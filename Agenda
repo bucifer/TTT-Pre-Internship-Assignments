@@ -1,5 +1,21 @@
-Agenda
+read about
+amazons3
+amazonEC2
+SSH
+private keys/public keys
 
-1) Replicate the demo
-2) Make it do other things besides the demo
-3) **Sign up for a developer account on Apple
+UIPopover --> some popover element (only on iPad not iPhone)
+
+Learn about the Camera API
+*You take a picture, it uploads to S3, you have a view that can get all your pictures from cloud and display
+
+Learn about how to implement a Java server that displays "Hello world" on a webpage - the basic simple version - do this on EC2
+
+
+
+***SSH and SCP is what you use thorough the terminal to access your EC2 on the cloud.
+
+
+
+java path = /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.65.x86_64/
+tomcat path = /etc/tomcat7
