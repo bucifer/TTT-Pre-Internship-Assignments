@@ -27,7 +27,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self refreshUI];
 }
+
+-(void)refreshUI
+{
+    self.monsterNameLabel.text = self.monster.name;
+    self.monsterImageView.image = [UIImage imageNamed:self.monster.iconName];
+    self.monsterDescriptionLabel.text = self.monster.description;
+    self.monsterWeaponImage.image = [self.monster weaponImage];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

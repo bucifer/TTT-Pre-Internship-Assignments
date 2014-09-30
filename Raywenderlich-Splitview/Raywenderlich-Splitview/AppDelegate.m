@@ -7,11 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "LeftTableViewController.h"
+#import "RightViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UISplitViewController *splitVC = (UISplitViewController *)self.window.rootViewController;
+    UINavigationController *leftNavController = [splitVC.viewControllers objectAtIndex:0];
+    LeftTableViewController *leftVC = (LeftTableViewController *)[leftNavController topViewController];
+    RightViewController *rightVC = [splitVC.viewControllers objectAtIndex:1];
+    
+    Monster *myMonster = [[leftVC monsters]objectAtIndex:0];
+    
+    rightVC.monster = myMonster;
+    
     return YES;
 }
 

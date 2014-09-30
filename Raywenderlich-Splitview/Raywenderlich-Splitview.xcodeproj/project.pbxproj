@@ -22,6 +22,7 @@
 		AAA1030419DB3E1100D38424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA1030319DB3E1100D38424 /* Main.storyboard */; };
 		AAA1030719DB449F00D38424 /* LeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1030619DB449F00D38424 /* LeftTableViewController.m */; };
 		AAA1030A19DB460300D38424 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1030919DB460300D38424 /* RightViewController.m */; };
+		AAA1030D19DB492700D38424 /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1030C19DB492700D38424 /* Monster.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		AAA1030619DB449F00D38424 /* LeftTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftTableViewController.m; path = ../LeftTableViewController.m; sourceTree = "<group>"; };
 		AAA1030819DB460300D38424 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
 		AAA1030919DB460300D38424 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		AAA1030B19DB492700D38424 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
+		AAA1030C19DB492700D38424 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				AAA1030319DB3E1100D38424 /* Main.storyboard */,
+				AAA1030B19DB492700D38424 /* Monster.h */,
+				AAA1030C19DB492700D38424 /* Monster.m */,
 				AAA1030519DB449F00D38424 /* LeftTableViewController.h */,
 				AAA1030619DB449F00D38424 /* LeftTableViewController.m */,
 				AAA1030819DB460300D38424 /* RightViewController.h */,
@@ -254,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAA102E519DB3DBE00D38424 /* AppDelegate.m in Sources */,
+				AAA1030D19DB492700D38424 /* Monster.m in Sources */,
 				AAA1030A19DB460300D38424 /* RightViewController.m in Sources */,
 				AAA1030719DB449F00D38424 /* LeftTableViewController.m in Sources */,
 				AAA102E119DB3DBE00D38424 /* main.m in Sources */,

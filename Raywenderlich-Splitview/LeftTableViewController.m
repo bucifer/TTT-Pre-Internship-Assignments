@@ -7,6 +7,7 @@
 //
 
 #import "LeftTableViewController.h"
+#import "Monster.h"
 
 @interface LeftTableViewController ()
 
@@ -14,14 +15,39 @@
 
 @implementation LeftTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+//- (id)initWithStyle:(UITableViewStyle)style
+//{
+//    self = [super initWithStyle:style];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    if (self = [super initWithCoder:aDecoder]) {
+        //Initialize the array of monsters for display.
+        self.monsters = [NSMutableArray array];
+        
+        //Create monster objects then add them to the array.
+        [self.monsters addObject:[Monster newMonsterWithName:@"Cat-Bot" description:@"MEE-OW"
+                                                iconName:@"meetcatbot.png" weapon:Sword]];
+        [self.monsters addObject:[Monster newMonsterWithName:@"Dog-Bot" description:@"BOW-WOW"
+                                                iconName:@"meetdogbot.png" weapon:Blowgun]];
+        [self.monsters addObject:[Monster newMonsterWithName:@"Explode-Bot"
+                                             description:@"Tick, tick, BOOM!" iconName:@"meetexplodebot.png" weapon:Smoke]];
+        [self.monsters addObject:[Monster newMonsterWithName:@"Fire-Bot"
+                                             description:@"Will Make You Steamed" iconName:@"meetfirebot.png" weapon:NinjaStar]];
+        [self.monsters addObject:[Monster newMonsterWithName:@"Ice-Bot"
+                                             description:@"Has A Chilling Effect" iconName:@"meeticebot.png" weapon:Fire]];
+        [self.monsters addObject:[Monster newMonsterWithName:@"Mini-Tomato-Bot"
+                                             description:@"Extremely Handsome" iconName:@"meetminitomatobot.png" weapon:NinjaStar]];        
     }
+    
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -51,7 +77,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 10;
+    return self.monsters.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -60,6 +86,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    Monster *monster = self.monsters[indexPath.row];
+    cell.textLabel.text = monster.name;
+    
     
     return cell;
 }

@@ -10,4 +10,6 @@
 
 @interface LeftTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray *monsters;
+
 @end
