@@ -24,6 +24,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    //this is creating the S3Bucket logic - when a user starts the app for the first time, the user should be able to create that bucket on the background on initialization
+    //but right now, let's just take baby-steps and figure out how to manipulate S3 better
+    
 //    @try {
 //        // Initial the S3 Client.
 //
@@ -39,8 +42,9 @@
 //        NSLog(@"There was an exception when connecting to s3: %@",exception.description);
 //    }
     
-
+    //Do not freaking delete this
     self.s3= [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
+    
     //Getting your list of objects from your bucket and display on table
     @try
     {
@@ -56,6 +60,26 @@
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
     [self.myTableView reloadData];
+    
+    
+    //Let's try setting the imageview to an object's image on my bucket
+    
+    @try
+    {
+        NSString *fileName = @"arashiyama.jpg";
+        S3GetObjectRequest *request = [[S3GetObjectRequest alloc]
+                                       initWithKey:fileName withBucket:BUCKET];
+        S3GetObjectResponse *response = [self.s3 getObject:request];
+        NSData *downloadData = [response body];
+        if(downloadData)self.myImageView.image = [UIImage imageWithData:downloadData];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Cannot Load S3 Object %@",exception);
+    }
+    
+    
+    
+    
 
 }
 
