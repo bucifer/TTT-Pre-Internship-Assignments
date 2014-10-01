@@ -16,23 +16,10 @@
 		AAA1032F19DB54A000D38424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA1032D19DB54A000D38424 /* Main.storyboard */; };
 		AAA1033219DB54A000D38424 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1033119DB54A000D38424 /* ViewController.m */; };
 		AAA1033419DB54A000D38424 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA1033319DB54A000D38424 /* Images.xcassets */; };
-		AAA1033B19DB54A000D38424 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1033A19DB54A000D38424 /* XCTest.framework */; };
-		AAA1033C19DB54A000D38424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1031B19DB54A000D38424 /* Foundation.framework */; };
-		AAA1033D19DB54A000D38424 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA1031F19DB54A000D38424 /* UIKit.framework */; };
-		AAA1034519DB54A000D38424 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA1034319DB54A000D38424 /* InfoPlist.strings */; };
-		AAA1034719DB54A000D38424 /* Amazon_App_TerryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1034619DB54A000D38424 /* Amazon_App_TerryTests.m */; };
 		AAA1035319DB5B9B00D38424 /* AsyncLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1035219DB5B9B00D38424 /* AsyncLoader.m */; };
+		AAA27FB319DC63B5005BCDA8 /* awsruntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA27FB119DC63B5005BCDA8 /* awsruntime.framework */; };
+		AAA27FB419DC63B5005BCDA8 /* awss3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA27FB219DC63B5005BCDA8 /* awss3.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AAA1033E19DB54A000D38424 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AAA1031019DB54A000D38424 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AAA1031719DB54A000D38424;
-			remoteInfo = "Amazon App Terry";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AAA1031819DB54A000D38424 /* Amazon App Terry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amazon App Terry.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,13 +36,14 @@
 		AAA1033019DB54A000D38424 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AAA1033119DB54A000D38424 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AAA1033319DB54A000D38424 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		AAA1033919DB54A000D38424 /* Amazon App TerryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Amazon App TerryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAA1033A19DB54A000D38424 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		AAA1034219DB54A000D38424 /* Amazon App TerryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Amazon App TerryTests-Info.plist"; sourceTree = "<group>"; };
 		AAA1034419DB54A000D38424 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AAA1034619DB54A000D38424 /* Amazon_App_TerryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Amazon_App_TerryTests.m; sourceTree = "<group>"; };
 		AAA1035119DB5B9B00D38424 /* AsyncLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncLoader.h; path = ../AsyncLoader.h; sourceTree = "<group>"; };
 		AAA1035219DB5B9B00D38424 /* AsyncLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncLoader.m; path = ../AsyncLoader.m; sourceTree = "<group>"; };
+		AAA27FB119DC63B5005BCDA8 /* awsruntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = awsruntime.framework; path = ../awsruntime.framework; sourceTree = "<group>"; };
+		AAA27FB219DC63B5005BCDA8 /* awss3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = awss3.framework; path = ../awss3.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,19 +51,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA27FB319DC63B5005BCDA8 /* awsruntime.framework in Frameworks */,
+				AAA27FB419DC63B5005BCDA8 /* awss3.framework in Frameworks */,
 				AAA1031E19DB54A000D38424 /* CoreGraphics.framework in Frameworks */,
 				AAA1032019DB54A000D38424 /* UIKit.framework in Frameworks */,
 				AAA1031C19DB54A000D38424 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AAA1033619DB54A000D38424 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAA1033B19DB54A000D38424 /* XCTest.framework in Frameworks */,
-				AAA1033D19DB54A000D38424 /* UIKit.framework in Frameworks */,
-				AAA1033C19DB54A000D38424 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				AAA1031819DB54A000D38424 /* Amazon App Terry.app */,
-				AAA1033919DB54A000D38424 /* Amazon App TerryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +83,8 @@
 		AAA1031A19DB54A000D38424 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAA27FB119DC63B5005BCDA8 /* awsruntime.framework */,
+				AAA27FB219DC63B5005BCDA8 /* awss3.framework */,
 				AAA1031B19DB54A000D38424 /* Foundation.framework */,
 				AAA1031D19DB54A000D38424 /* CoreGraphics.framework */,
 				AAA1031F19DB54A000D38424 /* UIKit.framework */,
@@ -177,24 +158,6 @@
 			productReference = AAA1031819DB54A000D38424 /* Amazon App Terry.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AAA1033819DB54A000D38424 /* Amazon App TerryTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AAA1034D19DB54A000D38424 /* Build configuration list for PBXNativeTarget "Amazon App TerryTests" */;
-			buildPhases = (
-				AAA1033519DB54A000D38424 /* Sources */,
-				AAA1033619DB54A000D38424 /* Frameworks */,
-				AAA1033719DB54A000D38424 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AAA1033F19DB54A000D38424 /* PBXTargetDependency */,
-			);
-			name = "Amazon App TerryTests";
-			productName = "Amazon App TerryTests";
-			productReference = AAA1033919DB54A000D38424 /* Amazon App TerryTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -203,11 +166,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = NM;
-				TargetAttributes = {
-					AAA1033819DB54A000D38424 = {
-						TestTargetID = AAA1031719DB54A000D38424;
-					};
-				};
 			};
 			buildConfigurationList = AAA1031319DB54A000D38424 /* Build configuration list for PBXProject "Amazon App Terry" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -223,7 +181,6 @@
 			projectRoot = "";
 			targets = (
 				AAA1031719DB54A000D38424 /* Amazon App Terry */,
-				AAA1033819DB54A000D38424 /* Amazon App TerryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,14 +193,6 @@
 				AAA1033419DB54A000D38424 /* Images.xcassets in Resources */,
 				AAA1032619DB54A000D38424 /* InfoPlist.strings in Resources */,
 				AAA1032F19DB54A000D38424 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AAA1033719DB54A000D38424 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAA1034519DB54A000D38424 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,23 +210,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAA1033519DB54A000D38424 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAA1034719DB54A000D38424 /* Amazon_App_TerryTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AAA1033F19DB54A000D38424 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AAA1031719DB54A000D38424 /* Amazon App Terry */;
-			targetProxy = AAA1033E19DB54A000D38424 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AAA1032419DB54A000D38424 /* InfoPlist.strings */ = {
@@ -386,9 +319,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/adityanarayan/Downloads/awss3,
+					"/Users/adityanarayan/Desktop/TerryBu/Week\\ 6-\\ 14\\ Camera-App\\ Terry\\ Version\\ S3\\ Bucket\\ Pull",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Amazon App Terry/Amazon App Terry-Prefix.pch";
 				INFOPLIST_FILE = "Amazon App Terry/Amazon App Terry-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/adityanarayan/Downloads/awss3/AWSS3.framework/Versions/A,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -399,53 +341,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/adityanarayan/Downloads/awss3,
+					"/Users/adityanarayan/Desktop/TerryBu/Week\\ 6-\\ 14\\ Camera-App\\ Terry\\ Version\\ S3\\ Bucket\\ Pull",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Amazon App Terry/Amazon App Terry-Prefix.pch";
 				INFOPLIST_FILE = "Amazon App Terry/Amazon App Terry-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/adityanarayan/Downloads/awss3/AWSS3.framework/Versions/A,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		AAA1034E19DB54A000D38424 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Amazon App Terry.app/Amazon App Terry";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Amazon App Terry/Amazon App Terry-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Amazon App TerryTests/Amazon App TerryTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		AAA1034F19DB54A000D38424 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Amazon App Terry.app/Amazon App Terry";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Amazon App Terry/Amazon App Terry-Prefix.pch";
-				INFOPLIST_FILE = "Amazon App TerryTests/Amazon App TerryTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -466,15 +375,6 @@
 			buildConfigurations = (
 				AAA1034B19DB54A000D38424 /* Debug */,
 				AAA1034C19DB54A000D38424 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AAA1034D19DB54A000D38424 /* Build configuration list for PBXNativeTarget "Amazon App TerryTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AAA1034E19DB54A000D38424 /* Debug */,
-				AAA1034F19DB54A000D38424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <awsruntime/awsruntime.h>
+#import <awss3/awss3.h>
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -17,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+
+@property (strong, nonatomic) AmazonS3Client *s3;
 
 - (IBAction)editBarButtonAction:(id)sender;
 
