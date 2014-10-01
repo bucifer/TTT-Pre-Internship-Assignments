@@ -16,7 +16,6 @@
 		AAA1032F19DB54A000D38424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA1032D19DB54A000D38424 /* Main.storyboard */; };
 		AAA1033219DB54A000D38424 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1033119DB54A000D38424 /* ViewController.m */; };
 		AAA1033419DB54A000D38424 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAA1033319DB54A000D38424 /* Images.xcassets */; };
-		AAA1035319DB5B9B00D38424 /* AsyncLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1035219DB5B9B00D38424 /* AsyncLoader.m */; };
 		AAA27FB319DC63B5005BCDA8 /* awsruntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA27FB119DC63B5005BCDA8 /* awsruntime.framework */; };
 		AAA27FB419DC63B5005BCDA8 /* awss3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA27FB219DC63B5005BCDA8 /* awss3.framework */; };
 /* End PBXBuildFile section */
@@ -40,8 +39,6 @@
 		AAA1034219DB54A000D38424 /* Amazon App TerryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Amazon App TerryTests-Info.plist"; sourceTree = "<group>"; };
 		AAA1034419DB54A000D38424 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AAA1034619DB54A000D38424 /* Amazon_App_TerryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Amazon_App_TerryTests.m; sourceTree = "<group>"; };
-		AAA1035119DB5B9B00D38424 /* AsyncLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncLoader.h; path = ../AsyncLoader.h; sourceTree = "<group>"; };
-		AAA1035219DB5B9B00D38424 /* AsyncLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncLoader.m; path = ../AsyncLoader.m; sourceTree = "<group>"; };
 		AAA27FB119DC63B5005BCDA8 /* awsruntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = awsruntime.framework; path = ../awsruntime.framework; sourceTree = "<group>"; };
 		AAA27FB219DC63B5005BCDA8 /* awss3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = awss3.framework; path = ../awss3.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,8 +93,6 @@
 		AAA1032119DB54A000D38424 /* Amazon App Terry */ = {
 			isa = PBXGroup;
 			children = (
-				AAA1035119DB5B9B00D38424 /* AsyncLoader.h */,
-				AAA1035219DB5B9B00D38424 /* AsyncLoader.m */,
 				AAA1032A19DB54A000D38424 /* AppDelegate.h */,
 				AAA1032B19DB54A000D38424 /* AppDelegate.m */,
 				AAA1032D19DB54A000D38424 /* Main.storyboard */,
@@ -204,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAA1033219DB54A000D38424 /* ViewController.m in Sources */,
-				AAA1035319DB5B9B00D38424 /* AsyncLoader.m in Sources */,
 				AAA1032C19DB54A000D38424 /* AppDelegate.m in Sources */,
 				AAA1032819DB54A000D38424 /* main.m in Sources */,
 			);

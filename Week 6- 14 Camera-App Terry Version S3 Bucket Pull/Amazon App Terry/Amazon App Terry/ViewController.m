@@ -22,7 +22,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.myTableView.delegate = self;
+    self.myTableView.dataSource = self;
+    
     
     //this is creating the S3Bucket logic - when a user starts the app for the first time, the user should be able to create that bucket on the background on initialization
     //but right now, let's just take baby-steps and figure out how to manipulate S3 better
@@ -48,20 +50,12 @@
     //Getting your list of objects from your bucket and display on table
     @try
     {
-        S3ListObjectsRequest *req = [[S3ListObjectsRequest alloc] initWithName: BUCKET];
-        S3ListObjectsResponse *resp = [self.s3 listObjects:req];
-        NSMutableArray* objectSummaries = resp.listObjectsResult.objectSummaries;
-        self.tableData = [[NSArray alloc] initWithArray: objectSummaries];
-        [self.myTableView reloadData];
+        [self loadDataFromS3PutIntoTable];
     }
     @catch (NSException *exception) {
         NSLog(@"Cannot list S3 %@",exception);
     }
-    self.myTableView.delegate = self;
-    self.myTableView.dataSource = self;
-    [self.myTableView reloadData];
-    
-    
+
 }
 
 
@@ -114,6 +108,19 @@
 
 
 
+
+
+
+- (void) loadDataFromS3PutIntoTable {
+    S3ListObjectsRequest *req = [[S3ListObjectsRequest alloc] initWithName: BUCKET];
+    S3ListObjectsResponse *resp = [self.s3 listObjects:req];
+    NSMutableArray* objectSummaries = resp.listObjectsResult.objectSummaries;
+    self.tableData = [[NSArray alloc] initWithArray: objectSummaries];
+    [self.myTableView reloadData];
+}
+
+
+
 #pragma mark table methods
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -137,7 +144,7 @@
 
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    
+    //Whenever you select a table row, you send a request to S3 and get the image from S3
     NSString *fileName = [NSString stringWithFormat:@"%@",
                           [self.tableData objectAtIndex: indexPath.row ]];
     @try
@@ -161,19 +168,17 @@
     
     @try {
         NSLog(@"Delete %@ executed", fileName);
+        //delete using S3Client
         [self.s3 deleteObjectWithKey:fileName withBucket:BUCKET];
     }
     @catch (NSException *exception) {
         NSLog(@"Cannot Delete:  %@",exception);
     }
     
+    //now, reset the data on your app/table so your table doesn't show the deleted object
     @try
     {
-        S3ListObjectsRequest *req = [[S3ListObjectsRequest alloc] initWithName: BUCKET];
-        S3ListObjectsResponse *resp = [self.s3 listObjects:req];
-        NSMutableArray* objectSummaries = resp.listObjectsResult.objectSummaries;
-        self.tableData = [[NSArray alloc] initWithArray: objectSummaries];
-        [self.myTableView reloadData];
+        [self loadDataFromS3PutIntoTable];
     }
     @catch (NSException *exception) {
         NSLog(@"Cannot list S3 %@",exception);
