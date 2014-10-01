@@ -32,7 +32,8 @@
 
 
 - (void) loadDataFromS3PutIntoTable;
-
-
+- (void) uploadData:(NSData*)data format:(NSString*)format
+       bucketName:(NSString*)bucketName withKey: (NSString*) key;
+- (void)uploadDone:(NSError *)error;
 
 @end

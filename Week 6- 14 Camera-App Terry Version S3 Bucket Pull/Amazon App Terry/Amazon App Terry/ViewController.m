@@ -12,10 +12,8 @@
 #define SECRET_KEY      @"DAm6GlsS8hnCkzuS+zyfbQvrZgWhpT+D6gCCXSW6"
 #define BUCKET          @"ios-cameraapp-images-bucket"
 
-
 @interface ViewController ()
 @end
-
 
 @implementation ViewController
 
@@ -100,16 +98,52 @@
     [ip setAllowsEditing:TRUE];
     ip.delegate = self;
     
+    //apparently UIPopoverControllers are only for ipads
     self.pop = [[UIPopoverController alloc]initWithContentViewController:ip];
     
     self.pop.delegate = self;
     [self.pop presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [self.pop dismissPopoverAnimated:YES];
+    self.pop = nil;
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    [self.myImageView setImage:image];
+    
+    NSData *imageData = UIImageJPEGRepresentation ( image, 1.0);
+    
+    NSString *fileName = [[NSString alloc] initWithFormat:@"%f.jpg", [[NSDate date] timeIntervalSince1970 ] ];
+    
+    [self uploadData:imageData format:@"image/jpeg"
+               bucketName:BUCKET withKey:fileName];
+}
 
+-(void)uploadData:(NSData*)data format:(NSString*)format
+       bucketName:(NSString*)bucketName withKey: (NSString*) key
+{
+    S3PutObjectRequest *por = [[S3PutObjectRequest alloc] initWithKey:key
+                                                             inBucket:bucketName ];
+    por.contentType = format;
+    por.data        = data;
+    S3PutObjectResponse *putObjectResponse = [self.s3 putObject:por];
+    [self performSelectorOnMainThread:@selector( uploadDone: )
+                           withObject:putObjectResponse.error waitUntilDone:NO];
+}
 
-
-
+- (void)uploadDone:(NSError *)error
+{
+    if(error != nil)
+    {
+        NSLog(@"Error: %@", error);
+    }
+    else
+    {
+        NSLog(@"File Uploaded");
+        [self loadDataFromS3PutIntoTable];
+    }
+}
 
 - (void) loadDataFromS3PutIntoTable {
     S3ListObjectsRequest *req = [[S3ListObjectsRequest alloc] initWithName: BUCKET];
