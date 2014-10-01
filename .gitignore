@@ -1,6 +1,8 @@
 *.pem
 *.png
 Terry Keys/
+hidden/
+
 
 
 TabApp/Images.xcassets/
