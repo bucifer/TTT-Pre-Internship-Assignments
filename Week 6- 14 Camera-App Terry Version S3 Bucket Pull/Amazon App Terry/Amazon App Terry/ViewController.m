@@ -92,7 +92,7 @@
                           [self.tableData objectAtIndex: indexPath.row ]];
     NSLog(@"%@", fileName);
 
-    cell.textLabel.text = @"hi";
+    cell.textLabel.text = fileName;
     return cell;
 }
 
