@@ -26,8 +26,7 @@
     
 //    @try {
 //        // Initial the S3 Client.
-//        self.s3= [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
-//        
+//
 //        // Create Bucket.
 //        S3CreateBucketRequest *request = [[S3CreateBucketRequest alloc] initWithName:BUCKET];
 //        S3CreateBucketResponse *response = [self.s3 createBucket:request];
@@ -40,10 +39,8 @@
 //        NSLog(@"There was an exception when connecting to s3: %@",exception.description);
 //    }
     
-    
-    self.s3 = [[AmazonS3Util alloc] initWithAccessKey:ACCESS_KEY_ID secretKey:SECRET_KEY
-                                               bucket:[Constants uploadBucket] delegate:self];
-    
+
+    self.s3= [[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
     //Getting your list of objects from your bucket and display on table
     @try
     {
@@ -93,8 +90,9 @@
     }
     NSString *fileName = [[NSString alloc] initWithFormat:@"%@",
                           [self.tableData objectAtIndex: indexPath.row ]];
-    cell.textLabel.text = @"hi";
     NSLog(@"%@", fileName);
+
+    cell.textLabel.text = @"hi";
     return cell;
 }
 

@@ -21,8 +21,8 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
-//@property (strong, nonatomic) AmazonS3Client *s3;
-@property (strong, nonatomic) AmazonS3Util *s3;
+@property (strong, nonatomic) AmazonS3Client *s3;
+//@property (strong, nonatomic) AmazonS3Util *s3;
 
 - (IBAction)editBarButtonAction:(id)sender;
 
