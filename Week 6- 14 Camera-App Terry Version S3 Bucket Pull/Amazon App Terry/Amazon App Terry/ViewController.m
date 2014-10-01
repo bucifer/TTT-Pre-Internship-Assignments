@@ -62,10 +62,6 @@
     [self.myTableView reloadData];
     
     
-    //Now, let's try setting the imageview to the image whenever we click on the tableview
-    
-
-    
 }
 
 
@@ -76,6 +72,15 @@
 }
 
 - (IBAction)editBarButtonAction:(id)sender {
+    
+    if ([self.myTableView isEditing]) {
+        [sender setTitle:@"Press to Delete"];
+    }
+    else {
+        [sender setTitle:@"Press to Quit Delete Mode"];
+    }
+    
+    [self.myTableView setEditing:![self.myTableView isEditing]];
 }
 
 - (IBAction)cameraBarButtonAction:(id)sender {
@@ -122,7 +127,33 @@
     @catch (NSException *exception) {
         NSLog(@"Cannot Load S3 Object %@",exception);
     }
+}
+
+- (void) tableView: (UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
+    NSString *fileName = [NSString stringWithFormat:@"%@",
+                          [self.tableData objectAtIndex: indexPath.row ]];
+    
+    @try {
+        NSLog(@"Delete %@ executed", fileName);
+        [self.s3 deleteObjectWithKey:fileName withBucket:BUCKET];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Cannot Delete:  %@",exception);
+    }
+    
+    @try
+    {
+        S3ListObjectsRequest *req = [[S3ListObjectsRequest alloc] initWithName: BUCKET];
+        S3ListObjectsResponse *resp = [self.s3 listObjects:req];
+        NSMutableArray* objectSummaries = resp.listObjectsResult.objectSummaries;
+        self.tableData = [[NSArray alloc] initWithArray: objectSummaries];
+        [self.myTableView reloadData];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Cannot list S3 %@",exception);
+    }
 }
 
 
