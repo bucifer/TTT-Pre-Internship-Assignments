@@ -40,6 +40,10 @@
 //        NSLog(@"There was an exception when connecting to s3: %@",exception.description);
 //    }
     
+    
+    self.s3 = [[AmazonS3Util alloc] initWithAccessKey:ACCESS_KEY_ID secretKey:SECRET_KEY
+                                               bucket:[Constants uploadBucket] delegate:self];
+    
     //Getting your list of objects from your bucket and display on table
     @try
     {
@@ -52,6 +56,10 @@
     @catch (NSException *exception) {
         NSLog(@"Cannot list S3 %@",exception);
     }
+    self.myTableView.delegate = self;
+    self.myTableView.dataSource = self;
+    [self.myTableView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,6 +94,7 @@
     NSString *fileName = [[NSString alloc] initWithFormat:@"%@",
                           [self.tableData objectAtIndex: indexPath.row ]];
     cell.textLabel.text = @"hi";
+    NSLog(@"%@", fileName);
     return cell;
 }
 
