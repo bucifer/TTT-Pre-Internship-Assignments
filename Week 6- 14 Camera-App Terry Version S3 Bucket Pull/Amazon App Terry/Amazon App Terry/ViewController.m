@@ -62,26 +62,12 @@
     [self.myTableView reloadData];
     
     
-    //Let's try setting the imageview to an object's image on my bucket
-    
-    @try
-    {
-        NSString *fileName = @"arashiyama.jpg";
-        S3GetObjectRequest *request = [[S3GetObjectRequest alloc]
-                                       initWithKey:fileName withBucket:BUCKET];
-        S3GetObjectResponse *response = [self.s3 getObject:request];
-        NSData *downloadData = [response body];
-        if(downloadData)self.myImageView.image = [UIImage imageWithData:downloadData];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Cannot Load S3 Object %@",exception);
-    }
-    
-    
-    
+    //Now, let's try setting the imageview to the image whenever we click on the tableview
     
 
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -119,5 +105,27 @@
     cell.textLabel.text = fileName;
     return cell;
 }
+
+- (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
+{
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@",
+                          [self.tableData objectAtIndex: indexPath.row ]];
+    @try
+    {
+        S3GetObjectRequest *request = [[S3GetObjectRequest alloc]
+                                       initWithKey:fileName withBucket:BUCKET];
+        S3GetObjectResponse *response = [self.s3 getObject:request];
+        NSData *downloadData = [response body];
+        if(downloadData)self.myImageView.image = [UIImage imageWithData:downloadData];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Cannot Load S3 Object %@",exception);
+    }
+    
+}
+
+
+
 
 @end
