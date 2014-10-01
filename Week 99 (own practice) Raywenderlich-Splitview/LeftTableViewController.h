@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MonsterSelectionDelegate.h"
 
 @interface LeftTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *monsters;
+@property (nonatomic, assign) id <MonsterSelectionDelegate> delegate;
 
 @end

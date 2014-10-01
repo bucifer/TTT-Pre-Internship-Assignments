@@ -59,6 +59,7 @@
 		AAA1030919DB460300D38424 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
 		AAA1030B19DB492700D38424 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		AAA1030C19DB492700D38424 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
+		AAA1030E19DB522D00D38424 /* MonsterSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterSelectionDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +126,7 @@
 				AAA1030619DB449F00D38424 /* LeftTableViewController.m */,
 				AAA1030819DB460300D38424 /* RightViewController.h */,
 				AAA1030919DB460300D38424 /* RightViewController.m */,
+				AAA1030E19DB522D00D38424 /* MonsterSelectionDelegate.h */,
 				AAA102E319DB3DBE00D38424 /* AppDelegate.h */,
 				AAA102E419DB3DBE00D38424 /* AppDelegate.m */,
 				AAA102E619DB3DBE00D38424 /* Images.xcassets */,
