@@ -1,7 +1,9 @@
 *.pem
 *.png
-TabApp/Images.xcassets/
+Terry Keys/
 
+
+TabApp/Images.xcassets/
 # Xcode
 #
 build/
