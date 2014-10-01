@@ -84,6 +84,32 @@
 }
 
 - (IBAction)cameraBarButtonAction:(id)sender {
+    //this is for when you press on that camera icon, a popover pops up, allowing you to either take a photo or use the Photo library for existing photos
+    if([self.pop isPopoverVisible]){
+        [self.pop dismissPopoverAnimated:YES];
+        self.pop = nil;
+        return;
+    }
+
+    UIImagePickerController *ip = [[UIImagePickerController alloc]init];
+    
+    if( [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] ){
+        
+        [ip setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else
+    {
+        [ip setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        
+    }
+    
+    [ip setAllowsEditing:TRUE];
+    ip.delegate = self;
+    
+    self.pop = [[UIPopoverController alloc]initWithContentViewController:ip];
+    
+    self.pop.delegate = self;
+    [self.pop presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 
@@ -105,8 +131,6 @@
     }
     NSString *fileName = [[NSString alloc] initWithFormat:@"%@",
                           [self.tableData objectAtIndex: indexPath.row ]];
-    NSLog(@"%@", fileName);
-
     cell.textLabel.text = fileName;
     return cell;
 }

@@ -19,7 +19,6 @@
 		AAA1035319DB5B9B00D38424 /* AsyncLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1035219DB5B9B00D38424 /* AsyncLoader.m */; };
 		AAA27FB319DC63B5005BCDA8 /* awsruntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA27FB119DC63B5005BCDA8 /* awsruntime.framework */; };
 		AAA27FB419DC63B5005BCDA8 /* awss3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA27FB219DC63B5005BCDA8 /* awss3.framework */; };
-		AAD7FD3B19DC7DC6003D85EE /* AmazonS3Util.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7FD3A19DC7DC6003D85EE /* AmazonS3Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +44,6 @@
 		AAA1035219DB5B9B00D38424 /* AsyncLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncLoader.m; path = ../AsyncLoader.m; sourceTree = "<group>"; };
 		AAA27FB119DC63B5005BCDA8 /* awsruntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = awsruntime.framework; path = ../awsruntime.framework; sourceTree = "<group>"; };
 		AAA27FB219DC63B5005BCDA8 /* awss3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = awss3.framework; path = ../awss3.framework; sourceTree = "<group>"; };
-		AAD7FD3919DC7DC6003D85EE /* AmazonS3Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonS3Util.h; sourceTree = "<group>"; };
-		AAD7FD3A19DC7DC6003D85EE /* AmazonS3Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonS3Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +103,6 @@
 				AAA1032D19DB54A000D38424 /* Main.storyboard */,
 				AAA1033019DB54A000D38424 /* ViewController.h */,
 				AAA1033119DB54A000D38424 /* ViewController.m */,
-				AAD7FD3919DC7DC6003D85EE /* AmazonS3Util.h */,
-				AAD7FD3A19DC7DC6003D85EE /* AmazonS3Util.m */,
 				AAA1033319DB54A000D38424 /* Images.xcassets */,
 				AAA1032219DB54A000D38424 /* Supporting Files */,
 			);
@@ -208,7 +203,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD7FD3B19DC7DC6003D85EE /* AmazonS3Util.m in Sources */,
 				AAA1033219DB54A000D38424 /* ViewController.m in Sources */,
 				AAA1035319DB5B9B00D38424 /* AsyncLoader.m in Sources */,
 				AAA1032C19DB54A000D38424 /* AppDelegate.m in Sources */,
