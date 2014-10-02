@@ -1,0 +1,34 @@
+1. Is Objective-C interpreted or compiled?
+
+	Objective-C is a compiled language, as it is a superset of C. The code gets compiled to machine native code before it is run. It is possible to compile any C program with an Objective-C compiler. 
+
+
+2. Does Objective-C use "pass by reference" or "pass by value"? What is the implication of this?
+
+	Objective-C by default uses "Pass-By-Value", but you can use "Pass-By-Reference" by using pointers. 
+
+	"Pass-by-Value" means that when you are using variables for function parameters, you are only making a "copy" of the actual parameter value passed in, and thus, the original variable don't change after the function call. As for "Pass-By-Reference", you are using a direct reference to the variable itself. 
+
+	The implication is that you are able to change the original variables of your parameters in "Pass-By-Reference" but you cannot do so in "Pass-by-value". 
+
+
+3. How is memory managed in Objective-C?
+
+	Memory management in objective-c is based on object ownership. As long as an object has at least 1 owner, it continues to exist. If an object has no owners, the runtime system destroys it automatically. 
+
+	You can either use MRR, "manual retain release" or ARC, "automatic reference counting". ARC uses the same reference coutning system as MRR but inserts the appropriate memory management method calls for you at compile time. 
+
+	You take ownership of an object using "retain" and "release" it when you don't need it. 
+
+
+4. in the Week 1-5 document: Week 1: Fundamental Programming Skills, check your solution to number 7 and make sure it works with the following:
+DELIMITERS = [',',' ','.','|','*','?']
+country_list = " ?*USA. Canada,.* |Mexico,Bermuda Grenada Belize*Brazil|Argentina****||||||||" country_list = "||||||||"
+country_list = ""
+country_list = " ,?****||||||||"
+
+
+
+5. Implement a doubly linked list in Objective-C
+- Implement a method to add an element to the end of the list
+- Implement a method to remove an element from the beginning of the list - Implement a method to insert an element between two existing elements
