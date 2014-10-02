@@ -50,7 +50,6 @@
     }
     self.length++;
     NSLog(@"\n\n New node added to end \n\n");
-    [self printEverything];
 }
 
 
@@ -76,23 +75,24 @@
     
     self.length++;
     
+    //inserted element's prev is the preElement
+    //inserted element's next is the postElement
+    insertedElement.prev = preElement;
+    insertedElement.next = postElement;
+    
     //preElement's next becomes the insertedElement
     preElement.next = insertedElement;
     
     //postElement's prev becomes the inserted Element
     postElement.prev = insertedElement;
     
-    //inserted element's prev is the preElement
-    //inserted element's next is the postElement
-    insertedElement.prev = preElement;
-    insertedElement.next = postElement;
-    
+
     NSLog(@"Insert Done successfully");
     
 }
 
 
-- (void) printEverything {
+- (void) printHeadTailLength {
     NSLog(@"The length of your doubly linked list is %d.", self.length);
     NSLog(@"The head is %@ and head data is %@", self.head, self.head.data);
     NSLog(@"The tail is %@ and tail data is %@", self.tail, self.tail.data);
@@ -101,9 +101,16 @@
 - (void) testPrevsAndNexts {
     //let's test all prev and next values
     int count = 0;
-    NSLog(@"element order#: %d is %@ with data %@", count, self.head, self.head.data);
-    NSLog(@"prev: %@", self.head.prev);
-    NSLog(@"next: %@", self.head.next);
+    NSLog(@"The length of your doubly linked list is %d.", self.length);
+
+    NSLog(@"\n\n ****(HEAD) is %@ with data %@", self.head, self.head.data);
+    if (self.head.prev != NULL) {
+        NSLog(@"Something is wrong because HEAD has a prev property");
+    }
+    else {
+        NSLog(@"HEAD's Prev is %@ because it is the HEAD", self.head.prev);
+    }
+    NSLog(@"HEAD's next is : %@", self.head.next);
     count++;
     Node *pointerToNextElement = self.head.next;
     while (pointerToNextElement != NULL) {
@@ -113,7 +120,7 @@
         pointerToNextElement = pointerToNextElement.next;
         count++;
     }
-
+    NSLog(@"\n\n Reached end of List \n\n ");
 }
 
 

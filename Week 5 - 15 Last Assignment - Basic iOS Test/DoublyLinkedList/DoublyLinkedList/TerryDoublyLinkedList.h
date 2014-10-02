@@ -23,7 +23,7 @@
 - (void) insertElementBetweenTwoElements:(Node *)insertedElement preElement:(Node *)preElement postElement:(Node *)postElement;
 
 
-- (void) printEverything;
+- (void) printHeadTailLength;
 - (void) testPrevsAndNexts;
 
 @end

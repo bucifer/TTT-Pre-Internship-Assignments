@@ -17,7 +17,7 @@ int main(int argc, const char * argv[])
         
         TerryDoublyLinkedList *tdlist = [[TerryDoublyLinkedList alloc]init];
         //Logging out list for test
-        [tdlist printEverything];
+        [tdlist printHeadTailLength];
 
         //adding first object
         Node *firstNode = [[Node alloc] init:@"YoTerryFirstData"];
@@ -37,17 +37,17 @@ int main(int argc, const char * argv[])
         
         [tdlist testPrevsAndNexts];
         //Logging out list for test
-        [tdlist printEverything];
+        [tdlist printHeadTailLength];
         
         //deleting 4th object for test
         [tdlist removeObjectFromHead:fourthNode];
-        [tdlist printEverything];
+        [tdlist printHeadTailLength];
         [tdlist testPrevsAndNexts];
         
         //let's try inserting an object between the first object and the second object
         Node *fifthNode = [[Node alloc] init:@"YoTerryFiFthData"];
         [tdlist insertElementBetweenTwoElements:fifthNode preElement:tdlist.head postElement:tdlist.head.next];
-        [tdlist printEverything];
+        [tdlist printHeadTailLength];
         [tdlist testPrevsAndNexts];
 
     }
