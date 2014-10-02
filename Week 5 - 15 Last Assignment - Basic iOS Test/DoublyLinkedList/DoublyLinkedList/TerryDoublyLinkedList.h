@@ -20,6 +20,7 @@
 
 - (void) addObjectAtEnd:(Node *) nodeToAdd;
 - (void) removeObjectFromHead:(Node *) nodeToDelete;
+- (void) insertElementBetweenTwoElements:(Node *)insertedElement preElement:(Node *)preElement postElement:(Node *)postElement;
 
 
 - (void) printEverything;

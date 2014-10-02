@@ -41,10 +41,14 @@ int main(int argc, const char * argv[])
         
         //deleting 4th object for test
         [tdlist removeObjectFromHead:fourthNode];
-
         [tdlist printEverything];
         [tdlist testPrevsAndNexts];
-
+        
+        //let's try inserting an object between the first object and the second object
+        Node *fifthNode = [[Node alloc] init:@"YoTerryFiFthData"];
+        [tdlist insertElementBetweenTwoElements:fifthNode preElement:tdlist.head postElement:tdlist.head.next];
+        [tdlist printEverything];
+        [tdlist testPrevsAndNexts];
 
     }
     return 0;

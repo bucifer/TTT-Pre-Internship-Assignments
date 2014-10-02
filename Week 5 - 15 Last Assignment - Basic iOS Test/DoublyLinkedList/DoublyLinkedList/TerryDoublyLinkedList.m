@@ -72,6 +72,24 @@
     NSLog(@"%@ deleted successfuly \n\n", nodeToDelete);
 }
 
+- (void) insertElementBetweenTwoElements:(Node *)insertedElement preElement:(Node *)preElement postElement:(Node *)postElement {
+    
+    self.length++;
+    
+    //preElement's next becomes the insertedElement
+    preElement.next = insertedElement;
+    
+    //postElement's prev becomes the inserted Element
+    postElement.prev = insertedElement;
+    
+    //inserted element's prev is the preElement
+    //inserted element's next is the postElement
+    insertedElement.prev = preElement;
+    insertedElement.next = postElement;
+    
+    NSLog(@"Insert Done successfully");
+    
+}
 
 
 - (void) printEverything {
@@ -83,13 +101,13 @@
 - (void) testPrevsAndNexts {
     //let's test all prev and next values
     int count = 0;
-    NSLog(@"element order#: %d is %@", count, self.head);
+    NSLog(@"element order#: %d is %@ with data %@", count, self.head, self.head.data);
     NSLog(@"prev: %@", self.head.prev);
     NSLog(@"next: %@", self.head.next);
     count++;
     Node *pointerToNextElement = self.head.next;
     while (pointerToNextElement != NULL) {
-        NSLog(@"element order#: %d is %@", count, pointerToNextElement);
+        NSLog(@"element order#: %d is %@ with data %@", count, pointerToNextElement, pointerToNextElement.data);
         NSLog(@"prev: %@", pointerToNextElement.prev);
         NSLog(@"next: %@", pointerToNextElement.next);
         pointerToNextElement = pointerToNextElement.next;
