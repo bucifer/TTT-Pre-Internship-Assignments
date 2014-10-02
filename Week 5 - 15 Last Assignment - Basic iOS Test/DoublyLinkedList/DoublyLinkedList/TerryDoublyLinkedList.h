@@ -17,7 +17,11 @@
 
 
 - (id) init;
+
 - (void) addObjectAtEnd:(Node *) nodeToAdd;
+- (void) removeObjectFromHead:(Node *) nodeToDelete;
+
+
 - (void) printEverything;
 - (void) testPrevsAndNexts;
 

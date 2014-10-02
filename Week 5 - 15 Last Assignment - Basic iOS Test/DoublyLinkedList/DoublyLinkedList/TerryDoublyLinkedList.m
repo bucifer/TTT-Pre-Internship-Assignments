@@ -54,6 +54,25 @@
 }
 
 
+- (void) removeObjectFromHead:(Node *) nodeToDelete {
+    
+    //pointer to retain the old head and to point to the new head
+    Node *pointerToOldHead = self.head;
+    Node *pointerToNewHead = self.head.next;
+    
+    //we need to have the head.next be the new head of the list
+    self.head = pointerToNewHead;
+    
+    //do some cleanup work
+    //we need to clear out the New Head's prev property because it was set to OLD head
+    self.head.prev = NULL;
+    //we also need to lower the list count
+    self.length--;
+    
+    NSLog(@"%@ deleted successfuly \n\n", nodeToDelete);
+}
+
+
 
 - (void) printEverything {
     NSLog(@"The length of your doubly linked list is %d.", self.length);

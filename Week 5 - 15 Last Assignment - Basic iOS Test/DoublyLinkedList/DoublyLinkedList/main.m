@@ -16,7 +16,7 @@ int main(int argc, const char * argv[])
     @autoreleasepool {
         
         TerryDoublyLinkedList *tdlist = [[TerryDoublyLinkedList alloc]init];
-        //let's test this list
+        //Logging out list for test
         [tdlist printEverything];
 
         //adding first object
@@ -31,14 +31,20 @@ int main(int argc, const char * argv[])
         Node *thirdNode = [[Node alloc] init:@"YoTerryThirdData"];
         [tdlist addObjectAtEnd:thirdNode];
         
-        [tdlist testPrevsAndNexts];
+        //adding 4th object
+        Node *fourthNode = [[Node alloc] init:@"YoTerryFourthData"];
+        [tdlist addObjectAtEnd:fourthNode];
         
-//        NSLog(@"%@", firstNode.prev);
-//        NSLog(@"%@", firstNode.next);
-//        NSLog(@"%@", secondNode.prev);
-//        NSLog(@"%@", secondNode.next);
-//        NSLog(@"%@", thirdNode.prev);
-//        NSLog(@"%@", thirdNode.next);
+        [tdlist testPrevsAndNexts];
+        //Logging out list for test
+        [tdlist printEverything];
+        
+        //deleting 4th object for test
+        [tdlist removeObjectFromHead:fourthNode];
+
+        [tdlist printEverything];
+        [tdlist testPrevsAndNexts];
+
 
     }
     return 0;
