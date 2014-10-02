@@ -2,8 +2,7 @@
 *.png
 Terry Keys/
 hidden/
-
-
+*.zip
 
 TabApp/Images.xcassets/
 # Xcode

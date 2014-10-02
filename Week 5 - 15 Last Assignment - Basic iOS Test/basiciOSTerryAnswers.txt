@@ -18,7 +18,7 @@
 
 	Each object has a retain count. When you create an object, it has a retain count of 1. If an object's retain count is 0, then it is deallocated from memory. 
 
-	You can either use MRR, "manual retain release" or ARC, "automatic reference counting". ARC uses the same reference coutning system as MRR but inserts the appropriate memory management method calls for you at compile time. 
+	You can either use MRR, "manual retain release" or ARC, "automatic reference counting". ARC uses the same reference counting system as MRR but inserts the appropriate memory management method calls for you at compile time. 
 
 
 4. in the Week 1-5 document: Week 1: Fundamental Programming Skills, check your solution to number 7 and make sure it works with the following:
