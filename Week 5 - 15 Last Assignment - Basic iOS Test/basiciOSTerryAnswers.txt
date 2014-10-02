@@ -14,11 +14,11 @@
 
 3. How is memory managed in Objective-C?
 
-	Memory management in objective-c is based on object ownership. As long as an object has at least 1 owner, it continues to exist. If an object has no owners, the runtime system destroys it automatically. 
+	Memory management in objective-c is based on object ownership. As long as an object has at least 1 owner, it continues to exist. If an object has no owners, the runtime system destroys it automatically. 	You take ownership of an object using "retain" and "release" it when you don't need it. 
+
+	Each object has a retain count. When you create an object, it has a retain count of 1. If an object's retain count is 0, then it is deallocated from memory. 
 
 	You can either use MRR, "manual retain release" or ARC, "automatic reference counting". ARC uses the same reference coutning system as MRR but inserts the appropriate memory management method calls for you at compile time. 
-
-	You take ownership of an object using "retain" and "release" it when you don't need it. 
 
 
 4. in the Week 1-5 document: Week 1: Fundamental Programming Skills, check your solution to number 7 and make sure it works with the following:
@@ -28,7 +28,14 @@ country_list = ""
 country_list = " ,?****||||||||"
 
 
-
 5. Implement a doubly linked list in Objective-C
 - Implement a method to add an element to the end of the list
-- Implement a method to remove an element from the beginning of the list - Implement a method to insert an element between two existing elements
+- Implement a method to remove an element from the beginning of the list 
+- Implement a method to insert an element between two existing elements
+
+
+
+
+
+
+
