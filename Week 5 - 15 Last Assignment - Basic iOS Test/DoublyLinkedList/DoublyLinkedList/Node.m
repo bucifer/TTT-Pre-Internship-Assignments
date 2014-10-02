@@ -11,7 +11,17 @@
 @implementation Node
 
 
-- (id)init: (NSObject *) data nextNode:(Node *)next prevNode:(Node *)prev {
+- (id)init: (NSString *) data {
+    self = [super init];
+    if (self)
+    {
+        self.data = data;
+    }
+    return self;
+}
+
+
+- (id)init: (NSString *) data nextNode:(Node *)next prevNode:(Node *)prev {
     self = [super init];
     if (self)
     {

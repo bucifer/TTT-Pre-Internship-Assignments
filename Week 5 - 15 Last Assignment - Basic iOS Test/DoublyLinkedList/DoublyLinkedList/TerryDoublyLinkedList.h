@@ -17,8 +17,8 @@
 
 
 - (id) init;
-- (void) addObject:(Node *)nodeToAdd;
+- (void) addObjectAtEnd:(Node *) nodeToAdd;
 - (void) printEverything;
-
+- (void) testPrevsAndNexts;
 
 @end

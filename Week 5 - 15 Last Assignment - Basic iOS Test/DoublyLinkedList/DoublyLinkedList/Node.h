@@ -10,11 +10,12 @@
 
 @interface Node : NSObject
 
-@property (nonatomic, strong) NSObject *data;
+@property (nonatomic, strong) NSString *data;
 @property (nonatomic, strong) Node *next;
 @property (nonatomic, strong) Node *prev;
 
-- (id)init: (NSObject *) data nextNode:(Node *)next prevNode:(Node *)prev;
+- (id)init: (NSString *) data;
+- (id)init: (NSString *) data nextNode:(Node *)next prevNode:(Node *)prev;
 
 
 @end
