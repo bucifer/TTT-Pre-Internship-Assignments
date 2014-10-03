@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
         [terrysArrayChecker isThisArraySorted:array_B];
 
         NSMutableArray *array_C = [@[@13232,@2,@332,@4,@5] mutableCopy];
-        NSMutableArray *array_D = [@[@0,@121,@32113,@21, @5] mutableCopy];
+        NSMutableArray *array_D = [@[@0,@121,@32113,@21, @2, @5] mutableCopy];
         [terrysArrayChecker sortAscending:array_C];
         NSLog(array_C.description);
         
@@ -39,11 +39,17 @@ int main(int argc, const char * argv[]) {
         [terrysArrayChecker removeDuplicates:lotsOfDuplicates];
         NSLog(lotsOfDuplicates.description);
         
-        
         NSMutableArray *joinedArray = [terrysArrayChecker joinTwoArrays:array_C secondArray:array_D];
         NSLog(joinedArray.description);
         NSMutableArray *joinedArrayB = [terrysArrayChecker uniqueJoinTwoArrays:array_C secondArray:array_D];
         NSLog(joinedArrayB.description);
+        
+        //I'm assuming you are not looking for completely unique intersections
+        NSMutableArray *a = [@[@1, @99, @99, @3, @0, @11, @22, @33] mutableCopy];
+        NSMutableArray *b = [@[@99, @99, @3, @3, @4] mutableCopy];
+        NSLog([[terrysArrayChecker findIntersection:a secondArray:b] description]);
+        NSLog([[terrysArrayChecker removeIntersection:a secondArray:b]description]);
+
         
         
 //arrays have all strings scenario

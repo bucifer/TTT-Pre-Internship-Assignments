@@ -137,7 +137,6 @@
 }
 
 
-
 - (NSMutableArray *) uniqueJoinTwoArrays:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray {
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
     
@@ -150,6 +149,47 @@
     
     [self removeDuplicates:resultArray];
     
+    return resultArray;
+}
+
+
+- (NSMutableArray *) removeIntersection:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray {
+    
+    NSMutableArray *intersectionArray = [self findIntersection:firstArray secondArray:secondArray];
+    
+    NSMutableArray *resultArray = [[NSMutableArray alloc]initWithArray:firstArray];
+    
+    
+    //now, if you find an intersection between the intersection array, and the result array, then you delete that particular item from the result array
+    
+        for (int i=0; i < intersectionArray.count; i++) {
+            
+            for (int j=0; j < resultArray.count; j++) {
+                if ([resultArray[j] isEqualToNumber:intersectionArray[i]]) {
+                    [resultArray removeObjectAtIndex:j];
+                }
+            }
+            
+            
+        }
+    
+    
+    return resultArray;
+}
+
+
+- (NSMutableArray *) findIntersection:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray {
+    
+    NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < firstArray.count; i++) {
+        for (int j=0; j < secondArray.count; j++) {
+            if ([firstArray[i] isEqualToNumber:secondArray[j]]) {
+                [resultArray addObject:firstArray[i]];
+                break;
+            }
+        }
+    }
     return resultArray;
 }
 
