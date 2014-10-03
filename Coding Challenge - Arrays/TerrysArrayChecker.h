@@ -25,5 +25,6 @@
 
 - (NSMutableArray *) joinTwoArrays:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray;
 
+- (NSMutableArray *) uniqueJoinTwoArrays:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray;
 
 @end

@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
         [terrysArrayChecker isThisArraySorted:array_B];
 
         NSMutableArray *array_C = [@[@13232,@2,@332,@4,@5] mutableCopy];
-        NSMutableArray *array_D = [@[@0,@121,@32113,@21] mutableCopy];
+        NSMutableArray *array_D = [@[@0,@121,@32113,@21, @5] mutableCopy];
         [terrysArrayChecker sortAscending:array_C];
         NSLog(array_C.description);
         
@@ -35,14 +35,15 @@ int main(int argc, const char * argv[]) {
 
         NSLog(@"The average is %f", [terrysArrayChecker findAverage:array_A]);
         
-        NSMutableArray *array_E = [@[@100, @100, @121,@32113,@21] mutableCopy];
-        [terrysArrayChecker removeDuplicates:array_E];
-        NSLog(array_E.description);
+        NSMutableArray *lotsOfDuplicates= [@[@1, @1, @1, @2, @2, @3, @1, @1, @3, @3, @2, @4, @4] mutableCopy];
+        [terrysArrayChecker removeDuplicates:lotsOfDuplicates];
+        NSLog(lotsOfDuplicates.description);
         
         
-        NSMutableArray *joinedArray = [terrysArrayChecker joinTwoArrays:array_A secondArray:array_B];
+        NSMutableArray *joinedArray = [terrysArrayChecker joinTwoArrays:array_C secondArray:array_D];
         NSLog(joinedArray.description);
-        
+        NSMutableArray *joinedArrayB = [terrysArrayChecker uniqueJoinTwoArrays:array_C secondArray:array_D];
+        NSLog(joinedArrayB.description);
         
         
 //arrays have all strings scenario

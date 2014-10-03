@@ -101,11 +101,20 @@
 }
 
 
+
+
 - (void) removeDuplicates:(NSMutableArray *) someArray {
-    for (int i=0; i < someArray.count; i++) {
-        for (int j=0; j < someArray.count - 1; j++) {
-            if ([someArray[j] isEqualToNumber:someArray[j+1]]) {
-                [someArray removeObjectAtIndex:j];
+    
+    BOOL duplicateFound = TRUE;
+    
+    while (duplicateFound) {
+        duplicateFound = FALSE;
+        for (int i=0; i < someArray.count; i++) {
+            for (int j=i+1; j < someArray.count; j++) {
+                if ([someArray[i] isEqualToNumber:someArray[j]]) {
+                    [someArray removeObjectAtIndex:j];
+                    duplicateFound = TRUE;
+                }
             }
         }
     }
@@ -127,6 +136,22 @@
     return resultArray;
 }
 
+
+
+- (NSMutableArray *) uniqueJoinTwoArrays:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray {
+    NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < firstArray.count; i++) {
+        [resultArray addObject:firstArray[i]];
+    }
+    for (int i=0; i < secondArray.count; i++) {
+        [resultArray addObject:secondArray[i]];
+    }
+    
+    [self removeDuplicates:resultArray];
+    
+    return resultArray;
+}
 
 
 @end
