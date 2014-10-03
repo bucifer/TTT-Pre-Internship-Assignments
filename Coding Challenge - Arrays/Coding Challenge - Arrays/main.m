@@ -23,15 +23,16 @@ int main(int argc, const char * argv[]) {
         [terrysArrayChecker isThisArraySorted:array_A];
         [terrysArrayChecker isThisArraySorted:array_B];
         
-        NSMutableArray *unsortedArray_A = [@[@215,@1321,@33,@21,@5]mutableCopy];
-        NSMutableArray *unsortedArray_B = [@[@215,@1321,@33,@21,@5]mutableCopy];
+        NSMutableArray *unsortedArray_A = [@[@215,@1321,@33,@21,@5] mutableCopy];
+        NSMutableArray *unsortedArray_B = [@[@0,@1,@999,@21,@5] mutableCopy];
 
         [terrysArrayChecker sortAscending:unsortedArray_A];
         [terrysArrayChecker sortDescending:unsortedArray_B];
 
-        
+        [terrysArrayChecker findMin:unsortedArray_A];
+        [terrysArrayChecker findMax:unsortedArray_B];
+
 //arrays have all strings scenario
-        
         
     }
     return 0;

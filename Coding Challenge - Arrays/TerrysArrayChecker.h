@@ -14,8 +14,11 @@
 - (BOOL) isThisArraySorted:(NSMutableArray *) someArray;
 
 - (void) sortAscending:(NSMutableArray *) someArray;
-
 - (void) sortDescending:(NSMutableArray *) someArray;
+
+
+- (NSNumber*) findMin:(NSMutableArray *) someArray;
+- (NSNumber*) findMax:(NSMutableArray *) someArray;
 
 
 @end

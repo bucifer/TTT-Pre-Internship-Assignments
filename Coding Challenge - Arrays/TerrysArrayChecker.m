@@ -55,8 +55,6 @@
             }
         }
     }
-    NSLog(@"This array is now sorted in ascending order");
-    NSLog(@"%@", someArray.description);
 }
 
 
@@ -75,9 +73,22 @@
             }
         }
     }
-    NSLog(@"This array is now sorted in descending order");
-    NSLog(@"%@", someArray.description);
 }
+
+
+- (NSNumber*) findMin:(NSMutableArray *) someArray {
+    [self sortAscending:someArray];
+    NSLog(@"min value: %@", someArray[0]);
+    return someArray[0];
+}
+
+
+- (NSNumber*) findMax:(NSMutableArray *) someArray {
+    [self sortDescending:someArray];
+    NSLog(@"max value: %@", someArray[0]);
+    return someArray[0];
+}
+
 
 
 
