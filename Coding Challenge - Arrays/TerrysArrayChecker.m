@@ -89,7 +89,6 @@
     return someArray[0];
 }
 
-
 - (double) findAverage:(NSMutableArray *) someArray {
     
     double sum = 0;
@@ -101,6 +100,7 @@
     return (sum/someArray.count);
 }
 
+
 - (void) removeDuplicates:(NSMutableArray *) someArray {
     for (int i=0; i < someArray.count; i++) {
         for (int j=0; j < someArray.count - 1; j++) {
@@ -111,6 +111,21 @@
     }
 }
 
+
+
+- (NSMutableArray*) joinTwoArrays:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray {
+    
+    NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < firstArray.count; i++) {
+        [resultArray addObject:firstArray[i]];
+    }
+    for (int i=0; i < secondArray.count; i++) {
+        [resultArray addObject:secondArray[i]];
+    }
+    
+    return resultArray;
+}
 
 
 

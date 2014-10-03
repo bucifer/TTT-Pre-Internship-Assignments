@@ -23,4 +23,7 @@
 
 - (void) removeDuplicates:(NSMutableArray *) someArray;
 
+- (NSMutableArray *) joinTwoArrays:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray;
+
+
 @end

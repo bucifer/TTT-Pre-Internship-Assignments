@@ -39,6 +39,12 @@ int main(int argc, const char * argv[]) {
         [terrysArrayChecker removeDuplicates:array_E];
         NSLog(array_E.description);
         
+        
+        NSMutableArray *joinedArray = [terrysArrayChecker joinTwoArrays:array_A secondArray:array_B];
+        NSLog(joinedArray.description);
+        
+        
+        
 //arrays have all strings scenario
         
         
