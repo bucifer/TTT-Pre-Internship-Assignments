@@ -41,20 +41,19 @@
 
 - (void) sortAscending:(NSMutableArray *) someArray {
     
-    BOOL booleanSwapped = TRUE;
-    
-    while (booleanSwapped) {
-        booleanSwapped = FALSE;
-        for (int i=0; i < someArray.count - 1; i++) {
-            if (someArray[i] > someArray[i+1]) {
-                NSNumber *temp;
-                temp = someArray[i];
-                someArray[i] = someArray[i+1];
-                someArray[i+1] = temp;
-                booleanSwapped = TRUE;
+        for (int i=0; i < someArray.count; i++) {
+            
+            for (int j=0; j < someArray.count - 1; j++) {
+                if (someArray[j] > someArray[j+1]) {
+                    NSNumber *temp;
+                    temp = someArray[j];
+                    someArray[j] = someArray[j+1];
+                    someArray[j+1] = temp;
+                }
             }
+
         }
-    }
+    
 }
 
 
@@ -73,6 +72,7 @@
             }
         }
     }
+    
 }
 
 
@@ -87,6 +87,28 @@
     [self sortDescending:someArray];
     NSLog(@"max value: %@", someArray[0]);
     return someArray[0];
+}
+
+
+- (double) findAverage:(NSMutableArray *) someArray {
+    
+    double sum = 0;
+    
+    for (int i=0; i < someArray.count ; i++) {
+        sum = sum + [someArray[i] doubleValue];
+    }
+
+    return (sum/someArray.count);
+}
+
+- (void) removeDuplicates:(NSMutableArray *) someArray {
+    for (int i=0; i < someArray.count; i++) {
+        for (int j=0; j < someArray.count - 1; j++) {
+            if ([someArray[j] isEqualToNumber:someArray[j+1]]) {
+                [someArray removeObjectAtIndex:j];
+            }
+        }
+    }
 }
 
 

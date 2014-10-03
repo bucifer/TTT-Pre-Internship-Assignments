@@ -19,6 +19,8 @@
 
 - (NSNumber*) findMin:(NSMutableArray *) someArray;
 - (NSNumber*) findMax:(NSMutableArray *) someArray;
+- (double) findAverage:(NSMutableArray *) someArray;
 
+- (void) removeDuplicates:(NSMutableArray *) someArray;
 
 @end

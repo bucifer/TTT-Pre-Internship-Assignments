@@ -17,22 +17,30 @@ int main(int argc, const char * argv[]) {
         
 //arrays have all numbers scenario
         NSMutableArray *array_A = [@[@1,@2,@3,@4,@5] mutableCopy];
-        NSMutableArray *array_B = [@[@215,@121,@33,@21,@5] mutableCopy];
+        NSMutableArray *array_B = [@[@215,@121,@33,@21] mutableCopy];
 
         TerrysArrayChecker *terrysArrayChecker = [[TerrysArrayChecker alloc]init];
         [terrysArrayChecker isThisArraySorted:array_A];
         [terrysArrayChecker isThisArraySorted:array_B];
+
+        NSMutableArray *array_C = [@[@13232,@2,@332,@4,@5] mutableCopy];
+        NSMutableArray *array_D = [@[@0,@121,@32113,@21] mutableCopy];
+        [terrysArrayChecker sortAscending:array_C];
+        NSLog(array_C.description);
         
-        NSMutableArray *unsortedArray_A = [@[@215,@1321,@33,@21,@5] mutableCopy];
-        NSMutableArray *unsortedArray_B = [@[@0,@1,@999,@21,@5] mutableCopy];
+        [terrysArrayChecker sortDescending:array_D];
 
-        [terrysArrayChecker sortAscending:unsortedArray_A];
-        [terrysArrayChecker sortDescending:unsortedArray_B];
+        [terrysArrayChecker findMin:array_A];
+        [terrysArrayChecker findMax:array_B];
 
-        [terrysArrayChecker findMin:unsortedArray_A];
-        [terrysArrayChecker findMax:unsortedArray_B];
-
+        NSLog(@"The average is %f", [terrysArrayChecker findAverage:array_A]);
+        
+        NSMutableArray *array_E = [@[@100, @100, @121,@32113,@21] mutableCopy];
+        [terrysArrayChecker removeDuplicates:array_E];
+        NSLog(array_E.description);
+        
 //arrays have all strings scenario
+        
         
     }
     return 0;
