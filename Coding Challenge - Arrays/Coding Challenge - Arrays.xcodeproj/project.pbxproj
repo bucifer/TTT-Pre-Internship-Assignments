@@ -1,0 +1,245 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAEB247B19DF2053004F88DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEB247A19DF2053004F88DF /* main.m */; };
+		AAEB248619DF21CD004F88DF /* TerrysArrayChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEB248519DF21CD004F88DF /* TerrysArrayChecker.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AAEB247519DF2053004F88DF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AAEB247719DF2053004F88DF /* Coding Challenge - Arrays */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Coding Challenge - Arrays"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAEB247A19DF2053004F88DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AAEB248419DF21CD004F88DF /* TerrysArrayChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TerrysArrayChecker.h; path = ../TerrysArrayChecker.h; sourceTree = "<group>"; };
+		AAEB248519DF21CD004F88DF /* TerrysArrayChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TerrysArrayChecker.m; path = ../TerrysArrayChecker.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAEB247419DF2053004F88DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAEB246E19DF2053004F88DF = {
+			isa = PBXGroup;
+			children = (
+				AAEB247919DF2053004F88DF /* Coding Challenge - Arrays */,
+				AAEB247819DF2053004F88DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAEB247819DF2053004F88DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAEB247719DF2053004F88DF /* Coding Challenge - Arrays */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAEB247919DF2053004F88DF /* Coding Challenge - Arrays */ = {
+			isa = PBXGroup;
+			children = (
+				AAEB248419DF21CD004F88DF /* TerrysArrayChecker.h */,
+				AAEB248519DF21CD004F88DF /* TerrysArrayChecker.m */,
+				AAEB247A19DF2053004F88DF /* main.m */,
+			);
+			path = "Coding Challenge - Arrays";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAEB247619DF2053004F88DF /* Coding Challenge - Arrays */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAEB247E19DF2053004F88DF /* Build configuration list for PBXNativeTarget "Coding Challenge - Arrays" */;
+			buildPhases = (
+				AAEB247319DF2053004F88DF /* Sources */,
+				AAEB247419DF2053004F88DF /* Frameworks */,
+				AAEB247519DF2053004F88DF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Coding Challenge - Arrays";
+			productName = "Coding Challenge - Arrays";
+			productReference = AAEB247719DF2053004F88DF /* Coding Challenge - Arrays */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAEB246F19DF2053004F88DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = NM;
+				TargetAttributes = {
+					AAEB247619DF2053004F88DF = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = AAEB247219DF2053004F88DF /* Build configuration list for PBXProject "Coding Challenge - Arrays" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AAEB246E19DF2053004F88DF;
+			productRefGroup = AAEB247819DF2053004F88DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAEB247619DF2053004F88DF /* Coding Challenge - Arrays */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAEB247319DF2053004F88DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAEB248619DF21CD004F88DF /* TerrysArrayChecker.m in Sources */,
+				AAEB247B19DF2053004F88DF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AAEB247C19DF2053004F88DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AAEB247D19DF2053004F88DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AAEB247F19DF2053004F88DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AAEB248019DF2053004F88DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAEB247219DF2053004F88DF /* Build configuration list for PBXProject "Coding Challenge - Arrays" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAEB247C19DF2053004F88DF /* Debug */,
+				AAEB247D19DF2053004F88DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAEB247E19DF2053004F88DF /* Build configuration list for PBXNativeTarget "Coding Challenge - Arrays" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAEB247F19DF2053004F88DF /* Debug */,
+				AAEB248019DF2053004F88DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAEB246F19DF2053004F88DF /* Project object */;
+}
