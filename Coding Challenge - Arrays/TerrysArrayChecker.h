@@ -11,7 +11,11 @@
 @interface TerrysArrayChecker : NSObject
 
 
-- (BOOL) isThisArraySorted:(NSArray *) someArray;
+- (BOOL) isThisArraySorted:(NSMutableArray *) someArray;
+
+- (void) sortAscending:(NSMutableArray *) someArray;
+
+- (void) sortDescending:(NSMutableArray *) someArray;
 
 
 @end

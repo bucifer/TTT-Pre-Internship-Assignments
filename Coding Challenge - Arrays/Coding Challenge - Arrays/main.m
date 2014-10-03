@@ -15,16 +15,22 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Hello, World!");
         
         
-        
-        NSArray *array_A = @[@1,@2,@3,@4,@5];
-        NSArray *array_B = @[@5,@121,@3,@4,@5];
-        NSArray *array_C = @[@215,@121,@33,@21,@5];
+//arrays have all numbers scenario
+        NSMutableArray *array_A = [@[@1,@2,@3,@4,@5] mutableCopy];
+        NSMutableArray *array_B = [@[@215,@121,@33,@21,@5] mutableCopy];
 
         TerrysArrayChecker *terrysArrayChecker = [[TerrysArrayChecker alloc]init];
         [terrysArrayChecker isThisArraySorted:array_A];
         [terrysArrayChecker isThisArraySorted:array_B];
-        [terrysArrayChecker isThisArraySorted:array_C];
+        
+        NSMutableArray *unsortedArray_A = [@[@215,@1321,@33,@21,@5]mutableCopy];
+        NSMutableArray *unsortedArray_B = [@[@215,@1321,@33,@21,@5]mutableCopy];
 
+        [terrysArrayChecker sortAscending:unsortedArray_A];
+        [terrysArrayChecker sortDescending:unsortedArray_B];
+
+        
+//arrays have all strings scenario
         
         
     }
