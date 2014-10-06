@@ -13,4 +13,10 @@
 - (BOOL) isItPrime:(int)num;
 - (BOOL) isItPerfectSquare:(int)num;
 
+- (int) myFactorial:(int)num;
+- (int) sumOfFirstN:(int)N;
+- (double) fibonacci: (long)n;
+
+- (void) reverseArrayWithRecursion:(NSMutableArray *)someArray startIndex:i arrayLength:n;
+
 @end

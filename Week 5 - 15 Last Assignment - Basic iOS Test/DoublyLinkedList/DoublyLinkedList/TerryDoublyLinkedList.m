@@ -86,9 +86,28 @@
     //postElement's prev becomes the inserted Element
     postElement.prev = insertedElement;
     
-
     NSLog(@"Insert Done successfully");
     
+}
+
+- (void) insertElement:(Node *)insertedElement AtIndex:(int)index {
+
+        Node *pointerAtExistingNodeAtThatIndex = self.head;
+        //get to that index and make a pointer
+        for (int i = 0; i < index; i++) {
+            //if it's index 2, we move from head 2 spaces over
+            pointerAtExistingNodeAtThatIndex = pointerAtExistingNodeAtThatIndex.next;
+        }
+        insertedElement.prev = pointerAtExistingNodeAtThatIndex.prev;
+        insertedElement.next = pointerAtExistingNodeAtThatIndex;
+    
+        //the new element becomes the prev for the existingNode
+        pointerAtExistingNodeAtThatIndex.prev = insertedElement;
+        //the new element becomes the next for the previous node of the existingNode
+        Node *prevNode = insertedElement.prev;
+        prevNode.next = insertedElement;
+        self.length++;
+        NSLog(@"Insert Done successfully");
 }
 
 

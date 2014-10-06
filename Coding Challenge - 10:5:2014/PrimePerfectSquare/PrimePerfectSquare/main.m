@@ -22,6 +22,21 @@ int main(int argc, const char * argv[]) {
    [terrysNumberChecker isItPerfectSquare:15];
    [terrysNumberChecker isItPerfectSquare:100];
  
+    
+    //Recursion
+    
+    [terrysNumberChecker myFactorial:5];
+    NSLog(@"sum: %d", [terrysNumberChecker sumOfFirstN:10]);
+    
+    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:11]);
+    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:4]/[terrysNumberChecker fibonacci:3]);
+        NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:11]/[terrysNumberChecker fibonacci:10]);
+    //No the recursion program runs forever when n approaches large numbers
+//    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:1000]/[terrysNumberChecker fibonacci:999]);
+        
+        
+
+    
     }
     return 0;
 }

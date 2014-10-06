@@ -49,6 +49,12 @@ int main(int argc, const char * argv[])
         [tdlist insertElementBetweenTwoElements:fifthNode preElement:tdlist.head postElement:tdlist.head.next];
         [tdlist printHeadTailLength];
         [tdlist testPrevsAndNexts];
+        
+        //let's try inserting an object at index 3
+        Node *sixthNode = [[Node alloc]init:@"YoTerrySixthData"];
+        [tdlist insertElement:sixthNode AtIndex:3];
+        [tdlist printHeadTailLength];
+        [tdlist testPrevsAndNexts];
 
     }
     return 0;

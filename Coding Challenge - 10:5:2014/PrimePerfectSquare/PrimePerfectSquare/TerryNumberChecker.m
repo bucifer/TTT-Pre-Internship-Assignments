@@ -25,16 +25,52 @@
     return TRUE;
 }
 
-
-
 - (BOOL) isItPerfectSquare:(int)num {
-  
     if (sqrt(num) * sqrt(num) == num) {
         NSLog(@"%d is a perfect square", num);
         return TRUE;
     }
     NSLog(@"%d is NOT a perfect square", num);
     return FALSE;
+}
+
+
+
+- (int) myFactorial:(int)num {
+    if (num == 1) return 1;
+    int result;
+    
+    //for recursion, you definitely need the self like this below
+    result = [self myFactorial:num-1] * num;
+    return result;
+}
+
+- (int) sumOfFirstN:(int)N {
+    if (N != 0)
+        return [self sumOfFirstN:(N-1)] + N;
+    else
+        return 0;
+}
+
+- (double) fibonacci: (long)n {
+    if (n == 0) return 0;
+    else if (n ==1) return 1;
+    long result = [self fibonacci:n-1] + [self fibonacci:n-2];
+    return result;
+}
+
+- (void) reverseArrayWithRecursion:(NSMutableArray *)someArray endIndex:n {
+
+    int end = someArray.count;
+    id temp = someArray[first];
+    someArray[first] = someArray[end];
+    someArray[end] = temp;
+    
+    if (!first > end) {
+        [self reverseArrayWithRecursion:someArray];
+    }
+    
+    
 }
 
 
