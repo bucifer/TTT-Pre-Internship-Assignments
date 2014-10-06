@@ -111,7 +111,7 @@
         duplicateFound = FALSE;
         for (int i=0; i < someArray.count; i++) {
             for (int j=i+1; j < someArray.count; j++) {
-                if ([someArray[i] isEqualToNumber:someArray[j]]) {
+                if ([someArray[i] isEqualTo:someArray[j]]) {
                     [someArray removeObjectAtIndex:j];
                     duplicateFound = TRUE;
                 }
@@ -165,7 +165,7 @@
         for (int i=0; i < intersectionArray.count; i++) {
             
             for (int j=0; j < resultArray.count; j++) {
-                if ([resultArray[j] isEqualToNumber:intersectionArray[i]]) {
+                if ([resultArray[j] isEqualTo:intersectionArray[i]]) {
                     [resultArray removeObjectAtIndex:j];
                 }
             }
@@ -184,7 +184,7 @@
     
     for (int i=0; i < firstArray.count; i++) {
         for (int j=0; j < secondArray.count; j++) {
-            if ([firstArray[i] isEqualToNumber:secondArray[j]]) {
+            if ([firstArray[i] isEqualTo:secondArray[j]]) {
                 [resultArray addObject:firstArray[i]];
                 break;
             }
