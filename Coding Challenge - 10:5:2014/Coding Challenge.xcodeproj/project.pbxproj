@@ -24,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AAEB247719DF2053004F88DF /* Coding Challenge - Arrays */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Coding Challenge - Arrays"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAEB247719DF2053004F88DF /* Coding Challenge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Coding Challenge"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEB247A19DF2053004F88DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AAEB248419DF21CD004F88DF /* TerrysArrayChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TerrysArrayChecker.h; path = ../TerrysArrayChecker.h; sourceTree = "<group>"; };
 		AAEB248519DF21CD004F88DF /* TerrysArrayChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TerrysArrayChecker.m; path = ../TerrysArrayChecker.m; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		AAEB247819DF2053004F88DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AAEB247719DF2053004F88DF /* Coding Challenge - Arrays */,
+				AAEB247719DF2053004F88DF /* Coding Challenge */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AAEB247619DF2053004F88DF /* Coding Challenge - Arrays */ = {
+		AAEB247619DF2053004F88DF /* Coding Challenge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAEB247E19DF2053004F88DF /* Build configuration list for PBXNativeTarget "Coding Challenge - Arrays" */;
+			buildConfigurationList = AAEB247E19DF2053004F88DF /* Build configuration list for PBXNativeTarget "Coding Challenge" */;
 			buildPhases = (
 				AAEB247319DF2053004F88DF /* Sources */,
 				AAEB247419DF2053004F88DF /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "Coding Challenge - Arrays";
+			name = "Coding Challenge";
 			productName = "Coding Challenge - Arrays";
-			productReference = AAEB247719DF2053004F88DF /* Coding Challenge - Arrays */;
+			productReference = AAEB247719DF2053004F88DF /* Coding Challenge */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AAEB247219DF2053004F88DF /* Build configuration list for PBXProject "Coding Challenge - Arrays" */;
+			buildConfigurationList = AAEB247219DF2053004F88DF /* Build configuration list for PBXProject "Coding Challenge" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AAEB247619DF2053004F88DF /* Coding Challenge - Arrays */,
+				AAEB247619DF2053004F88DF /* Coding Challenge */,
 			);
 		};
 /* End PBXProject section */
@@ -208,21 +208,21 @@
 		AAEB247F19DF2053004F88DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Coding Challenge";
 			};
 			name = Debug;
 		};
 		AAEB248019DF2053004F88DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Coding Challenge";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AAEB247219DF2053004F88DF /* Build configuration list for PBXProject "Coding Challenge - Arrays" */ = {
+		AAEB247219DF2053004F88DF /* Build configuration list for PBXProject "Coding Challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAEB247C19DF2053004F88DF /* Debug */,
@@ -231,13 +231,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAEB247E19DF2053004F88DF /* Build configuration list for PBXNativeTarget "Coding Challenge - Arrays" */ = {
+		AAEB247E19DF2053004F88DF /* Build configuration list for PBXNativeTarget "Coding Challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAEB247F19DF2053004F88DF /* Debug */,
 				AAEB248019DF2053004F88DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

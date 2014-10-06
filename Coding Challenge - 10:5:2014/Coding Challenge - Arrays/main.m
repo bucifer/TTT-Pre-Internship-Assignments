@@ -72,7 +72,6 @@ int main(int argc, const char * argv[]) {
             NSLog([[terrysArrayChecker findIntersection:stringArray_B secondArray:stringArray_C] description]);
             NSLog([[terrysArrayChecker removeIntersection:stringArray_B secondArray:stringArray_C]description]);
         
-        
         //Reverse, reverse
             [terrysArrayChecker reverseArray:a];
             NSLog(a.description);
