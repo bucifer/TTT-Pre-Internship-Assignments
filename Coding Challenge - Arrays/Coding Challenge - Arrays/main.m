@@ -51,6 +51,9 @@ int main(int argc, const char * argv[]) {
         NSLog([[terrysArrayChecker removeIntersection:a secondArray:b]description]);
 
         
+        NSMutableArray *reverseThis = [@[@"a", @"b", @"c", @"d", @"e"] mutableCopy];
+        [terrysArrayChecker reverseArray:reverseThis];
+        NSLog(reverseThis.description);
         
 //arrays have all strings scenario
         

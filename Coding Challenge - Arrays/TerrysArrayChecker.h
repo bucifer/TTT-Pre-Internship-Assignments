@@ -27,6 +27,7 @@
 - (NSMutableArray *) uniqueJoinTwoArrays:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray;
 - (NSMutableArray *) removeIntersection:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray;
 - (NSMutableArray *) findIntersection:(NSMutableArray *) firstArray secondArray: (NSMutableArray *) secondArray;
+- (NSMutableArray *) reverseArray:(NSMutableArray *) someArray;
 
 
 

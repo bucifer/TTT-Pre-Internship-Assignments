@@ -193,5 +193,31 @@
     return resultArray;
 }
 
+- (NSMutableArray *) reverseArray:(NSMutableArray *) someArray {
+    
+    //[a, b, c, d, e]
+    //temp = array[end] -- e
+    //array[end] = array[0] -- a
+    //array[0] = temp; -- e
+    //[e, b, c, d, a]
+    //i goes up by 1
+    //temp = array [end-1]
+    //array[end-1] = array[1]
+    //array[1] = temp;
+    //[e, d, c, b, a]
+    //we stop here - we just run this algorithm until we hit the midpoint which is length/2
+    
+    int end = someArray.count-1;
+    
+    for (int i=0; i < someArray.count/2 ; i++) {
+        id temp;
+        temp = someArray[end-i];
+        someArray[end-i] = someArray[i];
+        someArray[i] = temp;
+    }
+    
+    return someArray;
+}
+
 
 @end
