@@ -17,6 +17,8 @@
 - (int) sumOfFirstN:(int)N;
 - (double) fibonacci: (long)n;
 
-- (void) reverseArrayWithRecursion:(NSMutableArray *)someArray startIndex:i arrayLength:n;
+- (void) reverseArrayWithRecursion:(NSMutableArray *)someArray startIndex:(int)first endIndex:(int)end;
+
+
 
 @end

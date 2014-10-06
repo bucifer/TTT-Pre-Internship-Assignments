@@ -22,20 +22,26 @@ int main(int argc, const char * argv[]) {
    [terrysNumberChecker isItPerfectSquare:15];
    [terrysNumberChecker isItPerfectSquare:100];
  
-    
-    //Recursion
-    
+    //Recursion Problems
     [terrysNumberChecker myFactorial:5];
     NSLog(@"sum: %d", [terrysNumberChecker sumOfFirstN:10]);
     
-    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:11]);
+    //Fibonacci Recursion
+    NSDate *methodStart = [NSDate date];
+        NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:30]);
+    NSDate *methodFinish = [NSDate date];
+    NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
+    NSLog(@"executionTime = %f", executionTime);
+    
     NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:4]/[terrysNumberChecker fibonacci:3]);
-        NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:11]/[terrysNumberChecker fibonacci:10]);
-    //No the recursion program runs forever when n approaches large numbers
-//    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:1000]/[terrysNumberChecker fibonacci:999]);
+    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:11]/[terrysNumberChecker fibonacci:10]);
+    //the recursion program takes a really long time when n approaches large numbers
         
-        
-
+    //Reverse Array using recursion
+    NSArray* myArray = @[@1,@2,@3,@4,@5];
+    NSMutableArray *reverseThisArray = [myArray mutableCopy];
+    [terrysNumberChecker reverseArrayWithRecursion:reverseThisArray startIndex:0 endIndex:reverseThisArray.count-1];
+    NSLog(reverseThisArray.description);
     
     }
     return 0;

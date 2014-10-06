@@ -53,24 +53,22 @@
 }
 
 - (double) fibonacci: (long)n {
+    
     if (n == 0) return 0;
     else if (n ==1) return 1;
     long result = [self fibonacci:n-1] + [self fibonacci:n-2];
+    //you can make this faster by caching n-2 ... its called dynamic programming
+
     return result;
 }
 
-- (void) reverseArrayWithRecursion:(NSMutableArray *)someArray endIndex:n {
-
-    int end = someArray.count;
-    id temp = someArray[first];
-    someArray[first] = someArray[end];
-    someArray[end] = temp;
-    
-    if (!first > end) {
-        [self reverseArrayWithRecursion:someArray];
+- (void) reverseArrayWithRecursion:(NSMutableArray *)someArray startIndex:(int)first endIndex:(int)end{
+    if (first < end) {
+        id temp = someArray[first];
+        someArray[first] = someArray[end];
+        someArray[end] = temp;
+        [self reverseArrayWithRecursion:someArray startIndex:++first endIndex:--end];
     }
-    
-    
 }
 
 
