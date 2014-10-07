@@ -51,10 +51,6 @@
 
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:YES];
-
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 

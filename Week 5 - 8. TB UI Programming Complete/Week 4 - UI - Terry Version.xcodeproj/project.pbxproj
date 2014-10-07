@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AAA49AD019E481D8001C739F /* pikachu.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA49ACF19E481D8001C739F /* pikachu.png */; };
 		AACB796219D35A7F00B59ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB796119D35A7F00B59ABF /* Foundation.framework */; };
 		AACB796419D35A7F00B59ABF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB796319D35A7F00B59ABF /* CoreGraphics.framework */; };
 		AACB796619D35A7F00B59ABF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB796519D35A7F00B59ABF /* UIKit.framework */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AAA49ACF19E481D8001C739F /* pikachu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pikachu.png; sourceTree = "<group>"; };
 		AACB795E19D35A7F00B59ABF /* Week 4 - UI - Terry Version.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Week 4 - UI - Terry Version.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACB796119D35A7F00B59ABF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AACB796319D35A7F00B59ABF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,7 +58,6 @@
 		AACB798A19D35A7F00B59ABF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AACB798C19D35A7F00B59ABF /* Week_4___UI___Terry_VersionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Week_4___UI___Terry_VersionTests.m"; sourceTree = "<group>"; };
 		AACB799619D3892F00B59ABF /* bulbasaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulbasaur.png; sourceTree = "<group>"; };
-		AACB799719D3892F00B59ABF /* pikachu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pikachu.png; sourceTree = "<group>"; };
 		AACB799A19D38D9E00B59ABF /* jamba.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jamba.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,7 +125,7 @@
 				AACB797719D35A7F00B59ABF /* ViewController.m */,
 				AACB799A19D38D9E00B59ABF /* jamba.jpeg */,
 				AACB799619D3892F00B59ABF /* bulbasaur.png */,
-				AACB799719D3892F00B59ABF /* pikachu.png */,
+				AAA49ACF19E481D8001C739F /* pikachu.png */,
 				AACB797919D35A7F00B59ABF /* Images.xcassets */,
 				AACB796819D35A7F00B59ABF /* Supporting Files */,
 			);
@@ -241,6 +242,7 @@
 				AACB799819D3892F00B59ABF /* bulbasaur.png in Resources */,
 				AACB796C19D35A7F00B59ABF /* InfoPlist.strings in Resources */,
 				AACB797519D35A7F00B59ABF /* Main.storyboard in Resources */,
+				AAA49AD019E481D8001C739F /* pikachu.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

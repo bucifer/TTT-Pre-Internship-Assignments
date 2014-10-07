@@ -142,27 +142,22 @@
 
 
 -(void)createRelativeLabel {
-    self.relativeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width-50, self.view.frame.size.height-50, 50, 50)];
+    self.relativeLabel = [[UILabel alloc]initWithFrame:CGRectMake(320-50, 568-50, 50, 50)];
     self.relativeLabel.backgroundColor = [UIColor redColor];
     [self.view addSubview: self.relativeLabel];
-    
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    NSLog(@"Rotate Go!");
-    //this is how you check the Orientation of your view
-    if (UIInterfaceOrientationIsLandscape(self.view.window.rootViewController.interfaceOrientation)) {
-        self.relativeLabel.frame = CGRectMake(self.view.frame.size.height-50, self.view.frame.size.width-50, 50, 50);
-    }
-    else if (UIInterfaceOrientationIsPortrait(self.view.window.rootViewController.interfaceOrientation)) {
-        self.relativeLabel.frame = CGRectMake(self.view.frame.size.width-50, self.view.frame.size.height-50, 50, 50);
-    }
-    
-    NSLog(@"%f %f", self.view.frame.size.width, self.view.frame.size.height);
+- (void) willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+        NSLog(@"Rotate Go!");
+
+        if (UIInterfaceOrientationIsLandscape(self.view.window.rootViewController.interfaceOrientation)) {
+            self.relativeLabel.frame = CGRectMake(568-50, 320-50, 50, 50);
+        }
+        else if (UIInterfaceOrientationIsPortrait(self.view.window.rootViewController.interfaceOrientation)) {
+            self.relativeLabel.frame = CGRectMake(320-50, 568-50, 50, 50);
+        }
+        NSLog(@"%f %f", self.view.frame.size.width, self.view.frame.size.height);
 }
-
-
 
 
 
