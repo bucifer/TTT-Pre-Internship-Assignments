@@ -21,6 +21,7 @@
 		AA981BAB19BE585E00F8B1FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA981B8D19BE585E00F8B1FB /* UIKit.framework */; };
 		AA981BB319BE585E00F8B1FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA981BB119BE585E00F8B1FB /* InfoPlist.strings */; };
 		AA981BB519BE585E00F8B1FB /* Digital_LeashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA981BB419BE585E00F8B1FB /* Digital_LeashTests.m */; };
+		AAA49AD319E496CE001C739F /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA49AD219E496CE001C739F /* DAO.m */; };
 		AAD014EA19C350D600DB1412 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD014E919C350D600DB1412 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,8 @@
 		AA981BB019BE585E00F8B1FB /* Digital Leash - Parent AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Digital Leash - Parent AppTests-Info.plist"; sourceTree = "<group>"; };
 		AA981BB219BE585E00F8B1FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA981BB419BE585E00F8B1FB /* Digital_LeashTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Digital_LeashTests.m; sourceTree = "<group>"; };
+		AAA49AD119E496CE001C739F /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
+		AAA49AD219E496CE001C739F /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
 		AAD014E919C350D600DB1412 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -121,6 +124,8 @@
 				AA981B9B19BE585E00F8B1FB /* Main.storyboard */,
 				AA981B9E19BE585E00F8B1FB /* ViewController.h */,
 				AA981B9F19BE585E00F8B1FB /* ViewController.m */,
+				AAA49AD119E496CE001C739F /* DAO.h */,
+				AAA49AD219E496CE001C739F /* DAO.m */,
 				AA981BA119BE585E00F8B1FB /* Images.xcassets */,
 				AA981B9019BE585E00F8B1FB /* Supporting Files */,
 			);
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA49AD319E496CE001C739F /* DAO.m in Sources */,
 				AA981BA019BE585E00F8B1FB /* ViewController.m in Sources */,
 				AA981B9A19BE585E00F8B1FB /* AppDelegate.m in Sources */,
 				AA981B9619BE585E00F8B1FB /* main.m in Sources */,

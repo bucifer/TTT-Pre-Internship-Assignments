@@ -18,10 +18,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    responseData = [NSMutableData data];
-    
-    
+    [self startUpdatingLocationWithCoreLocationManager];
+}
+
+
+
+
+- (void) startUpdatingLocationWithCoreLocationManager {
     //For CLLocation
     if([CLLocationManager locationServicesEnabled]){
         NSLog(@"location services enabled");
@@ -32,30 +35,6 @@
         [self.locationManager startUpdatingLocation];
         NSLog(@"Started updating Location");
     }
-
-    //Setting delegate for UITextFieldDelegate
-    [self.usernameTextfield setDelegate:self];
-    [self.radiusTextfield setDelegate:self];
-    //Implementing tap-out clear-keyboard functionality for the textfields
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
-    
-    
-    
-    //for Radius numberpad decimal keyboard functionality
-    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
-//    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
-    numberToolbar.items = [NSArray arrayWithObjects:
-                           [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
-                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                           [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
-                           nil];
-    [numberToolbar sizeToFit];
-    self.radiusTextfield.inputAccessoryView = numberToolbar;
-	
 }
 
 
@@ -148,8 +127,6 @@
     //create url connection and fire the request you made above
     NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: self.myURLRequest delegate: self];
     connect = nil;
-    
-    [self.usernameTextfield resignFirstResponder];
 
 }
 
@@ -191,11 +168,8 @@
 #pragma mark NSURLConnection Delegate Methods
 
 - (void) connection:(NSURLConnection* )connection didReceiveResponse:(NSURLResponse *)response {
-    //this handler, gets hit ONCE
-    //response has been received, we initialize the instance var we created in h file
-    //then we append data to it in the didReceiveData method
-    //    responseData = [[NSMutableData alloc] init];
     NSLog(@"%@", [response description]);
+    responseData = [NSMutableData data];
     [responseData setLength:0];
 }
 
@@ -256,26 +230,11 @@
 
 #pragma mark UITextFieldDelegate methods
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self.usernameTextfield resignFirstResponder];
-    [self.radiusTextfield resignFirstResponder];
-    return YES;
-}
 
--(void)dismissKeyboard {
-    [self.usernameTextfield resignFirstResponder];
-    [self.radiusTextfield resignFirstResponder];
-}
 
--(void)cancelNumberPad{
-    [self.radiusTextfield resignFirstResponder];
-    self.radiusTextfield.text = @"";
-}
 
--(void)doneWithNumberPad{
-    NSString *numberFromTheKeyboard = self.radiusTextfield.text;
-    [self.radiusTextfield resignFirstResponder];
-}
+
+
 
 - (void)didReceiveMemoryWarning
 {
