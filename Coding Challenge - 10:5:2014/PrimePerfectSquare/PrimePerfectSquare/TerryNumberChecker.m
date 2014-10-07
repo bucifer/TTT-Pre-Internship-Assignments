@@ -45,6 +45,7 @@
     return result;
 }
 
+
 - (int) sumOfFirstN:(int)N {
     if (N != 0)
         return [self sumOfFirstN:(N-1)] + N;
@@ -52,15 +53,23 @@
         return 0;
 }
 
-- (double) fibonacci: (long)n {
-    
-    if (n == 0) return 0;
-    else if (n ==1) return 1;
-    long result = [self fibonacci:n-1] + [self fibonacci:n-2];
-    //you can make this faster by caching n-2 ... its called dynamic programming
 
-    return result;
+- (double) fibonacci: (long)n cacheArray:(double[])myCacheArray {
+
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    
+    if (myCacheArray[n] != 0) {
+        return myCacheArray[n];
+    }
+    
+    myCacheArray[n] = [self fibonacci:(n-1) cacheArray:myCacheArray] + [self fibonacci:(n-2) cacheArray:myCacheArray];
+    
+    return myCacheArray[n];
 }
+
 
 - (void) reverseArrayWithRecursion:(NSMutableArray *)someArray startIndex:(int)first endIndex:(int)end{
     if (first < end) {

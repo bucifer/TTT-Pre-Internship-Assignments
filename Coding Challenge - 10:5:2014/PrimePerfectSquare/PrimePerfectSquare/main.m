@@ -11,7 +11,6 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
         
     TerryNumberChecker *terrysNumberChecker = [[TerryNumberChecker alloc]init];
    [terrysNumberChecker isItPrime:2];
@@ -26,16 +25,19 @@ int main(int argc, const char * argv[]) {
     [terrysNumberChecker myFactorial:5];
     NSLog(@"sum: %d", [terrysNumberChecker sumOfFirstN:10]);
     
-    //Fibonacci Recursion
+    //Fibonacci Recursion Time Tracking
     NSDate *methodStart = [NSDate date];
-        NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:30]);
+   
+    double fib[100];
+    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:30 cacheArray:fib]);
+    
     NSDate *methodFinish = [NSDate date];
     NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
     NSLog(@"executionTime = %f", executionTime);
-    
-    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:4]/[terrysNumberChecker fibonacci:3]);
-    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:11]/[terrysNumberChecker fibonacci:10]);
-    //the recursion program takes a really long time when n approaches large numbers
+        
+    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:4 cacheArray:fib]/[terrysNumberChecker fibonacci:3 cacheArray:fib]);
+    NSLog(@"fibonacci: %f", [terrysNumberChecker fibonacci:14 cacheArray:fib]/[terrysNumberChecker fibonacci:13 cacheArray:fib]);
+//    the recursion program takes a really long time when n approaches large numbers
         
     //Reverse Array using recursion
     NSArray* myArray = @[@1,@2,@3,@4,@5];

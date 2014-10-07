@@ -15,7 +15,7 @@
 
 - (int) myFactorial:(int)num;
 - (int) sumOfFirstN:(int)N;
-- (double) fibonacci: (long)n;
+- (double) fibonacci: (long)n cacheArray:(double[])myCacheArray;
 
 - (void) reverseArrayWithRecursion:(NSMutableArray *)someArray startIndex:(int)first endIndex:(int)end;
 
