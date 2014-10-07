@@ -1,8 +1,11 @@
 *.pem
 *.png
-Terry Keys/
-hidden/
 *.zip
+
+Terry Keys/
+hidden Amazon Camera App/
+images/
+
 
 TabApp/Images.xcassets/
 # Xcode
