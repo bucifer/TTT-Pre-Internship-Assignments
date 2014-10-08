@@ -8,7 +8,12 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    
+    int redSquareWidth;
+    int redSquareHeight;
+    
+}
 
 @end
 
@@ -142,7 +147,11 @@
 
 
 -(void)createRelativeLabel {
-    self.relativeLabel = [[UILabel alloc]initWithFrame:CGRectMake(320-50, 568-50, 50, 50)];
+    
+    redSquareWidth = 50;
+    redSquareHeight = 50;
+    
+    self.relativeLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width-redSquareWidth, self.view.frame.size.height-redSquareHeight, redSquareWidth, redSquareHeight)];
     self.relativeLabel.backgroundColor = [UIColor redColor];
     [self.view addSubview: self.relativeLabel];
 }
@@ -151,10 +160,10 @@
         NSLog(@"Rotate Go!");
 
         if (UIInterfaceOrientationIsLandscape(self.view.window.rootViewController.interfaceOrientation)) {
-            self.relativeLabel.frame = CGRectMake(568-50, 320-50, 50, 50);
+            self.relativeLabel.frame = CGRectMake(self.view.frame.size.width-redSquareWidth, self.view.frame.size.height-redSquareHeight, redSquareWidth, redSquareHeight);
         }
         else if (UIInterfaceOrientationIsPortrait(self.view.window.rootViewController.interfaceOrientation)) {
-            self.relativeLabel.frame = CGRectMake(320-50, 568-50, 50, 50);
+            self.relativeLabel.frame = CGRectMake(self.view.frame.size.width-redSquareWidth, self.view.frame.size.height-redSquareHeight, redSquareWidth, redSquareHeight);
         }
         NSLog(@"%f %f", self.view.frame.size.width, self.view.frame.size.height);
 }
