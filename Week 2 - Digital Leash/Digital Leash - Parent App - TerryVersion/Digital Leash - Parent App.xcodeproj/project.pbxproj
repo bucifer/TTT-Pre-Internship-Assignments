@@ -122,9 +122,9 @@
 		AA981B8F19BE585E00F8B1FB /* Digital Leash */ = {
 			isa = PBXGroup;
 			children = (
+				AA981B9B19BE585E00F8B1FB /* Main.storyboard */,
 				AA981B9819BE585E00F8B1FB /* AppDelegate.h */,
 				AA981B9919BE585E00F8B1FB /* AppDelegate.m */,
-				AA981B9B19BE585E00F8B1FB /* Main.storyboard */,
 				AA981B9E19BE585E00F8B1FB /* ViewController.h */,
 				AA981B9F19BE585E00F8B1FB /* ViewController.m */,
 				AAA2D41B19E5850600FDC2E5 /* TerrysLocationManager.h */,
@@ -210,7 +210,7 @@
 		AA981B7E19BE585E00F8B1FB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = NM;
 				TargetAttributes = {
 					AA981BA619BE585E00F8B1FB = {
@@ -321,7 +321,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -360,7 +359,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -418,7 +416,6 @@
 		AA981BBC19BE585E00F8B1FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Digital Leash.app/Digital Leash";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -441,7 +438,6 @@
 		AA981BBD19BE585E00F8B1FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Digital Leash.app/Digital Leash";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "ViewController.h"
+
+@class ViewController;
 
 @interface TerrysLocationManager : NSObject <CLLocationManagerDelegate>
 
-
 @property (nonatomic, strong) CLLocationManager* locationManager;
 @property (nonatomic, strong) CLLocation *myCLLocation;
-@property  CLLocationCoordinate2D *latitude;
-@property  CLLocationCoordinate2D *longitude;
-
-
+@property CLLocationCoordinate2D *latitude;
+@property CLLocationCoordinate2D *longitude;
+@property (nonatomic, strong) ViewController* myVC;
 
 - (void) startUpdatingLocationWithCoreLocationManager;
 

@@ -39,6 +39,8 @@
         self.myCLLocation = [locations lastObject];
         NSLog(@"%f", self.myCLLocation.coordinate.latitude);
         NSLog(@"%f", self.myCLLocation.coordinate.longitude);
+        
+        [self.myVC setLatLongFields];
     }
     
     callCount++;

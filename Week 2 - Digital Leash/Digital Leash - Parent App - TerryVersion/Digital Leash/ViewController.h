@@ -10,6 +10,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "TerrysLocationManager.h"
 
+@class TerrysLocationManager;
+
 @interface ViewController : UIViewController <CLLocationManagerDelegate, NSURLConnectionDelegate, UITextFieldDelegate> {
     
     NSMutableData *responseData;
@@ -19,6 +21,11 @@
 //For Input Username and Create New User
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextfield;
 @property (strong, nonatomic) NSString *tempStringHolder;
+
+
+//for Locations, CLLocation, GPS, lat, long, radius
+@property (strong, nonatomic) TerrysLocationManager * terrysLocationManager;
+- (void) setLatLongFields;
 
 
 //Action buttons
@@ -36,15 +43,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *ConfirmLabel;
 
 
-//for Locations, CLLocation, GPS, lat, long, radius
-@property (strong, nonatomic) TerrysLocationManager * terrysLocationManager;
-@property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *myLocation;
-
 @property (strong, nonatomic) IBOutlet UITextField *longitudeTextfield;
-
 @property (strong, nonatomic) IBOutlet UITextField *latitudeTextfield;
-
 @property (strong, nonatomic) IBOutlet UITextField *radiusTextfield;
 
 

@@ -20,17 +20,22 @@
     [super viewDidLoad];
 
     //initialize your new custom objects here
-    [self initCLLocationManagerAndSetLatLongFields];
+    [self initCLLocationManager];
+    
 }
 
 
-- (void) initCLLocationManagerAndSetLatLongFields {
+- (void) initCLLocationManager{
     self.terrysLocationManager = [[TerrysLocationManager alloc]init];
     [self.terrysLocationManager startUpdatingLocationWithCoreLocationManager];
+    self.terrysLocationManager.myVC = self;
+}
+
+
+- (void) setLatLongFields {
     self.latitudeTextfield.text = [[NSNumber numberWithDouble:self.terrysLocationManager.myCLLocation.coordinate.latitude]stringValue ];
     self.longitudeTextfield.text = @(self.terrysLocationManager.myCLLocation.coordinate.longitude).stringValue;
 }
-
 
 
 #pragma mark IBAction Methods
@@ -183,7 +188,7 @@
     // You can parse the stuff in your instance variable now or do whatever you want
     
     NSLog(@"connection finished");
-    NSLog(@"Succeeded! Received %d bytes of data",[responseData length]);
+    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[responseData length]);
     
     //Convert your responseData object
     
