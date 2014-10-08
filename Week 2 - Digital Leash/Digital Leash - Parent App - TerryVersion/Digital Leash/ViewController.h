@@ -20,6 +20,7 @@
 @property (strong, nonatomic) TerrysNetworkManager * terrysNetworkManager;
 @property (strong, nonatomic) NSMutableURLRequest *myURLRequest;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 //For Input Username and Create New User
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextfield;
