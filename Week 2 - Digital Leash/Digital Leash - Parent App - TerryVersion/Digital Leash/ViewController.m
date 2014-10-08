@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    int callCount;
+}
+
 @end
 
 
@@ -18,46 +21,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self startUpdatingLocationWithCoreLocationManager];
-    //initialize them here
+
+    //initialize your new custom objects here
+    self.terrysLocationManager = [[TerrysLocationManager alloc]init];
+    [self.terrysLocationManager startUpdatingLocationWithCoreLocationManager];
+    
 }
 
-
-
-
-- (void) startUpdatingLocationWithCoreLocationManager {
-    //For CLLocation
-    if([CLLocationManager locationServicesEnabled]){
-        NSLog(@"location services enabled");
-        CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-        self.locationManager = locationManager;
-        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        [self.locationManager setDelegate:self];
-        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-            [self.locationManager requestAlwaysAuthorization];
-        }
-        
-        [self.locationManager startUpdatingLocation];
-        NSLog(@"Started updating Location");
-    }
-}
 
 
 //network manager object + locationmanager object
-//self.geolocation.locationManager setDelegate would be self.geolocation
-
 
 
 #pragma mark CLLocationManager Delegate Methods
 - (void)locationManager:(CLLocationManager *)locationManager
      didUpdateLocations:(NSArray *)locations {
-    self.myLocation = [locations lastObject];
-    NSLog(@"%f", self.myLocation.coordinate.latitude);
-    NSLog(@"%f", self.myLocation.coordinate.longitude);
-    self.latitudeTextfield.text = [NSString stringWithFormat: @"%.5f", self.myLocation.coordinate.latitude];
-    self.longitudeTextfield.text = [NSString stringWithFormat: @"%.5f", self.myLocation.coordinate.longitude];
+    
+    //Make an update only in beginning and then every 5th call
+    if (callCount == 0 || callCount % 5 == 0) {
+        self.myLocation = [locations lastObject];
+        NSLog(@"%f", self.myLocation.coordinate.latitude);
+        NSLog(@"%f", self.myLocation.coordinate.longitude);
+        self.latitudeTextfield.text = [NSString stringWithFormat: @"%.5f", self.myLocation.coordinate.latitude];
+        self.longitudeTextfield.text = [NSString stringWithFormat: @"%.5f", self.myLocation.coordinate.longitude];
+    }
+    callCount++;
 }
-
 
 
 

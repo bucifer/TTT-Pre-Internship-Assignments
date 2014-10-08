@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "TerrysLocationManager.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, NSURLConnectionDelegate, UITextFieldDelegate> {
     
@@ -36,6 +37,7 @@
 
 
 //for Locations, CLLocation, GPS, lat, long, radius
+@property (strong, nonatomic) TerrysLocationManager * terrysLocationManager;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *myLocation;
 
