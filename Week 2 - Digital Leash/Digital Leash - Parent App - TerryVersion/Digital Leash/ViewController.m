@@ -8,10 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController () {
-    int callCount;
-}
-
+@interface ViewController ()
 @end
 
 
@@ -23,78 +20,75 @@
     [super viewDidLoad];
 
     //initialize your new custom objects here
-    self.terrysLocationManager = [[TerrysLocationManager alloc]init];
-    [self.terrysLocationManager startUpdatingLocationWithCoreLocationManager];
-    
+    [self initCLLocationManagerAndSetLatLongFields];
 }
 
 
-
-//network manager object + locationmanager object
-
-
-#pragma mark CLLocationManager Delegate Methods
-- (void)locationManager:(CLLocationManager *)locationManager
-     didUpdateLocations:(NSArray *)locations {
-    
-    //Make an update only in beginning and then every 5th call
-    if (callCount == 0 || callCount % 5 == 0) {
-        self.myLocation = [locations lastObject];
-        NSLog(@"%f", self.myLocation.coordinate.latitude);
-        NSLog(@"%f", self.myLocation.coordinate.longitude);
-        self.latitudeTextfield.text = [NSString stringWithFormat: @"%.5f", self.myLocation.coordinate.latitude];
-        self.longitudeTextfield.text = [NSString stringWithFormat: @"%.5f", self.myLocation.coordinate.longitude];
-    }
-    callCount++;
+- (void) initCLLocationManagerAndSetLatLongFields {
+    self.terrysLocationManager = [[TerrysLocationManager alloc]init];
+    [self.terrysLocationManager startUpdatingLocationWithCoreLocationManager];
+    self.latitudeTextfield.text = [[NSNumber numberWithDouble:self.terrysLocationManager.myCLLocation.coordinate.latitude]stringValue ];
+    self.longitudeTextfield.text = @(self.terrysLocationManager.myCLLocation.coordinate.longitude).stringValue;
 }
 
 
 
 #pragma mark IBAction Methods
 - (IBAction)createNewUserButton:(id)sender {
-    if (self.usernameTextfield.text && self.usernameTextfield.text.length > 0) {
-        //creating the request URL
-        NSURL *requestURL = [NSURL URLWithString:@"http://protected-wildwood-8664.herokuapp.com/users"];
-        NSDictionary *userDetails = @{@"user": @{
-                                              @"username": self.usernameTextfield,
-                                              @"latitude": self.latitudeTextfield.text,
-                                              @"longitude": self.longitudeTextfield.text,
-                                              @"radius": self.radiusTextfield.text},
-                                      @"commit":@"Create User",
-                                      @"action":@"update",
-                                      @"controller":@"users"
-                                      };
-        NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDetails options:0 error:&error];
-        NSString *myJSONString;
-        myJSONString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSData *myJSONrequest = [myJSONString dataUsingEncoding:NSUTF8StringEncoding];
-        self.myURLRequest = [NSMutableURLRequest requestWithURL:requestURL];
-        self.myURLRequest.HTTPMethod = @"POST";
-        [self.myURLRequest setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-        [self.myURLRequest setHTTPBody: myJSONrequest];
-        
-        //create url connection and fire the request you made above
-        NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: self.myURLRequest delegate: self];
-        connect = nil;
-
-        //Post-Request confirmation
-        self.ConfirmLabel.text = [NSString stringWithFormat:@"You did it, %@!",self.usernameTextfield.text];
-        self.tempStringHolder = self.usernameTextfield.text;
-        self.usernameTextfield.text = @"";
-    }
-
-    else {
-        NSLog(@"string too short");
-        //Making a popup alert dialog
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your username is too short"
-                                                        message:@"Obviously, your username has to be at least 1 character"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
+    
+    if (self.usernameTextfield.text && self.usernameTextfield.text.length > 0)
+        [self sendPOSTRequestCreateNewUser];
+    else
+        [self showAlertWhenStringTooShortForUsername];
+    
 }
+
+
+- (void) sendPOSTRequestCreateNewUser {
+    //creating the request URL
+    NSURL *requestURL = [NSURL URLWithString:@"http://protected-wildwood-8664.herokuapp.com/users"];
+    NSDictionary *userDetails = @{@"user": @{
+                                          @"username": self.usernameTextfield,
+                                          @"latitude": self.latitudeTextfield.text,
+                                          @"longitude": self.longitudeTextfield.text,
+                                          @"radius": self.radiusTextfield.text},
+                                  @"commit":@"Create User",
+                                  @"action":@"update",
+                                  @"controller":@"users"
+                                  };
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDetails options:0 error:&error];
+    NSString *myJSONString;
+    myJSONString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSData *myJSONrequest = [myJSONString dataUsingEncoding:NSUTF8StringEncoding];
+    self.myURLRequest = [NSMutableURLRequest requestWithURL:requestURL];
+    self.myURLRequest.HTTPMethod = @"POST";
+    [self.myURLRequest setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [self.myURLRequest setHTTPBody: myJSONrequest];
+    
+    //create url connection and fire the request you made above
+    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: self.myURLRequest delegate: self];
+    connect = nil;
+    
+    //Post-Request confirmation
+    self.ConfirmLabel.text = [NSString stringWithFormat:@"You did it, %@!",self.usernameTextfield.text];
+    self.tempStringHolder = self.usernameTextfield.text;
+    self.usernameTextfield.text = @"";
+}
+
+- (void) showAlertWhenStringTooShortForUsername {
+    NSLog(@"string too short");
+    //Making a popup alert dialog
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your username is too short"
+                                                    message:@"Obviously, your username has to be at least 1 character"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+
+
 
 - (IBAction)updateUserButton:(id)sender {
     if (self.usernameTextfield.text && self.usernameTextfield.text.length > 0) {
@@ -146,6 +140,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDetails options:0 error:&error];
     NSString *myJSONString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSData *myJSONrequest = [myJSONString dataUsingEncoding:NSUTF8StringEncoding];
+    
     self.myURLRequest = [NSMutableURLRequest requestWithURL:requestURL];
     self.myURLRequest.HTTPMethod = @"PATCH";
     [self.myURLRequest setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -154,7 +149,6 @@
     //create url connection and fire the request you made above
     NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: self.myURLRequest delegate: self];
     connect = nil;
-    
     
     //Post-Request Confirmation
     self.ConfirmLabel.text = [NSString stringWithFormat:@"You updated it, %@!",self.usernameTextfield.text];

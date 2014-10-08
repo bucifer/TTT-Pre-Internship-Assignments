@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA7E207619E59C8300B49DE2 /* TerrysNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7E207519E59C8300B49DE2 /* TerrysNetworkManager.m */; };
 		AA981B8A19BE585E00F8B1FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA981B8919BE585E00F8B1FB /* Foundation.framework */; };
 		AA981B8C19BE585E00F8B1FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA981B8B19BE585E00F8B1FB /* CoreGraphics.framework */; };
 		AA981B8E19BE585E00F8B1FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA981B8D19BE585E00F8B1FB /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA7E207419E59C8300B49DE2 /* TerrysNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrysNetworkManager.h; sourceTree = "<group>"; };
+		AA7E207519E59C8300B49DE2 /* TerrysNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrysNetworkManager.m; sourceTree = "<group>"; };
 		AA981B8619BE585E00F8B1FB /* Digital Leash - Parent App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digital Leash - Parent App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA981B8919BE585E00F8B1FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AA981B8B19BE585E00F8B1FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +129,8 @@
 				AA981B9F19BE585E00F8B1FB /* ViewController.m */,
 				AAA2D41B19E5850600FDC2E5 /* TerrysLocationManager.h */,
 				AAA2D41C19E5850600FDC2E5 /* TerrysLocationManager.m */,
+				AA7E207419E59C8300B49DE2 /* TerrysNetworkManager.h */,
+				AA7E207519E59C8300B49DE2 /* TerrysNetworkManager.m */,
 				AA981BA119BE585E00F8B1FB /* Images.xcassets */,
 				AA981B9019BE585E00F8B1FB /* Supporting Files */,
 			);
@@ -262,6 +267,7 @@
 				AA981B9A19BE585E00F8B1FB /* AppDelegate.m in Sources */,
 				AA981B9619BE585E00F8B1FB /* main.m in Sources */,
 				AAA2D41D19E5850600FDC2E5 /* TerrysLocationManager.m in Sources */,
+				AA7E207619E59C8300B49DE2 /* TerrysNetworkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

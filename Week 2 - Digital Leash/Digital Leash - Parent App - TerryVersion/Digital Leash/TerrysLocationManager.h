@@ -14,6 +14,9 @@
 
 @property (nonatomic, strong) CLLocationManager* locationManager;
 @property (nonatomic, strong) CLLocation *myCLLocation;
+@property  CLLocationCoordinate2D *latitude;
+@property  CLLocationCoordinate2D *longitude;
+
 
 
 - (void) startUpdatingLocationWithCoreLocationManager;
