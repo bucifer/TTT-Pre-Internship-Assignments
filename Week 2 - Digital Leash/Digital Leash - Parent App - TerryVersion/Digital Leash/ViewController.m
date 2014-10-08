@@ -32,16 +32,14 @@
 }
 
 
-#pragma mark CLLocationManager + Custom Object Methods
+#pragma mark Custom Object Methods
 
 - (void) initTerrysLocationManagerCustomObject{
     self.terrysLocationManager = [[TerrysLocationManager alloc]init];
-    [self.terrysLocationManager startUpdatingLocationWithCoreLocationManager];
     self.terrysLocationManager.myVC = self;
 }
 
 
-#pragma mark NSURLConnection + Custom Object Methods
 - (void) initTerrysNetworkManagerCustomObject {
     self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
     self.terrysNetworkManager.myVC = self;

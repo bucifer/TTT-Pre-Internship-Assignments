@@ -12,6 +12,17 @@
     int callCount;
 }
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        // Any custom setup work goes here
+        [self startUpdatingLocationWithCoreLocationManager];
+    }
+    return self;
+}
+
+
+
 
 - (void) startUpdatingLocationWithCoreLocationManager {
     if([CLLocationManager locationServicesEnabled]){
