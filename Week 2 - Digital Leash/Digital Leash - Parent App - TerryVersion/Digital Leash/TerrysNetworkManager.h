@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ViewController.h"
+
+@class ViewController;
 
 @interface TerrysNetworkManager : NSObject
+
+@property ViewController *myVC;
+@property (strong, nonatomic) NSMutableURLRequest *myURLRequest;
+
+- (void) sendPOSTRequestCreateNewUser;
+
 
 @end

@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "TerrysLocationManager.h"
+#import "TerrysNetworkManager.h"
 
 @class TerrysLocationManager;
+@class TerrysNetworkManager;
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, NSURLConnectionDelegate, UITextFieldDelegate> {
     
@@ -18,14 +20,18 @@
     
 }
 
+//For Custom Objects
+@property (strong, nonatomic) TerrysLocationManager * terrysLocationManager;
+- (void) setLatLongFields;
+@property (strong, nonatomic) TerrysNetworkManager * terrysNetworkManager;
+- (void) afterPostRequestConfirmation;
+@property (strong, nonatomic) NSMutableURLRequest *myURLRequest;
+
+
 //For Input Username and Create New User
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextfield;
 @property (strong, nonatomic) NSString *tempStringHolder;
 
-
-//for Locations, CLLocation, GPS, lat, long, radius
-@property (strong, nonatomic) TerrysLocationManager * terrysLocationManager;
-- (void) setLatLongFields;
 
 
 //Action buttons
@@ -41,16 +47,10 @@
 
 //label that changes to notify confirmation when user clicks on "create new user" or "update existing user"
 @property (strong, nonatomic) IBOutlet UILabel *ConfirmLabel;
-
-
 @property (strong, nonatomic) IBOutlet UITextField *longitudeTextfield;
 @property (strong, nonatomic) IBOutlet UITextField *latitudeTextfield;
 @property (strong, nonatomic) IBOutlet UITextField *radiusTextfield;
 
-
-
-//For making requests
-@property (strong, nonatomic) NSMutableURLRequest *myURLRequest;
 
 
 

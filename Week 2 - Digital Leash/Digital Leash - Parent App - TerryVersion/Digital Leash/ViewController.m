@@ -20,29 +20,39 @@
     [super viewDidLoad];
 
     //initialize your new custom objects here
-    [self initCLLocationManager];
-    
+    [self initTerrysLocationManagerCustomObject];
+    [self initTerrysNetworkManagerCustomObject];
 }
 
 
-- (void) initCLLocationManager{
+
+#pragma mark CLLocationManager + Custom Object Methods
+
+- (void) initTerrysLocationManagerCustomObject{
     self.terrysLocationManager = [[TerrysLocationManager alloc]init];
     [self.terrysLocationManager startUpdatingLocationWithCoreLocationManager];
     self.terrysLocationManager.myVC = self;
 }
-
 
 - (void) setLatLongFields {
     self.latitudeTextfield.text = [[NSNumber numberWithDouble:self.terrysLocationManager.myCLLocation.coordinate.latitude]stringValue ];
     self.longitudeTextfield.text = @(self.terrysLocationManager.myCLLocation.coordinate.longitude).stringValue;
 }
 
+#pragma mark NSURLConnection + Custom Object Methods
+- (void) initTerrysNetworkManagerCustomObject {
+    self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
+    self.terrysNetworkManager.myVC = self;
+}
+
+
+
 
 #pragma mark IBAction Methods
 - (IBAction)createNewUserButton:(id)sender {
     
     if (self.usernameTextfield.text && self.usernameTextfield.text.length > 0)
-        [self sendPOSTRequestCreateNewUser];
+        [self.terrysNetworkManager sendPOSTRequestCreateNewUser];
     else
         [self showAlertWhenStringTooShortForUsername];
     
@@ -75,11 +85,16 @@
     NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: self.myURLRequest delegate: self];
     connect = nil;
     
+    [self afterPostRequestConfirmation];
+}
+
+- (void) afterPostRequestConfirmation {
     //Post-Request confirmation
     self.ConfirmLabel.text = [NSString stringWithFormat:@"You did it, %@!",self.usernameTextfield.text];
     self.tempStringHolder = self.usernameTextfield.text;
     self.usernameTextfield.text = @"";
 }
+
 
 - (void) showAlertWhenStringTooShortForUsername {
     NSLog(@"string too short");

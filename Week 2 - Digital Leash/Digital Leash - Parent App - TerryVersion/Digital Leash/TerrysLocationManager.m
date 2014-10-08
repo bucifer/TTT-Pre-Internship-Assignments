@@ -41,6 +41,7 @@
         NSLog(@"%f", self.myCLLocation.coordinate.longitude);
         
         [self.myVC setLatLongFields];
+        
     }
     
     callCount++;
