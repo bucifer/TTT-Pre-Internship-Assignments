@@ -22,7 +22,7 @@
     //initialize your new custom objects here
     [self initTerrysLocationManagerCustomObject];
     [self initTerrysNetworkManagerCustomObject];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+    [self registerForKeyboardNotifications];
 
     
 }
