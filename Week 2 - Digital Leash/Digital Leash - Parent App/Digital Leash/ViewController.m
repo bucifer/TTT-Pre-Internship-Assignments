@@ -19,6 +19,7 @@
 {
     [super viewDidLoad];
     [self startUpdatingLocationWithCoreLocationManager];
+    //initialize them here
 }
 
 
@@ -29,14 +30,21 @@
     if([CLLocationManager locationServicesEnabled]){
         NSLog(@"location services enabled");
         CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+        self.locationManager = locationManager;
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        [self setLocationManager: locationManager];
         [self.locationManager setDelegate:self];
+        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+            [self.locationManager requestAlwaysAuthorization];
+        }
+        
         [self.locationManager startUpdatingLocation];
         NSLog(@"Started updating Location");
     }
 }
 
+
+//network manager object + locationmanager object
+//self.geolocation.locationManager setDelegate would be self.geolocation
 
 
 

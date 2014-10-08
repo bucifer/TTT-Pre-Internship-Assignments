@@ -10,4 +10,19 @@
 
 @implementation DAO
 
+
+- (void) startUpdatingLocationWithCoreLocationManager {
+    //For CLLocation
+    if([CLLocationManager locationServicesEnabled]){
+        NSLog(@"location services enabled");
+        CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+        [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+//        [self.locationManager setDelegate:self];
+//        [self.locationManager startUpdatingLocation];
+        NSLog(@"Started updating Location");
+    }
+}
+
+
+
 @end
