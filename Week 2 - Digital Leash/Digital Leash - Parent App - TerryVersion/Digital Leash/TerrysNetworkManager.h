@@ -11,12 +11,17 @@
 
 @class ViewController;
 
-@interface TerrysNetworkManager : NSObject
+@interface TerrysNetworkManager : NSObject <NSURLConnectionDelegate> {
+
+    NSMutableData *responseData;
+
+}
 
 @property ViewController *myVC;
 @property (strong, nonatomic) NSMutableURLRequest *myURLRequest;
 
+- (void) checkLocation;
 - (void) sendPOSTRequestCreateNewUser;
-
+- (void) sendUpdateRequest;
 
 @end

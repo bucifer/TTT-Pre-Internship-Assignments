@@ -14,24 +14,25 @@
 @class TerrysLocationManager;
 @class TerrysNetworkManager;
 
-@interface ViewController : UIViewController <CLLocationManagerDelegate, NSURLConnectionDelegate, UITextFieldDelegate> {
-    
-    NSMutableData *responseData;
-    
-}
+@interface ViewController : UIViewController <CLLocationManagerDelegate, NSURLConnectionDelegate, UITextFieldDelegate>
 
 //For Custom Objects
 @property (strong, nonatomic) TerrysLocationManager * terrysLocationManager;
-- (void) setLatLongFields;
 @property (strong, nonatomic) TerrysNetworkManager * terrysNetworkManager;
-- (void) afterPostRequestConfirmation;
 @property (strong, nonatomic) NSMutableURLRequest *myURLRequest;
 
 
 //For Input Username and Create New User
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextfield;
 @property (strong, nonatomic) NSString *tempStringHolder;
+//textfield that populates for YES or NO for Zone confirmation
+@property (strong, nonatomic) IBOutlet UITextField *zoneConfirmationField;
+//label that changes to notify confirmation when user clicks on "create new user" or "update existing user"
+@property (strong, nonatomic) IBOutlet UILabel *ConfirmLabel;
 
+@property (strong, nonatomic) IBOutlet UITextField *longitudeTextfield;
+@property (strong, nonatomic) IBOutlet UITextField *latitudeTextfield;
+@property (strong, nonatomic) IBOutlet UITextField *radiusTextfield;
 
 
 //Action buttons
@@ -40,16 +41,15 @@
 - (IBAction)checkLocationButton:(id)sender;
 
 
+//Custom Methods
+- (void) setLatLongFields;
+- (void) afterPostRequestConfirmation;
+- (void) showAlertWhenStringTooShortForUsername;
 
-//textfield that populates for YES or NO for Zone confirmation
-@property (strong, nonatomic) IBOutlet UITextField *zoneConfirmationField;
 
 
-//label that changes to notify confirmation when user clicks on "create new user" or "update existing user"
-@property (strong, nonatomic) IBOutlet UILabel *ConfirmLabel;
-@property (strong, nonatomic) IBOutlet UITextField *longitudeTextfield;
-@property (strong, nonatomic) IBOutlet UITextField *latitudeTextfield;
-@property (strong, nonatomic) IBOutlet UITextField *radiusTextfield;
+
+
 
 
 
