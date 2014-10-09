@@ -26,24 +26,8 @@
     [self initTerrysLocationManagerCustomObject];
     [self initTerrysNetworkManagerCustomObject];
     
-    
-    [self.myScrollView setScrollEnabled:YES];
-    [self.myScrollView setContentSize:(CGSizeMake(320, 800))];
-    [self registerForKeyboardNotifications];
-
-    
-    self.usernameTextfield.delegate = self;
-    
-    self.latitudeTextfield.delegate = self;
-    self.longitudeTextfield.delegate = self;
-    self.radiusTextfield.delegate = self;
-    self.zoneConfirmationField.delegate = self;
-    
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+    [self setUpScrollViewAndRegisterForKeyboardNotifications];
+    [self setTextFieldDelegatesAndAddTapOutClearKeyBoard];
 }
 
 
@@ -53,10 +37,39 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Custom Object Methods
+
+- (void) initTerrysLocationManagerCustomObject{
+    self.terrysLocationManager = [[TerrysLocationManager alloc]init];
+    self.terrysLocationManager.myVC = self;
+}
 
 
-- (void)registerForKeyboardNotifications
+- (void) initTerrysNetworkManagerCustomObject {
+    self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
+    self.terrysNetworkManager.myVC = self;
+}
+
+- (void) setTextFieldDelegatesAndAddTapOutClearKeyBoard {
+    self.usernameTextfield.delegate = self;
+    self.latitudeTextfield.delegate = self;
+    self.longitudeTextfield.delegate = self;
+    self.radiusTextfield.delegate = self;
+    self.zoneConfirmationField.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+
+- (void)setUpScrollViewAndRegisterForKeyboardNotifications
 {
+    [self.myScrollView setScrollEnabled:YES];
+    [self.myScrollView setContentSize:(CGSizeMake(320, 800))];
+    
+    //viewcontroller starts listening for the keyboard events (keyboard show and keyboard hide) through this notificationCenter command
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification object:nil];
@@ -86,15 +99,31 @@
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
     NSDictionary* info = [aNotification userInfo];
+    //we grab keyboard size
     CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    //*** Keyboard Padding Logic *** //
+    
+    //When we open up the keyboard,
+    //we create UIEdgeInsets, basically padding for the ScrollView. We set the padding as high as the keyboard
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+    //we apply the padding to the scrollview so that nothing gets hidden beneath the keyboard
     self.myScrollView.contentInset = contentInsets;
+    //this is to adjust the scroll functionality to the padding - without this, scroll doesn't detect the padding
     self.myScrollView.scrollIndicatorInsets = contentInsets;
     
+    //*** CHECK IF YOUR TEXTFIELD EVER GETS COVERED BY THE KEYBOARD LOGIC ***//
+    
+    //we draw an imaginary rectangle the size of the screen
     CGRect aRect = self.view.frame;
+    //we then subtract keyboard height from this rectangle
     aRect.size.height -= keyboardSize.height;
+    //now this rectangle symbolizes the area of the screen NOT UNDER THE KEYBOARD WHEN IT IS SHOWING
+    //So if this rectangle covers the textfield coordinates, then we are safe - no adjustment needs to be made
+    //BUT if this rectangle DOESN'T COVER the textfield, then we scroll to the active textfield's y coordinate
+    
     if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y - (keyboardSize.height));
+        CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y);
         [self.myScrollView setContentOffset:scrollPoint animated:YES];
     }
 }
@@ -107,24 +136,6 @@
     CGPoint scrollPoint = CGPointZero;
     [self.myScrollView setContentOffset:scrollPoint animated:YES];
 }
-
-
-
-
-
-#pragma mark Custom Object Methods
-
-- (void) initTerrysLocationManagerCustomObject{
-    self.terrysLocationManager = [[TerrysLocationManager alloc]init];
-    self.terrysLocationManager.myVC = self;
-}
-
-
-- (void) initTerrysNetworkManagerCustomObject {
-    self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
-    self.terrysNetworkManager.myVC = self;
-}
-
 
 
 
@@ -151,6 +162,7 @@
         [self showAlertWhenStringTooShortForUsername];
     }
 }
+
 
 
 
