@@ -25,8 +25,12 @@
     //initialize your new custom objects here
     [self initTerrysLocationManagerCustomObject];
     [self initTerrysNetworkManagerCustomObject];
-    [self registerForKeyboardNotifications];
     
+    
+    [self.myScrollView setScrollEnabled:YES];
+    [self.myScrollView setContentSize:(CGSizeMake(320, 800))];
+    [self registerForKeyboardNotifications];
+
     self.latitudeTextfield.delegate = self;
     self.longitudeTextfield.delegate = self;
     self.radiusTextfield.delegate = self;

@@ -15,12 +15,13 @@
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *myScrollView;
+
 //For Custom Objects
 @property (strong, nonatomic) TerrysLocationManager * terrysLocationManager;
 @property (strong, nonatomic) TerrysNetworkManager * terrysNetworkManager;
 @property (strong, nonatomic) NSMutableURLRequest *myURLRequest;
 
-@property (strong, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 //For Input Username and Create New User
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextfield;
