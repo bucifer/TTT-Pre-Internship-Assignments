@@ -119,6 +119,7 @@
     //we then subtract keyboard height from this rectangle
     aRect.size.height -= keyboardSize.height;
     //now this rectangle symbolizes the area of the screen NOT UNDER THE KEYBOARD WHEN IT IS SHOWING
+    
     //So if this rectangle covers the textfield coordinates, then we are safe - no adjustment needs to be made
     //BUT if this rectangle DOESN'T COVER the textfield, then we scroll to the active textfield's y coordinate
     
