@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    UITextField *activeField;
+}
+
 @end
 
 
@@ -23,16 +26,22 @@
     [self initTerrysLocationManagerCustomObject];
     [self initTerrysNetworkManagerCustomObject];
     [self registerForKeyboardNotifications];
-
     
+    self.latitudeTextfield.delegate = self;
+    self.longitudeTextfield.delegate = self;
+    self.radiusTextfield.delegate = self;
+    self.zoneConfirmationField.delegate = self;
 }
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-// Call this method somewhere in your view controller setup code.
+
+
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -40,24 +49,37 @@
                                                  name:UIKeyboardDidShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
+                                             selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification object:nil];
-    
 }
 
-// Called when the UIKeyboardDidShowNotification is sent.
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.latitudeTextfield resignFirstResponder];
+    [self.longitudeTextfield resignFirstResponder];
+    [self.radiusTextfield resignFirstResponder];
+    [self.zoneConfirmationField resignFirstResponder];
+    return YES;
+}
+
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
     NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
     self.myScrollView.contentInset = contentInsets;
     self.myScrollView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= keyboardSize.height;
+    if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y - (keyboardSize.height));
+        [self.myScrollView setContentOffset:scrollPoint animated:YES];
+    }
 }
 
-// Called when the UIKeyboardWillHideNotification is sent
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+- (void)keyboardWillHide:(NSNotification *)notification
 {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.myScrollView.contentInset = contentInsets;
