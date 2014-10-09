@@ -31,10 +31,14 @@
     [self.myScrollView setContentSize:(CGSizeMake(320, 800))];
     [self registerForKeyboardNotifications];
 
+    
+    self.usernameTextfield.delegate = self;
+    
     self.latitudeTextfield.delegate = self;
     self.longitudeTextfield.delegate = self;
     self.radiusTextfield.delegate = self;
     self.zoneConfirmationField.delegate = self;
+    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -63,6 +67,7 @@
 }
 
 -(void)dismissKeyboard {
+    [self.usernameTextfield resignFirstResponder];
     [self.latitudeTextfield resignFirstResponder];
     [self.longitudeTextfield resignFirstResponder];
     [self.radiusTextfield resignFirstResponder];
@@ -74,6 +79,7 @@
     [self.longitudeTextfield resignFirstResponder];
     [self.radiusTextfield resignFirstResponder];
     [self.zoneConfirmationField resignFirstResponder];
+    [self.usernameTextfield resignFirstResponder];
     return YES;
 }
 
@@ -98,6 +104,8 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.myScrollView.contentInset = contentInsets;
     self.myScrollView.scrollIndicatorInsets = contentInsets;
+    CGPoint scrollPoint = CGPointZero;
+    [self.myScrollView setContentOffset:scrollPoint animated:YES];
 }
 
 
