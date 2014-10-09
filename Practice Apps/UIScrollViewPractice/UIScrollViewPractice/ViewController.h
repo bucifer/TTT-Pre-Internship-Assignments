@@ -14,5 +14,9 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *myTextFieldGetsCoveredByKeyboard;
 
+@property (strong, nonatomic) IBOutlet UITextField *secondTextField;
+
+@property (strong, nonatomic) IBOutlet UITextField *thirdTextField;
+
 @end
 
