@@ -24,4 +24,7 @@
 - (void) sendPOSTRequestCreateNewUser;
 - (void) sendUpdateRequest;
 
+- (BOOL) everythingInDictionaryIsJSONConvertible: (NSDictionary *)myDict;
+- (BOOL) checkValueIsJSONConvertible:(id)value key:(id)key;
+
 @end

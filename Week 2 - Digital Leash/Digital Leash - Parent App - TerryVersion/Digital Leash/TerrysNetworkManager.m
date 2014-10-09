@@ -36,21 +36,13 @@
                                   @"controller":@"users"
     };
     
-    [self everythingInDictionaryIsValidJSON:userDetails];
-    
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDetails options:0 error:&error];
-    
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:[error localizedDescription]
-                              message:[error localizedRecoverySuggestion]
-                              delegate:nil
-                              cancelButtonTitle:NSLocalizedString(@"Dismiss", @"")
-                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else {
+    if ([self everythingInDictionaryIsJSONConvertible:userDetails]) {
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDetails options:0 error:&error];
+        if (!jsonData) {
+            // inspect error
+            NSLog(@"%@", [error localizedDescription]);
+        }
         NSString *myJSONString;
         myJSONString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         NSData *myJSONrequest = [myJSONString dataUsingEncoding:NSUTF8StringEncoding];
@@ -65,28 +57,57 @@
         
         [self.myVC afterPostRequestConfirmation];
     }
+    else {
+        NSLog(@"Error found while converting dict to JSON");
+    }
+    
 }
 
-- (BOOL) everythingInDictionaryIsValidJSON: (NSDictionary *)myDict {
+- (BOOL) everythingInDictionaryIsJSONConvertible: (NSDictionary*)myDict {
     for(id key in myDict) {
         id value = [myDict objectForKey:key];
-        NSLog(@"key: %@, value: %@", key, [value class]);
         if ([value isKindOfClass:[NSDictionary class]]) {
             for (id key in value) {
                 id value_nested = [value objectForKey:key];
-                NSLog(@"key: %@, value: %@", key, [value_nested class]);
+                if (![self checkValueIsJSONConvertible:value_nested key:key])
+                    return NO;
             }
+        }
+        //if the value is not a NSDictionary
+        else {
+            //then check that the value is JSON convertible
+            if (![self checkValueIsJSONConvertible:value key:key]) return NO;
         }
     }
     return YES;
 }
+
+- (BOOL) checkValueIsJSONConvertible:(id)value key:(id)key{
+    if ([value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSArray class]] || [value isKindOfClass:[NSString class]] || [value isKindOfClass:[NSNumber class]] || [value isKindOfClass:[NSNull class]]) {
+        //it's valid JSON-convertible type
+        NSLog(@"Valid: key: %@, value: %@", key, [value class]);
+        return YES;
+    }
+    else { //if it's invalid type
+        NSLog(@"Found invalid type --> key: %@, value: %@", key, [value class]);
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Invalid Object Type"
+                              message:[NSString stringWithFormat:@"Found invalid type - can't convert to JSON --> key: %@, value: %@", key, [value class]]
+                              delegate:nil
+                              cancelButtonTitle:NSLocalizedString(@"Dismiss", @"")
+                              otherButtonTitles:nil];
+        [alert show];
+        return NO;
+    }
+}
+
 
 - (void) sendUpdateRequest {
     //creating the request URL
     NSString *urlstring = [NSString stringWithFormat: @"http://protected-wildwood-8664.herokuapp.com/users/%@", self.myVC.usernameTextfield.text];
     NSURL *requestURL = [NSURL URLWithString:urlstring];
     NSDictionary *userDetails = @{@"user": @{
-                                          @"username": self.myVC.usernameTextfield.text,
+                                          @"username": self.myVC.usernameTextfield,
                                           @"latitude": self.myVC.latitudeTextfield.text,
                                           @"longitude": self.myVC.longitudeTextfield.text,
                                           @"radius": self.myVC.radiusTextfield.text},
@@ -94,24 +115,35 @@
                                   @"action":@"update",
                                   @"controller":@"users"
                                   };
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDetails options:0 error:&error];
     
-    NSString *myJSONString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSData *myJSONrequest = [myJSONString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    self.myURLRequest = [NSMutableURLRequest requestWithURL:requestURL];
-    self.myURLRequest.HTTPMethod = @"PATCH";
-    [self.myURLRequest setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    [self.myURLRequest setHTTPBody: myJSONrequest];
-    
-    //create url connection and fire the request you made above
-    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: self.myURLRequest delegate: self];
-    connect = nil;
-    
-    //Post-Request Confirmation
-    self.myVC.ConfirmLabel.text = [NSString stringWithFormat:@"You updated it, %@!",self.myVC.usernameTextfield.text];
-    self.myVC.tempStringHolder = self.myVC.usernameTextfield.text;
+    if ([self everythingInDictionaryIsJSONConvertible:userDetails]) {
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userDetails options:0 error:&error];
+        
+        if (!jsonData) {
+            // inspect error
+            NSLog(@"%@", [error localizedDescription]);
+        }
+        
+        NSString *myJSONString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSData *myJSONrequest = [myJSONString dataUsingEncoding:NSUTF8StringEncoding];
+        
+        self.myURLRequest = [NSMutableURLRequest requestWithURL:requestURL];
+        self.myURLRequest.HTTPMethod = @"PATCH";
+        [self.myURLRequest setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        [self.myURLRequest setHTTPBody: myJSONrequest];
+        
+        //create url connection and fire the request you made above
+        NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: self.myURLRequest delegate: self];
+        connect = nil;
+        
+        //Post-Request Confirmation
+        self.myVC.ConfirmLabel.text = [NSString stringWithFormat:@"You updated it, %@!",self.myVC.usernameTextfield.text];
+        self.myVC.tempStringHolder = self.myVC.usernameTextfield.text;
+    }
+    else {
+        NSLog(@"Error found while converting dict to JSON");
+    }
 }
 
 
