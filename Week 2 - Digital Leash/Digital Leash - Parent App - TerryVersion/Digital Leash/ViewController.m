@@ -35,6 +35,11 @@
     self.longitudeTextfield.delegate = self;
     self.radiusTextfield.delegate = self;
     self.zoneConfirmationField.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 }
 
 
@@ -57,7 +62,12 @@
                                                  name:UIKeyboardWillHideNotification object:nil];
 }
 
-
+-(void)dismissKeyboard {
+    [self.latitudeTextfield resignFirstResponder];
+    [self.longitudeTextfield resignFirstResponder];
+    [self.radiusTextfield resignFirstResponder];
+    [self.zoneConfirmationField resignFirstResponder];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.latitudeTextfield resignFirstResponder];
