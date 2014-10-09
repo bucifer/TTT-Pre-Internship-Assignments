@@ -87,11 +87,11 @@
 			children = (
 				48C6839918145834008E9945 /* DEMOAppDelegate.h */,
 				48C6839A18145834008E9945 /* DEMOAppDelegate.m */,
-				48C6839118145834008E9945 /* Supporting Files */,
 				48C683A71814589C008E9945 /* DEMOSimpleTableViewController.h */,
 				48C683A81814589C008E9945 /* DEMOSimpleTableViewController.m */,
 				AA486F8419C72D230038979B /* pika.gif */,
 				48C683AA18146833008E9945 /* Sunflower.gif */,
+				48C6839118145834008E9945 /* Supporting Files */,
 			);
 			path = SimpleTableView;
 			sourceTree = "<group>";
