@@ -49,6 +49,7 @@
 		AAA1050D19D205AD005BF5A2 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1050C19D205AD005BF5A2 /* DAO.m */; };
 		AAB5ED2019E86851006EDFF9 /* TerrysNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */; };
 		AAB5ED2319E86E45006EDFF9 /* TerrysReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED2219E86E45006EDFF9 /* TerrysReachabilityManager.m */; };
+		AAB5ED2619E88029006EDFF9 /* DAOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED2519E88029006EDFF9 /* DAOManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,8 @@
 		AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrysNetworkManager.m; sourceTree = "<group>"; };
 		AAB5ED2119E86E45006EDFF9 /* TerrysReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrysReachabilityManager.h; sourceTree = "<group>"; };
 		AAB5ED2219E86E45006EDFF9 /* TerrysReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrysReachabilityManager.m; sourceTree = "<group>"; };
+		AAB5ED2419E88029006EDFF9 /* DAOManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAOManager.h; sourceTree = "<group>"; };
+		AAB5ED2519E88029006EDFF9 /* DAOManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAOManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 				AAA104DC19D1DCB7005BF5A2 /* Reachability.m */,
 				AAA1050B19D205AD005BF5A2 /* DAO.h */,
 				AAA1050C19D205AD005BF5A2 /* DAO.m */,
+				AAB5ED2419E88029006EDFF9 /* DAOManager.h */,
+				AAB5ED2519E88029006EDFF9 /* DAOManager.m */,
 				AAB5ED1E19E86851006EDFF9 /* TerrysNetworkManager.h */,
 				AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */,
 				AAB5ED2119E86E45006EDFF9 /* TerrysReachabilityManager.h */,
@@ -386,6 +391,7 @@
 				AA996B4D19D31EE5004CB7DE /* ThirdViewController.m in Sources */,
 				AAA1049219D1D79B005BF5A2 /* main.m in Sources */,
 				AAA104EB19D1DCB7005BF5A2 /* Reachability.m in Sources */,
+				AAB5ED2619E88029006EDFF9 /* DAOManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
