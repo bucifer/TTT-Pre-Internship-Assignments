@@ -68,30 +68,19 @@
     }
     // Configure the cell...
     
-        NSPredicate *orderPredicate1 = [NSPredicate predicateWithFormat:@"order_id == 0"];
-        NSPredicate *orderPredicate2 = [NSPredicate predicateWithFormat:@"order_id == 1"];
-        NSPredicate *orderPredicate3 = [NSPredicate predicateWithFormat:@"order_id == 2"];
 
-        NSArray *resultsArray1 = [self.productsArrayForAppropriateCompany filteredArrayUsingPredicate:orderPredicate1];
-        NSArray *resultsArray2 = [self.productsArrayForAppropriateCompany filteredArrayUsingPredicate:orderPredicate2];
-        NSArray *resultsArray3 = [self.productsArrayForAppropriateCompany filteredArrayUsingPredicate:orderPredicate3];
-        
-        NSMutableArray *pullProductsFromThisArrayInThisOrder = [[NSMutableArray alloc]init];
-        
-        if (resultsArray1.count != 0) {
-            [pullProductsFromThisArrayInThisOrder addObject:resultsArray1[0]];
+    NSMutableArray *productsInRightOrder = [[NSMutableArray alloc]init];
+
+        for (int i=0; i < self.productsArrayForAppropriateCompany.count; i++) {
+            NSPredicate *orderPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"order_id == %d", i]];
+            NSArray *resultsArray = [self.productsArrayForAppropriateCompany filteredArrayUsingPredicate:orderPredicate];
+            if (resultsArray.count != 0) {
+                [productsInRightOrder addObject:resultsArray[0]];
+            }
         }
-        if (resultsArray2.count != 0) {
-            [pullProductsFromThisArrayInThisOrder addObject:resultsArray2[0]];
-        }
-        if (resultsArray3.count != 0) {
-            [pullProductsFromThisArrayInThisOrder addObject:resultsArray3[0]];
-        }
-        
-        Product *selectedProduct = [pullProductsFromThisArrayInThisOrder objectAtIndex:indexPath.row];
+        Product *selectedProduct = [productsInRightOrder objectAtIndex:indexPath.row];
         cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedProduct.name];
         [[cell imageView] setImage: [UIImage imageNamed: selectedProduct.image]];
-
         return cell;
 }
 
