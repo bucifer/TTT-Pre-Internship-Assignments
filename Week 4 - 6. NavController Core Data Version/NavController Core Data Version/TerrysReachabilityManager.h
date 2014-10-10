@@ -13,8 +13,11 @@
 @class ParentTableViewController;
 @class Reachability;
 
-@interface TerrysReachabilityManager : NSObject {
-    Reachability *internetReachableFoo;
-}
+@interface TerrysReachabilityManager : NSObject 
+
+@property ParentTableViewController *parentTableViewController;
+@property BOOL connectionLost;
+- (void)reachabilityDidChange:(NSNotification *)notification;
+
 
 @end

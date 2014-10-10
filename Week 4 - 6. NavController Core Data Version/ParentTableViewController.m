@@ -48,8 +48,10 @@
 
 
 - (void) initializeReachabilityObject {
-    // Add Observer for Reachability
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
+
+    self.terrysReachabilityManager = [[TerrysReachabilityManager alloc]init];
+    self.terrysReachabilityManager.parentTableViewController = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self.terrysReachabilityManager selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
 }
 
 
@@ -125,7 +127,7 @@
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", selectedCompany.name, selectedCompany.stockPrice];
         [[cell imageView] setImage: [UIImage imageNamed: selectedCompany.image]];
         
-        if (self.connectionLost != YES){
+        if (self.terrysReachabilityManager.connectionLost != YES){
             cell.textLabel.backgroundColor = [UIColor whiteColor];
         } else {
             cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ (stock price outdated due to loss of internet connection)", selectedCompany.name, selectedCompany.stockPrice];
@@ -142,27 +144,6 @@
     
     self.selectedCompany = [self.dao.companies objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"childViewSegue" sender:self];
-}
-
-
-
-#pragma mark Reachability methods
-
-- (void)reachabilityDidChange:(NSNotification *)notification {
-    Reachability *reachability = (Reachability *)[notification object];
-    
-    if ([reachability isReachable]) {
-        NSLog(@"Reachable");
-        self.connectionLost = NO;
-    } else if (![reachability isReachable]) {
-        NSLog(@"Unreachable");
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Network Connection Alert" message:@"Network Connection Off or Unreachable" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
-        [alert show];
-        
-        self.connectionLost = YES;
-        
-        [self.tableView reloadData];
-    }
 }
 
 

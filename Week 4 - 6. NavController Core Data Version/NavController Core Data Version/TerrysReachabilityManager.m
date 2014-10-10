@@ -10,4 +10,32 @@
 
 @implementation TerrysReachabilityManager
 
+
+
+
+
+#pragma mark Reachability methods
+
+- (void)reachabilityDidChange:(NSNotification *)notification {
+    Reachability *reachability = (Reachability *)[notification object];
+    
+    if ([reachability isReachable]) {
+        NSLog(@"Reachable");
+        self.connectionLost = NO;
+    } else if (![reachability isReachable]) {
+        NSLog(@"Unreachable");
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Network Connection Alert" message:@"Network Connection Off or Unreachable" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [alert show];
+        
+        self.connectionLost = YES;
+        
+        [self.parentTableViewController.tableView reloadData];
+    }
+}
+
+
 @end
+
+
+
+
