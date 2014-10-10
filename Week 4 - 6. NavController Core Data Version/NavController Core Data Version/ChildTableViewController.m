@@ -70,7 +70,6 @@
     
 
     //order logic
-    
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order_id"
                                                  ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
@@ -94,18 +93,16 @@
 
 
 
-//DELETE DELEGATE - everytime you delete something this state should get saved?
+//DELETE DELEGATE - everytime you delete something this state should get saved
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from Core Data first
+        // Delete the row from Core Data layer first
         Product *productToBeDeleted = [self.productsArrayForAppropriateCompany objectAtIndex:indexPath.row];
         [self.dao deleteProduct:productToBeDeleted];
-        
-        //Deleting from memory array second
+        //Deleting from presentation layer second
         [self.productsArrayForAppropriateCompany removeObjectAtIndex:indexPath.row];
-
-        //Deleting from table view third
+        //Deleting from current tableView third
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
