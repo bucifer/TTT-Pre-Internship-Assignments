@@ -20,15 +20,14 @@
 
     // Create window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor blueColor];
+    self.window.backgroundColor = [UIColor blackColor];
     
     // Set up content view
     self.myContentView = [[MyView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     
-    [self.window addSubview:self.myContentView];
+    self.myContentView.backgroundColor = [UIColor whiteColor];
     
-    MyViewController *myVC = [[MyViewController alloc]init];
-    self.window.rootViewController = myVC;
+    [self.window addSubview:self.myContentView];
     
     // Show window
     [self.window makeKeyAndVisible];

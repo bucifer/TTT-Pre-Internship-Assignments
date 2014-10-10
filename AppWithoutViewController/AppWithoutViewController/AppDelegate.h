@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MyView.h"
-#import "MyViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

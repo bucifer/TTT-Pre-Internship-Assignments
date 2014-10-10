@@ -13,7 +13,6 @@
 		AAC081A519E735D8007A30EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAC081A319E735D8007A30EB /* LaunchScreen.xib */; };
 		AAC081B119E735D8007A30EB /* AppWithoutViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC081B019E735D8007A30EB /* AppWithoutViewControllerTests.m */; };
 		AAC081EE19E739D6007A30EB /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC081ED19E739D6007A30EB /* MyView.m */; };
-		AAC081F119E73D41007A30EB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC081F019E73D41007A30EB /* MyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +38,6 @@
 		AAC081B019E735D8007A30EB /* AppWithoutViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppWithoutViewControllerTests.m; sourceTree = "<group>"; };
 		AAC081EC19E739D6007A30EB /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
 		AAC081ED19E739D6007A30EB /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
-		AAC081EF19E73D41007A30EB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
-		AAC081F019E73D41007A30EB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +83,6 @@
 				AAC081ED19E739D6007A30EB /* MyView.m */,
 				AAC0819819E735D8007A30EB /* AppDelegate.h */,
 				AAC0819919E735D8007A30EB /* AppDelegate.m */,
-				AAC081EF19E73D41007A30EB /* MyViewController.h */,
-				AAC081F019E73D41007A30EB /* MyViewController.m */,
 				AAC081A119E735D8007A30EB /* Images.xcassets */,
 				AAC081A319E735D8007A30EB /* LaunchScreen.xib */,
 				AAC0819419E735D8007A30EB /* Supporting Files */,
@@ -222,7 +217,6 @@
 			files = (
 				AAC0819A19E735D8007A30EB /* AppDelegate.m in Sources */,
 				AAC0819719E735D8007A30EB /* main.m in Sources */,
-				AAC081F119E73D41007A30EB /* MyViewController.m in Sources */,
 				AAC081EE19E739D6007A30EB /* MyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +402,7 @@
 				AAC081B619E735D8007A30EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAC081B719E735D8007A30EB /* Build configuration list for PBXNativeTarget "AppWithoutViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +411,7 @@
 				AAC081B919E735D8007A30EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
