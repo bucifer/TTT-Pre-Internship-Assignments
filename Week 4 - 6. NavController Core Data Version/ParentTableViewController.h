@@ -14,6 +14,7 @@
 
 @class TerrysNetworkManager;
 @class TerrysReachabilityManager;
+@class DAO;
 
 @interface ParentTableViewController :UITableViewController
 

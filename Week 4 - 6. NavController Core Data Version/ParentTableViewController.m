@@ -48,7 +48,6 @@
 
 
 - (void) initializeReachabilityObject {
-
     self.terrysReachabilityManager = [[TerrysReachabilityManager alloc]init];
     self.terrysReachabilityManager.parentTableViewController = self;
     [[NSNotificationCenter defaultCenter] addObserver:self.terrysReachabilityManager selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
@@ -138,15 +137,11 @@
 }
 
 
-//IMPORTANT - this is the DELEGATE happens when you press on the row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     self.selectedCompany = [self.dao.companies objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"childViewSegue" sender:self];
 }
-
-
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
