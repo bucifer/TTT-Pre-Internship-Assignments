@@ -41,7 +41,7 @@
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Network Connection Alert" message:@"Network connection is off so couldn't load the webpage" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
         [alert show];
     } else {
-        //[`
+        [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.selectedProduct.url] ] ];
     }
 }
 
