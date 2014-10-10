@@ -69,19 +69,17 @@
     // Configure the cell...
     
 
-    NSMutableArray *productsInRightOrder = [[NSMutableArray alloc]init];
-
-        for (int i=0; i < self.productsArrayForAppropriateCompany.count; i++) {
-            NSPredicate *orderPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"order_id == %d", i]];
-            NSArray *resultsArray = [self.productsArrayForAppropriateCompany filteredArrayUsingPredicate:orderPredicate];
-            if (resultsArray.count != 0) {
-                [productsInRightOrder addObject:resultsArray[0]];
-            }
-        }
-        Product *selectedProduct = [productsInRightOrder objectAtIndex:indexPath.row];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedProduct.name];
-        [[cell imageView] setImage: [UIImage imageNamed: selectedProduct.image]];
-        return cell;
+    //order logic
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"order_id"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [self.productsArrayForAppropriateCompany sortedArrayUsingDescriptors:sortDescriptors];
+    
+    Product *selectedProduct = [sortedArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedProduct.name];
+    [[cell imageView] setImage: [UIImage imageNamed: selectedProduct.image]];
+    return cell;
 }
 
 
