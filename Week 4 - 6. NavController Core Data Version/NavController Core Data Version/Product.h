@@ -18,6 +18,5 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * order_id;
-@property (nonatomic, retain) Company *company_relationship;
 
 @end

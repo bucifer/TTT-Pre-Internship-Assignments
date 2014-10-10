@@ -17,14 +17,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * stockPrice;
 @property (nonatomic, retain) NSString * stockSymbol;
-@property (nonatomic, retain) NSSet *product_relationship;
-@end
-
-@interface Company (CoreDataGeneratedAccessors)
-
-- (void)addProduct_relationshipObject:(Product *)value;
-- (void)removeProduct_relationshipObject:(Product *)value;
-- (void)addProduct_relationship:(NSSet *)values;
-- (void)removeProduct_relationship:(NSSet *)values;
 
 @end
+

@@ -16,6 +16,5 @@
 @dynamic name;
 @dynamic stockPrice;
 @dynamic stockSymbol;
-@dynamic product_relationship;
 
 @end

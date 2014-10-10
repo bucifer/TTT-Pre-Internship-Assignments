@@ -32,10 +32,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jSn-29-2RB"/>
-                    <connections>
-                        <outlet property="parentViewCell" destination="CAl-7O-U0L" id="2rU-3i-Qfs"/>
-                        <outlet property="whatthe" destination="CAl-7O-U0L" id="hZq-pU-x6e"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1E-7T-fox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -35,17 +35,7 @@
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)viewDidAppear {
 
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ThirdViewController *thirdVC = [segue destinationViewController];
-    if([segue.identifier isEqualToString:@"thirdViewSegue"]) {
-        
-        thirdVC.selectedProduct = self.selectedProduct;
-    }
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -54,13 +44,8 @@
 }
 
 
+
 #pragma mark - TableView Delegates
-
-//This method just puts a little title at left-top of the tableview, weird useless
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    return @"TEST";
-//}
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -99,14 +84,6 @@
     [self performSegueWithIdentifier:@"thirdViewSegue" sender:self];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 
 //DELETE DELEGATE - everytime you delete something this state should get saved?
@@ -126,32 +103,12 @@
 }
 
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ThirdViewController *thirdVC = [segue destinationViewController];
+    if([segue.identifier isEqualToString:@"thirdViewSegue"]) {
+        thirdVC.selectedProduct = self.selectedProduct;
+    }
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

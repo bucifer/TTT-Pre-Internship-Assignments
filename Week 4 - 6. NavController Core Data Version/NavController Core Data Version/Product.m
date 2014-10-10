@@ -17,6 +17,5 @@
 @dynamic name;
 @dynamic url;
 @dynamic order_id;
-@dynamic company_relationship;
 
 @end

@@ -9,7 +9,10 @@
 #import "ParentTableViewController.h"
 #import "Reachability.h"
 
-@interface ParentTableViewController ()
+@interface ParentTableViewController () {
+    
+    NSMutableData *receivedStockPriceData;
+}
 
 @end
 
@@ -33,64 +36,38 @@
     // Add Observer for Reachability
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
     
-    
-    
     self.title = @"Mobile device makers";
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if([userDefaults boolForKey:@"notFirstLaunch"] == false)
     {
-        //do stuff on first launch.
         NSLog(@"this is first time you are running the app");
         self.dao = [[DAO alloc] initFirstTime];
 
-        //after doing stuff on first launch, you set this key so that consequent times, this block never gets run
+        //after first launch, you set this NSDefaults key so that for consequent launches, this block never gets run
         [userDefaults setBool:YES forKey:@"notFirstLaunch"];
         [userDefaults synchronize];
         
     } else {
-        //if it's not the first time you are running the app, you fetch from Core Data and sent your stuff equal to it;
+        //if it's not the first time you are running the app, you fetch from Core Data and set your presentation layer;
+        NSLog(@"not the first time you are running the app");
+
         self.dao = [[DAO alloc]init];
         
         NSMutableArray *fetchedArray = [self.dao requestCDAndFetch:@"Company"];
         self.dao.companies = [[NSMutableArray alloc]init];
         
-        
-        //this logic ensures that the unordered NSSET gets ordered in the ParentTableViewController as soon as it gets loaded
-        for (int i=0; i < fetchedArray.count; i++) {
-            Company *selectedCompany = fetchedArray[i];
-            if ([selectedCompany.name isEqual: @"Apple"]) {
-                [self.dao.companies addObject:selectedCompany];
-                break;
-            }
-        }
-        for (int i=0; i < fetchedArray.count; i++) {
-            Company *selectedCompany = fetchedArray[i];
-            if ([selectedCompany.name isEqual: @"Samsung"]) {
-                [self.dao.companies addObject:selectedCompany];
-                break;
-            }
-        }
-        for (int i=0; i < fetchedArray.count; i++) {
-            Company *selectedCompany = fetchedArray[i];
-            if ([selectedCompany.name isEqual: @"HTC"]) {
-                [self.dao.companies addObject:selectedCompany];
-                break;
-            }
-        }
-        for (int i=0; i < fetchedArray.count; i++) {
-            Company *selectedCompany = fetchedArray[i];
-            if ([selectedCompany.name isEqual: @"Motorola"]) {
-                [self.dao.companies addObject:selectedCompany];
-                break;
-            }
-        }
-        
-        
-        
+        NSPredicate *applePredicate = [NSPredicate predicateWithFormat:@"name = 'Apple'"];
+        NSPredicate *samsungPredicate = [NSPredicate predicateWithFormat:@"name = 'Samsung'"];
+        NSPredicate *htcPredicate = [NSPredicate predicateWithFormat:@"name = 'HTC'"];
+        NSPredicate *motorolaPredicate = [NSPredicate predicateWithFormat:@"name = 'Motorola'"];
+
+        [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:applePredicate][0]];
+        [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:samsungPredicate][0]];
+        [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:htcPredicate][0]];
+        [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:motorolaPredicate][0]];
+
         self.dao.products = [self.dao requestCDAndFetch:@"Product"];
-        
-        NSLog(@"not the first time you are running the app");
     }
     
     [self.tableView reloadData];
@@ -117,26 +94,7 @@
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ChildTableViewController *childVC = [segue destinationViewController];
-    if([segue.identifier isEqualToString:@"childViewSegue"]) {
-        childVC.title = [self.selectedCompany valueForKey:@"name"];
-        childVC.selectedCompany = self.selectedCompany;
-        childVC.products = self.dao.products;
-        childVC.dao = self.dao;
-        
-        NSMutableArray* productsArrayForAppropriateCompany = [[NSMutableArray alloc]init];
-        
-        for (int i=0; i < childVC.products.count; i++) {
-            Product* selectedProduct = childVC.products[i];
-            if ([selectedProduct.company isEqualToString:childVC.selectedCompany.name]) {
-                [productsArrayForAppropriateCompany addObject:selectedProduct];
-            }
-        }
-        
-        childVC.productsArrayForAppropriateCompany = productsArrayForAppropriateCompany;
-    }
-}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -182,66 +140,15 @@
     return cell;
 }
 
+
 //IMPORTANT - this is the DELEGATE happens when you press on the row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     self.selectedCompany = [self.dao.companies objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"childViewSegue" sender:self];
-
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 
 #pragma mark Reachability methods
@@ -275,20 +182,25 @@
 //pragma marks make it easy to use Xcode jump bar to jump to different sections of your code, just a way of labeling your code so you can find it easier later
 
 - (void) connection:(NSURLConnection* )connection didReceiveResponse:(NSURLResponse *)response {
-    //this handler, gets hit ONCE
-    //response has been received, we initialize the instance var we created in h file
-    //then we append data to it in the didReceiveData method
-    //    responseData = [[NSMutableData alloc] init];
+
 }
 
 - (void)connection: (NSURLConnection *)connection didReceiveData:(NSData *) data {
-    //this handler, gets hit SEVERAL TIMES
-    //Append new data to the instance variable everytime new data comes in
     
+    [receivedStockPriceData appendData:data];
+
+}
+
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
+    //Return nil to indicate not necessary to store a cached response for this connection
+    return nil;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     if (!self.dao.companies.count == 0 )
         //company array null check - if it's null, then we don't make stupid requests which crash program
     {
-        NSString *stockData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSString *stockData = [[NSString alloc] initWithData:receivedStockPriceData encoding:NSUTF8StringEncoding];
         NSArray *stockPairs = [stockData componentsSeparatedByString:@"\n"];
         
         for (int i=0; i < stockPairs.count-1; i++) {
@@ -300,24 +212,7 @@
         
         [self.tableView reloadData];
     }
-}
 
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
-    //Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    //this handler, gets hit ONCE
-    // The request is complete and data has been received
-    // You can parse the stuff in your instance variable now or do whatever you want
-    
-    
-    
-    //    //if you just log out responseData here,
-    //    NSString *strData = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
-    //    NSLog(@"%@", strData);
-    
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -325,5 +220,26 @@
     // Check the error var
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ChildTableViewController *childVC = [segue destinationViewController];
+    if([segue.identifier isEqualToString:@"childViewSegue"]) {
+        childVC.title = [self.selectedCompany valueForKey:@"name"];
+        childVC.selectedCompany = self.selectedCompany;
+        childVC.products = self.dao.products;
+        childVC.dao = self.dao;
+        
+        NSMutableArray* productsArrayForAppropriateCompany = [[NSMutableArray alloc]init];
+        
+        for (int i=0; i < childVC.products.count; i++) {
+            Product* selectedProduct = childVC.products[i];
+            if ([selectedProduct.company isEqualToString:childVC.selectedCompany.name]) {
+                [productsArrayForAppropriateCompany addObject:selectedProduct];
+            }
+        }
+        
+        childVC.productsArrayForAppropriateCompany = productsArrayForAppropriateCompany;
+    }
+}
 
 @end
