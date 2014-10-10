@@ -11,10 +11,12 @@
 #import "ChildTableViewController.h"
 #import "TerrysNetworkManager.h"
 #import "TerrysReachabilityManager.h"
+#import "DAOManager.h"
 
 @class TerrysNetworkManager;
 @class TerrysReachabilityManager;
 @class DAO;
+@class DAOManager;
 
 @interface ParentTableViewController :UITableViewController
 
@@ -22,6 +24,6 @@
 @property (strong, nonatomic) DAO *dao;
 @property (strong, nonatomic) TerrysNetworkManager *terrysNetworkManager;
 @property (strong, nonatomic) TerrysReachabilityManager *terrysReachabilityManager;
-
+@property (strong, nonatomic) DAOManager *terrysDAOManager;
 
 @end

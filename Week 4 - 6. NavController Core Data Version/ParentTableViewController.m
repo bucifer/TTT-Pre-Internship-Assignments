@@ -29,7 +29,7 @@
     self.title = @"Mobile device makers";
     
     
-    [self startUpCoreDataLaunchLogic];
+    [self initializeDAOManager];
     [self initializeReachabilityObject];
 }
 
@@ -51,6 +51,12 @@
     self.terrysReachabilityManager = [[TerrysReachabilityManager alloc]init];
     self.terrysReachabilityManager.parentTableViewController = self;
     [[NSNotificationCenter defaultCenter] addObserver:self.terrysReachabilityManager selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
+}
+
+- (void) initializeDAOManager {
+    self.terrysDAOManager = [[DAOManager alloc]init];
+    self.terrysDAOManager.parentTableViewController = self;
+    [self.terrysDAOManager startUpCoreDataLaunchLogic];
 }
 
 

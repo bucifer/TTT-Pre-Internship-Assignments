@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ParentTableViewController.h"
+
+
+@class ParentTableViewController;
 
 @interface DAOManager : NSObject
+
+@property ParentTableViewController *parentTableViewController;
+
+
+
+- (void) startUpCoreDataLaunchLogic;
+- (void) fetchFromCoreDataAndSetYourPresentationLayerData;
 
 @end
