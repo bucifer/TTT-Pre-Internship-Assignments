@@ -7,17 +7,12 @@
 //
 
 #import "ParentTableViewController.h"
-#import "Reachability.h"
 
-@interface ParentTableViewController () {
-    
-    NSMutableData *receivedStockPriceData;
-}
-
+@interface ParentTableViewController ()
 @end
 
-@implementation ParentTableViewController
 
+@implementation ParentTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,26 +26,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Add Observer for Reachability
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
-    
     self.title = @"Mobile device makers";
 
     [self startUpCoreDataLaunchLogic];
+    [self initializeReachabilityObject];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     //viewWillAppear is 1) first time you see view or 2) when you leave the page and come back to it later
     [super viewWillAppear:animated];
-    [self initializeNetworkManagerObjectSetUp];
+    [self initializeNetworkManagerObjectForYahooFinanceAPI];
+}
+
+
+- (void) initializeNetworkManagerObjectForYahooFinanceAPI{
+    self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
+    self.terrysNetworkManager.parentTableVC = self;
     [self.terrysNetworkManager fireYahooRequest];
 }
 
 
-- (void) initializeNetworkManagerObjectSetUp {
-    self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
-    self.terrysNetworkManager.parentTableVC = self;
+- (void) initializeReachabilityObject {
+    // Add Observer for Reachability
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
 }
 
 
@@ -167,47 +166,6 @@
 }
 
 
-#pragma mark NSURLConnection Delegate Methods
-//pragma marks make it easy to use Xcode jump bar to jump to different sections of your code, just a way of labeling your code so you can find it easier later
-
-- (void) connection:(NSURLConnection* )connection didReceiveResponse:(NSURLResponse *)response {
-
-}
-
-- (void)connection: (NSURLConnection *)connection didReceiveData:(NSData *) data {
-    
-    [receivedStockPriceData appendData:data];
-
-}
-
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
-    //Return nil to indicate not necessary to store a cached response for this connection
-    return nil;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    if (!self.dao.companies.count == 0 )
-        //company array null check - if it's null, then we don't make stupid requests which crash program
-    {
-        NSString *stockData = [[NSString alloc] initWithData:receivedStockPriceData encoding:NSUTF8StringEncoding];
-        NSArray *stockPairs = [stockData componentsSeparatedByString:@"\n"];
-        
-        for (int i=0; i < stockPairs.count-1; i++) {
-            NSString *line = stockPairs[i];
-            NSArray *pair = [line componentsSeparatedByString:@","];
-            Company *selectedCompany = self.dao.companies[i];
-            [selectedCompany setValue: @([pair[1] floatValue]) forKey:@"stockPrice"];
-        }
-        
-        [self.tableView reloadData];
-    }
-
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // The request has failed for some reason!
-    // Check the error var
-}
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

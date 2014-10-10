@@ -11,17 +11,17 @@
 #import "Reachability.h"
 #import "ChildTableViewController.h"
 #import "TerrysNetworkManager.h"
+#import "TerrysReachabilityManager.h"
 
 @class Reachability;
 @class TerrysNetworkManager;
 
-@interface ParentTableViewController :UITableViewController {
-    Reachability *internetReachableFoo;
-}
+@interface ParentTableViewController :UITableViewController 
 
 @property Company *selectedCompany;
 @property (strong, nonatomic) DAO *dao;
 @property (strong, nonatomic) TerrysNetworkManager *terrysNetworkManager;
+@property (strong, nonatomic) TerrysReachabilityManager *terrysReachabilityManager;
 
 
 @property BOOL connectionLost;

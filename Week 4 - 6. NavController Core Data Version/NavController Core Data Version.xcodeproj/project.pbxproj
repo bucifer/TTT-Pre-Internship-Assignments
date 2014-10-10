@@ -48,6 +48,7 @@
 		AAA104F819D1DDD9005BF5A2 /* ParentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA104F719D1DDD9005BF5A2 /* ParentTableViewController.m */; };
 		AAA1050D19D205AD005BF5A2 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1050C19D205AD005BF5A2 /* DAO.m */; };
 		AAB5ED2019E86851006EDFF9 /* TerrysNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */; };
+		AAB5ED2319E86E45006EDFF9 /* TerrysReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED2219E86E45006EDFF9 /* TerrysReachabilityManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		AAA1050C19D205AD005BF5A2 /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
 		AAB5ED1E19E86851006EDFF9 /* TerrysNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrysNetworkManager.h; sourceTree = "<group>"; };
 		AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrysNetworkManager.m; sourceTree = "<group>"; };
+		AAB5ED2119E86E45006EDFF9 /* TerrysReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrysReachabilityManager.h; sourceTree = "<group>"; };
+		AAB5ED2219E86E45006EDFF9 /* TerrysReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrysReachabilityManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 				AAA1050C19D205AD005BF5A2 /* DAO.m */,
 				AAB5ED1E19E86851006EDFF9 /* TerrysNetworkManager.h */,
 				AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */,
+				AAB5ED2119E86E45006EDFF9 /* TerrysReachabilityManager.h */,
+				AAB5ED2219E86E45006EDFF9 /* TerrysReachabilityManager.m */,
 				AA996B4E19D32435004CB7DE /* Company.h */,
 				AA996B4F19D32435004CB7DE /* Company.m */,
 				AA996B4819D31BBE004CB7DE /* Product.h */,
@@ -376,6 +381,7 @@
 				AA996B4A19D31BBE004CB7DE /* Product.m in Sources */,
 				AAB5ED2019E86851006EDFF9 /* TerrysNetworkManager.m in Sources */,
 				AA6CA29B19D21EBD001C4EA9 /* ChildTableViewController.m in Sources */,
+				AAB5ED2319E86E45006EDFF9 /* TerrysReachabilityManager.m in Sources */,
 				AAA1050D19D205AD005BF5A2 /* DAO.m in Sources */,
 				AA996B4D19D31EE5004CB7DE /* ThirdViewController.m in Sources */,
 				AAA1049219D1D79B005BF5A2 /* main.m in Sources */,
