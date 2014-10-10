@@ -68,14 +68,35 @@
     }
     // Configure the cell...
     
-    if (self.productsArrayForAppropriateCompany.count != 0) {
-        Product *selectedProduct = [self.productsArrayForAppropriateCompany objectAtIndex:indexPath.row];
+        NSPredicate *orderPredicate1 = [NSPredicate predicateWithFormat:@"order_id == 0"];
+        NSPredicate *orderPredicate2 = [NSPredicate predicateWithFormat:@"order_id == 1"];
+        NSPredicate *orderPredicate3 = [NSPredicate predicateWithFormat:@"order_id == 2"];
+
+        NSArray *resultsArray1 = [self.productsArrayForAppropriateCompany filteredArrayUsingPredicate:orderPredicate1];
+        NSArray *resultsArray2 = [self.productsArrayForAppropriateCompany filteredArrayUsingPredicate:orderPredicate2];
+        NSArray *resultsArray3 = [self.productsArrayForAppropriateCompany filteredArrayUsingPredicate:orderPredicate3];
+        
+        NSMutableArray *pullProductsFromThisArrayInThisOrder = [[NSMutableArray alloc]init];
+        
+        if (resultsArray1.count != 0) {
+            [pullProductsFromThisArrayInThisOrder addObject:resultsArray1[0]];
+        }
+        if (resultsArray2.count != 0) {
+            [pullProductsFromThisArrayInThisOrder addObject:resultsArray2[0]];
+        }
+        if (resultsArray3.count != 0) {
+            [pullProductsFromThisArrayInThisOrder addObject:resultsArray3[0]];
+        }
+        
+        Product *selectedProduct = [pullProductsFromThisArrayInThisOrder objectAtIndex:indexPath.row];
         cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedProduct.name];
         [[cell imageView] setImage: [UIImage imageNamed: selectedProduct.image]];
-    }
 
-    return cell;
+        return cell;
 }
+
+
+
 
 //IMPORTANT - this is the DELEGATE happens when you SELECT/PRESS on the row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
