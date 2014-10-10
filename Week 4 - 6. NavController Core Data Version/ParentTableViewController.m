@@ -27,7 +27,8 @@
 {
     [super viewDidLoad];
     self.title = @"Mobile device makers";
-
+    
+    
     [self startUpCoreDataLaunchLogic];
     [self initializeReachabilityObject];
 }
@@ -35,7 +36,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     //viewWillAppear is 1) first time you see view or 2) when you leave the page and come back to it later
-    [super viewWillAppear:animated];
     [self initializeNetworkManagerObjectForYahooFinanceAPI];
 }
 
@@ -59,6 +59,7 @@
     if([userDefaults boolForKey:@"notFirstLaunch"] == false)
     {
         NSLog(@"this is first time you are running the app");
+        
         self.dao = [[DAO alloc] initFirstTime];
         //after first launch, you set this NSDefaults key so that for consequent launches, this block never gets run
         [userDefaults setBool:YES forKey:@"notFirstLaunch"];
@@ -71,6 +72,7 @@
         [self.tableView reloadData];
     }
 }
+
 
 - (void) fetchFromCoreDataAndSetYourPresentationLayerData {
     self.dao = [[DAO alloc]init];

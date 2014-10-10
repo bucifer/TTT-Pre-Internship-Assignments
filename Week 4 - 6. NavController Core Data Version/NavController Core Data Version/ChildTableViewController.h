@@ -11,6 +11,8 @@
 #import "Product.h"
 #import "DAO.h"
 
+@class DAO;
+
 @interface ChildTableViewController : UITableViewController <UITableViewDataSource>
 
 @property (nonatomic) Company *selectedCompany;
@@ -18,7 +20,6 @@
 
 @property (nonatomic) NSMutableArray *products;
 @property (nonatomic) NSMutableArray *productsArrayForAppropriateCompany;
-
 @property (nonatomic) DAO *dao;
 
 @end
