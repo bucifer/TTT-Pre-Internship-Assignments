@@ -47,6 +47,7 @@
 		AAA104F519D1DD39005BF5A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAA104F419D1DD39005BF5A2 /* Main.storyboard */; };
 		AAA104F819D1DDD9005BF5A2 /* ParentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA104F719D1DDD9005BF5A2 /* ParentTableViewController.m */; };
 		AAA1050D19D205AD005BF5A2 /* DAO.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1050C19D205AD005BF5A2 /* DAO.m */; };
+		AAB5ED2019E86851006EDFF9 /* TerrysNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		AAA104F719D1DDD9005BF5A2 /* ParentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParentTableViewController.m; path = ../ParentTableViewController.m; sourceTree = "<group>"; };
 		AAA1050B19D205AD005BF5A2 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		AAA1050C19D205AD005BF5A2 /* DAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAO.m; sourceTree = "<group>"; };
+		AAB5ED1E19E86851006EDFF9 /* TerrysNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrysNetworkManager.h; sourceTree = "<group>"; };
+		AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrysNetworkManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				AAA104F419D1DD39005BF5A2 /* Main.storyboard */,
+				AAA1049419D1D79B005BF5A2 /* AppDelegate.h */,
+				AAA1049519D1D79B005BF5A2 /* AppDelegate.m */,
 				AAA104F619D1DDD9005BF5A2 /* ParentTableViewController.h */,
 				AAA104F719D1DDD9005BF5A2 /* ParentTableViewController.m */,
 				AA6CA29919D21EBD001C4EA9 /* ChildTableViewController.h */,
@@ -186,13 +191,13 @@
 				AAA104DC19D1DCB7005BF5A2 /* Reachability.m */,
 				AAA1050B19D205AD005BF5A2 /* DAO.h */,
 				AAA1050C19D205AD005BF5A2 /* DAO.m */,
-				AAA1049419D1D79B005BF5A2 /* AppDelegate.h */,
-				AAA1049519D1D79B005BF5A2 /* AppDelegate.m */,
-				AAA1049719D1D79B005BF5A2 /* NavController_Core_Data_Version.xcdatamodeld */,
+				AAB5ED1E19E86851006EDFF9 /* TerrysNetworkManager.h */,
+				AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */,
 				AA996B4E19D32435004CB7DE /* Company.h */,
 				AA996B4F19D32435004CB7DE /* Company.m */,
 				AA996B4819D31BBE004CB7DE /* Product.h */,
 				AA996B4919D31BBE004CB7DE /* Product.m */,
+				AAA1049719D1D79B005BF5A2 /* NavController_Core_Data_Version.xcdatamodeld */,
 				AAA1049A19D1D79B005BF5A2 /* Images.xcassets */,
 				AAA1048C19D1D79B005BF5A2 /* Supporting Files */,
 			);
@@ -369,6 +374,7 @@
 				AAA1049919D1D79B005BF5A2 /* NavController_Core_Data_Version.xcdatamodeld in Sources */,
 				AAA104F819D1DDD9005BF5A2 /* ParentTableViewController.m in Sources */,
 				AA996B4A19D31BBE004CB7DE /* Product.m in Sources */,
+				AAB5ED2019E86851006EDFF9 /* TerrysNetworkManager.m in Sources */,
 				AA6CA29B19D21EBD001C4EA9 /* ChildTableViewController.m in Sources */,
 				AAA1050D19D205AD005BF5A2 /* DAO.m in Sources */,
 				AA996B4D19D31EE5004CB7DE /* ThirdViewController.m in Sources */,

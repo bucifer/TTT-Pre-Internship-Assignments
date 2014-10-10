@@ -31,19 +31,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     // Add Observer for Reachability
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
     
     self.title = @"Mobile device makers";
 
+    [self startUpCoreDataLaunchLogic];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    //viewWillAppear is 1) first time you see view or 2) when you leave the page and come back to it later
+    [super viewWillAppear:animated];
+    [self initializeNetworkManagerObjectSetUp];
+    [self.terrysNetworkManager fireYahooRequest];
+}
+
+
+- (void) initializeNetworkManagerObjectSetUp {
+    self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
+    self.terrysNetworkManager.parentTableVC = self;
+}
+
+
+- (void) startUpCoreDataLaunchLogic {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if([userDefaults boolForKey:@"notFirstLaunch"] == false)
     {
         NSLog(@"this is first time you are running the app");
         self.dao = [[DAO alloc] initFirstTime];
-
         //after first launch, you set this NSDefaults key so that for consequent launches, this block never gets run
         [userDefaults setBool:YES forKey:@"notFirstLaunch"];
         [userDefaults synchronize];
@@ -51,49 +67,29 @@
     } else {
         //if it's not the first time you are running the app, you fetch from Core Data and set your presentation layer;
         NSLog(@"not the first time you are running the app");
-
-        self.dao = [[DAO alloc]init];
-        
-        NSMutableArray *fetchedArray = [self.dao requestCDAndFetch:@"Company"];
-        self.dao.companies = [[NSMutableArray alloc]init];
-        
-        NSPredicate *applePredicate = [NSPredicate predicateWithFormat:@"name = 'Apple'"];
-        NSPredicate *samsungPredicate = [NSPredicate predicateWithFormat:@"name = 'Samsung'"];
-        NSPredicate *htcPredicate = [NSPredicate predicateWithFormat:@"name = 'HTC'"];
-        NSPredicate *motorolaPredicate = [NSPredicate predicateWithFormat:@"name = 'Motorola'"];
-
-        [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:applePredicate][0]];
-        [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:samsungPredicate][0]];
-        [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:htcPredicate][0]];
-        [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:motorolaPredicate][0]];
-
-        self.dao.products = [self.dao requestCDAndFetch:@"Product"];
+        [self fetchFromCoreDataAndSetYourPresentationLayerData];
+        [self.tableView reloadData];
     }
-    
-    [self.tableView reloadData];
-    
 }
 
-
-- (void)viewWillAppear:(BOOL)animated {
-    //viewWillAppear is 1) first time you see view or 2) when you leave the page and come back to it later
+- (void) fetchFromCoreDataAndSetYourPresentationLayerData {
+    self.dao = [[DAO alloc]init];
     
+    NSMutableArray *fetchedArray = [self.dao requestCDAndFetch:@"Company"];
+    self.dao.companies = [[NSMutableArray alloc]init];
     
-    //making URL Request;
-    NSURL *everything_url = [NSURL URLWithString:@"http://download.finance.yahoo.com/d/quotes.csv?s=%40%5EDJI,AAPL,SSNLF,htcxf,MSI&f=sl1&e=.csv"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:everything_url];
-    //specify that it is a GET request
-    request.HTTPMethod = @"GET";
+    NSPredicate *applePredicate = [NSPredicate predicateWithFormat:@"name = 'Apple'"];
+    NSPredicate *samsungPredicate = [NSPredicate predicateWithFormat:@"name = 'Samsung'"];
+    NSPredicate *htcPredicate = [NSPredicate predicateWithFormat:@"name = 'HTC'"];
+    NSPredicate *motorolaPredicate = [NSPredicate predicateWithFormat:@"name = 'Motorola'"];
     
-    //create url connection and fire the request you made before
-    NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: request delegate: self];
+    [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:applePredicate][0]];
+    [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:samsungPredicate][0]];
+    [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:htcPredicate][0]];
+    [self.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:motorolaPredicate][0]];
     
-    [super viewWillAppear:animated];
-    
-    [self.tableView reloadData];
-    
+    self.dao.products = [self.dao requestCDAndFetch:@"Product"];
 }
-
 
 
 - (void)didReceiveMemoryWarning
@@ -168,13 +164,6 @@
         
         [self.tableView reloadData];
     }
-}
-
-
-- (BOOL)connected {
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
-    return networkStatus != NotReachable;
 }
 
 

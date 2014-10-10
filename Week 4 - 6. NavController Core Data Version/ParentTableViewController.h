@@ -10,23 +10,21 @@
 #import "DAO.h"
 #import "Reachability.h"
 #import "ChildTableViewController.h"
+#import "TerrysNetworkManager.h"
 
-@class ChildTableViewController;
 @class Reachability;
+@class TerrysNetworkManager;
 
 @interface ParentTableViewController :UITableViewController {
     Reachability *internetReachableFoo;
 }
 
-@property (strong) DAO *dao;
-
-@property (strong, nonatomic) IBOutlet UITableViewCell *parentViewCell;
-
 @property Company *selectedCompany;
+@property (strong, nonatomic) DAO *dao;
+@property (strong, nonatomic) TerrysNetworkManager *terrysNetworkManager;
+
 
 @property BOOL connectionLost;
-
-- (BOOL)connected;
 - (void)reachabilityDidChange:(NSNotification *)notification;
 
  
