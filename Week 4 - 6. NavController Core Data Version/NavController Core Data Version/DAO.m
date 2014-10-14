@@ -123,14 +123,17 @@
 - (void) deleteProduct: (Product*) product {
     NSLog(@"deleteProduct method called from childviewcontroller");
     
-    //We delete from the DAO memory
+    NSString *tempName = product.name;
+    //We delete from the DAO presentation layer
     [self.products removeObject:product];
     
     //Then we delete from our Core Data
     [self.managedObjectContext deleteObject:product];
     
+    //Then we save
     [self saveChanges];
-    NSLog(@"Product %@ Delete successful", product.name);
+    //Just for logging
+    NSLog(@"Product %@ Deleted", tempName);
 }
 
 
@@ -141,7 +144,7 @@
     if(!successful){
         NSLog(@"Error saving: %@", [err localizedDescription]);
     } else {
-        NSLog(@"Data Saved");
+        NSLog(@"Data Saved without errors");
     }
 }
 
