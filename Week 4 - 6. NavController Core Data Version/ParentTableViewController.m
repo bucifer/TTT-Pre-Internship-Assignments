@@ -120,11 +120,15 @@
     if([segue.identifier isEqualToString:@"childViewSegue"]) {
         childVC.title = [self.selectedCompany valueForKey:@"name"];
         childVC.selectedCompany = self.selectedCompany;
+        
+        self.dao.childTableViewController = childVC;
         childVC.dao = self.dao;
         
         //try using predicate instead
         NSPredicate *selectedCompanyPredicate = [NSPredicate predicateWithFormat:@"company = %@", self.selectedCompany.name];
         childVC.productsArrayForAppropriateCompany = [[self.dao.products filteredArrayUsingPredicate:selectedCompanyPredicate]mutableCopy];
+        
+        
     }
 }
 

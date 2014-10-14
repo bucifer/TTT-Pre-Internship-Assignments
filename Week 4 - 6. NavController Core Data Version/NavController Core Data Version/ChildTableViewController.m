@@ -97,12 +97,12 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from Core Data layer first
         Product *productToBeDeleted = [self.productsArrayForAppropriateCompany objectAtIndex:indexPath.row];
         [self.dao deleteProduct:productToBeDeleted];
-        //Deleting from presentation layer second
-        [self.productsArrayForAppropriateCompany removeObjectAtIndex:indexPath.row];
-        //Deleting from current tableView third
+        
+        //gotta get rid of this line below
+//        [self.productsArrayForAppropriateCompany removeObjectAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }

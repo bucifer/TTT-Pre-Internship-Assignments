@@ -124,8 +124,9 @@
     NSLog(@"deleteProduct method called from childviewcontroller");
     
     NSString *tempName = product.name;
+    
     //We delete from the DAO presentation layer
-    [self.products removeObject:product];
+    [self.childTableViewController.productsArrayForAppropriateCompany removeObject:product];
     
     //Then we delete from our Core Data
     [self.managedObjectContext deleteObject:product];

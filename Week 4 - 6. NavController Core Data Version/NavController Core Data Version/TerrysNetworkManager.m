@@ -14,6 +14,9 @@
 
 
 - (void) fireYahooRequest {
+    
+    NSLog(@"Making Yahoo API request ...");
+    
     //making URL Request;
     NSURL *everything_url = [NSURL URLWithString:@"http://download.finance.yahoo.com/d/quotes.csv?s=%40%5EDJI,AAPL,SSNLF,htcxf,MSI&f=sl1&e=.csv"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:everything_url];
@@ -26,17 +29,21 @@
     [self.parentTableVC.tableView reloadData];
 }
 
+
 #pragma mark NSURLConnection Delegate Methods
-//pragma marks make it easy to use Xcode jump bar to jump to different sections of your code, just a way of labeling your code so you can find it easier later
+
 
 - (void) connection:(NSURLConnection* )connection didReceiveResponse:(NSURLResponse *)response {
-    
+    // A response has been received, this is where we initialize the instance var you created
+    // so that we can append data to it in the didReceiveData method
+    // Furthermore, this method is called each time there is a redirect so reinitializing it
+    // also serves to clear it
+    receivedStockPriceData = [[NSMutableData alloc] init];
 }
 
 - (void)connection: (NSURLConnection *)connection didReceiveData:(NSData *) data {
-    
+    // Append the new data to the instance variable you declared
     [receivedStockPriceData appendData:data];
-    
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse {
@@ -45,22 +52,15 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    if (!self.parentTableVC.dao.companies.count == 0 )
-        //company array null check - if it's null, then we don't make stupid requests which crash program
-    {
         NSString *stockData = [[NSString alloc] initWithData:receivedStockPriceData encoding:NSUTF8StringEncoding];
         NSArray *stockPairs = [stockData componentsSeparatedByString:@"\n"];
-        
         for (int i=0; i < stockPairs.count-1; i++) {
             NSString *line = stockPairs[i];
             NSArray *pair = [line componentsSeparatedByString:@","];
             Company *selectedCompany = self.parentTableVC.dao.companies[i];
             [selectedCompany setValue: @([pair[1] floatValue]) forKey:@"stockPrice"];
         }
-        
         [self.parentTableVC.tableView reloadData];
-    }
-    
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
