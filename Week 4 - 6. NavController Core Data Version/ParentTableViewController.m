@@ -116,25 +116,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     ChildTableViewController *childVC = [segue destinationViewController];
+    
     if([segue.identifier isEqualToString:@"childViewSegue"]) {
         childVC.title = [self.selectedCompany valueForKey:@"name"];
         childVC.selectedCompany = self.selectedCompany;
         childVC.dao = self.dao;
         
-        NSMutableArray* productsArrayForAppropriateCompany = [[NSMutableArray alloc]init];
-        
-        
         //try using predicate instead
-        for (int i=0; i < self.dao.products.count; i++) {
-            Product* selectedProduct = self.dao.products[i];
-            if ([selectedProduct.company isEqualToString:childVC.selectedCompany.name]) {
-                [productsArrayForAppropriateCompany addObject:selectedProduct];
-            }
-        }
-        
-        
-        
-        childVC.productsArrayForAppropriateCompany = productsArrayForAppropriateCompany;
+        NSPredicate *selectedCompanyPredicate = [NSPredicate predicateWithFormat:@"company = %@", self.selectedCompany.name];
+        childVC.productsArrayForAppropriateCompany = [[self.dao.products filteredArrayUsingPredicate:selectedCompanyPredicate]mutableCopy];
     }
 }
 
