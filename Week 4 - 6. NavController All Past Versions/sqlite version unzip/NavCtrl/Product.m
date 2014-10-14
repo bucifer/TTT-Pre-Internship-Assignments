@@ -21,25 +21,6 @@
     return self;
 }
 
-- (void)encodeWithCoder:(NSCoder *)coder;
-{
-    [coder encodeObject:self.name forKey:@"name"];
-    [coder encodeObject:self.image forKey:@"image"];
-    [coder encodeObject:self.url forKey:@"url"];
-}
-
-- (id)initWithCoder:(NSCoder *)coder;
-{
-    self = [[Product alloc] init];
-    if (self != nil)
-    {
-        self.name = [coder decodeObjectForKey:@"name"];
-        self.image = [coder decodeObjectForKey:@"image"];
-        self.url = [coder decodeObjectForKey:@"url"];
-    }
-    return self;
-}
-
 
 
 @end

@@ -22,28 +22,4 @@
     return self;
 }
 
-- (void)encodeWithCoder:(NSCoder *)coder;
-{
-    [coder encodeObject:self.name forKey:@"name"];
-    [coder encodeObject:self.image forKey:@"image"];
-    [coder encodeObject:self.stockSymbol forKey:@"stockSymbol"];
-    [coder encodeObject:self.stockPrice forKey:@"stockPrice"];
-    [coder encodeObject: self.products forKey:@"products"];
-}
-
-- (id)initWithCoder:(NSCoder *)coder;
-{
-    self = [[Company alloc] init];
-    if (self != nil)
-    {
-        self.name = [coder decodeObjectForKey:@"name"];
-        self.image = [coder decodeObjectForKey:@"image"];
-        self.stockSymbol = [coder decodeObjectForKey:@"stockSymbol"];
-        self.stockPrice = [coder decodeObjectForKey:@"stockPrice"];
-        self.products = [coder decodeObjectForKey:@"products"];
-
-    }
-    return self;
-}
-
 @end

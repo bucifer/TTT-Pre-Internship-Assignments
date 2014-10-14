@@ -82,6 +82,7 @@
         if (readFromDesktopSuccess) {
             BOOL copySuccess;
             copySuccess = [fileManager copyItemAtPath:desktopDBPath toPath:dbPathString error:&copyError];
+            NSLog(@"Copy success!");
             if (!copySuccess) NSAssert1(0, @"Failed with message '%@'.", [copyError localizedDescription]);
         }
         else {
@@ -90,7 +91,7 @@
     }
     else {
         //But if we do find something already existing, then we just open it
-        NSLog(@"We found an existing db file at your dbPathString so reading from database");
+        NSLog(@"We found an existing db file at your dbPathString so reading from internal device database");
         [self readCompanyFromDatabase];
         [self readProductsFromDatabase];
         }

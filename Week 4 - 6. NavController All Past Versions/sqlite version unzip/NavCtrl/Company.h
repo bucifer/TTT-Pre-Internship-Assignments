@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Company : NSObject <NSCoding>
+@interface Company : NSObject 
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSMutableArray *products;
@@ -16,9 +16,6 @@
 @property (nonatomic, strong) NSString *stockSymbol;
 @property (nonatomic, strong) NSNumber *stockPrice;
 
-
 - (id)initWithName:(NSString *)aName Image:(NSString*)imageName symbol:(NSString*)aSymbol;
-- (void)encodeWithCoder:(NSCoder *)coder;
-- (id)initWithCoder:(NSCoder *)coder;
 
 @end
