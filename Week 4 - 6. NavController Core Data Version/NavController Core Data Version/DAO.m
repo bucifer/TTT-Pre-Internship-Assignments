@@ -34,6 +34,21 @@
     return [fetchedProducts mutableCopy];
 }
 
+- (NSMutableArray *) requestCDAndFetchAndSort: (NSString *) entityName sortDescriptorByString:(NSString *)sortDescriptorString {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortDescriptorString ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+
+    NSError *error;
+    NSArray *fetchedProducts = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    return [fetchedProducts mutableCopy];
+}
+
 
 - (id)initFirstTime {
     NSManagedObjectContext *context = [self managedObjectContext];

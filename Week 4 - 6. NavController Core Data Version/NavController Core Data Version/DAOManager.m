@@ -52,7 +52,7 @@
     [self.parentTableViewController.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:htcPredicate][0]];
     [self.parentTableViewController.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:motorolaPredicate][0]];
     
-    self.parentTableViewController.dao.products = [self.parentTableViewController.dao requestCDAndFetch:@"Product"];
+    self.parentTableViewController.dao.products = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"Product" sortDescriptorByString:@"order_id"];
 }
 
 

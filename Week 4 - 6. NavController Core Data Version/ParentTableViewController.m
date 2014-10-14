@@ -40,12 +40,13 @@
 }
 
 
-- (void) initializeNetworkManagerObjectForYahooFinanceAPI{
-    self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
-    self.terrysNetworkManager.parentTableVC = self;
-    [self.terrysNetworkManager fireYahooRequest];
-}
 
+
+- (void) initializeDAOManager {
+    self.terrysDAOManager = [[DAOManager alloc]init];
+    self.terrysDAOManager.parentTableViewController = self;
+    [self.terrysDAOManager startUpCoreDataLaunchLogic];
+}
 
 - (void) initializeReachabilityObject {
     self.terrysReachabilityManager = [[TerrysReachabilityManager alloc]init];
@@ -53,10 +54,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self.terrysReachabilityManager selector:@selector(reachabilityDidChange:) name:kReachabilityChangedNotification object:nil];
 }
 
-- (void) initializeDAOManager {
-    self.terrysDAOManager = [[DAOManager alloc]init];
-    self.terrysDAOManager.parentTableViewController = self;
-    [self.terrysDAOManager startUpCoreDataLaunchLogic];
+- (void) initializeNetworkManagerObjectForYahooFinanceAPI{
+    self.terrysNetworkManager = [[TerrysNetworkManager alloc]init];
+    self.terrysNetworkManager.parentTableVC = self;
+    [self.terrysNetworkManager fireYahooRequest];
 }
 
 
@@ -118,17 +119,20 @@
     if([segue.identifier isEqualToString:@"childViewSegue"]) {
         childVC.title = [self.selectedCompany valueForKey:@"name"];
         childVC.selectedCompany = self.selectedCompany;
-        childVC.products = self.dao.products;
         childVC.dao = self.dao;
         
         NSMutableArray* productsArrayForAppropriateCompany = [[NSMutableArray alloc]init];
         
-        for (int i=0; i < childVC.products.count; i++) {
-            Product* selectedProduct = childVC.products[i];
+        
+        //try using predicate instead
+        for (int i=0; i < self.dao.products.count; i++) {
+            Product* selectedProduct = self.dao.products[i];
             if ([selectedProduct.company isEqualToString:childVC.selectedCompany.name]) {
                 [productsArrayForAppropriateCompany addObject:selectedProduct];
             }
         }
+        
+        
         
         childVC.productsArrayForAppropriateCompany = productsArrayForAppropriateCompany;
     }
