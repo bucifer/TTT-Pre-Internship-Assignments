@@ -18,8 +18,14 @@
 @interface DAOManager : NSObject
 
 @property ParentTableViewController *parentTableViewController;
+@property NSString* databaseChoice;
 
-- (void) startUpCoreDataLaunchLogic;
+- (void) startUpDataLaunchLogic;
 - (void) fetchFromCoreDataAndSetYourPresentationLayerData;
+
+
+//- (id) initWithAppDatabaseOption:(NSString*)databaseOption;
+
+
 
 @end

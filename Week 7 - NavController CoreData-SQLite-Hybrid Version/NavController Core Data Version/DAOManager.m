@@ -11,26 +11,42 @@
 @implementation DAOManager
 
 
-- (void) startUpCoreDataLaunchLogic {
+//- (id) initWithAppDatabaseOption:(NSString *)databaseOption{
+//    self = [super init];
+//    if (self) {
+//        // Any custom setup work goes here
+//        self.databaseChoice = databaseOption;
+//    }
+//    return self;
+//
+//}
+
+
+- (void) startUpDataLaunchLogic {
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if([userDefaults boolForKey:@"notFirstLaunch"] == false)
-    {
-        NSLog(@"this is first time you are running the app");
-        
-        self.parentTableViewController.dao = [[DAO alloc] initFirstTime];
-        //after first launch, you set this NSDefaults key so that for consequent launches, this block never gets run
-        [userDefaults setBool:YES forKey:@"notFirstLaunch"];
-        [userDefaults synchronize];
-        
-    } else {
-        //if it's not the first time you are running the app, you fetch from Core Data and set your presentation layer;
-        NSLog(@"not the first time you are running the app");
-        [self fetchFromCoreDataAndSetYourPresentationLayerData];
-        [self.parentTableViewController.tableView reloadData];
+    [self setDatabaseChoice:@"Core Data"];
+    
+    if ([self.databaseChoice  isEqual: @"Core Data"]) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        if([userDefaults boolForKey:@"notFirstLaunch"] == false)
+        {
+            NSLog(@"this is first time you are running the app - create CD Data");
+            
+            self.parentTableViewController.dao = [[DAO alloc] initFirstTime];
+            //after first launch, you set this NSDefaults key so that for consequent launches, this block never gets run
+            [userDefaults setBool:YES forKey:@"notFirstLaunch"];
+            [userDefaults synchronize];
+            
+        } else {
+            //if it's not the first time you are running the app, you fetch from Core Data and set your presentation layer;
+            NSLog(@"not the first time you are running the app - fetching CD data");
+            [self fetchFromCoreDataAndSetYourPresentationLayerData];
+            [self.parentTableViewController.tableView reloadData];
+        }
     }
     
 }
+
 
 
 

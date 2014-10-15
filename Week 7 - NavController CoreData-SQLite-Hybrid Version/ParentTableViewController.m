@@ -45,7 +45,8 @@
 - (void) initializeDAOManager {
     self.terrysDAOManager = [[DAOManager alloc]init];
     self.terrysDAOManager.parentTableViewController = self;
-    [self.terrysDAOManager startUpCoreDataLaunchLogic];
+    [self.terrysDAOManager startUpDataLaunchLogic];
+    
 }
 
 - (void) initializeReachabilityObject {
