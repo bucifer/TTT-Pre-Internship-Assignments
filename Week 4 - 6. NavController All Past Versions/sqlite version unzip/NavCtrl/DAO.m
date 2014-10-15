@@ -126,7 +126,7 @@
 
 - (void) readProductsFromDatabase {
     //put it in different statement
-    sqlite3_stmt *statement;
+    sqlite3_stmt *statement = NULL;
     if (sqlite3_open([dbPathString UTF8String], &navctrlDB)==SQLITE_OK) {
     NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM PRODUCT"];
     const char *query_sql = [querySQL UTF8String];
@@ -137,17 +137,21 @@
                 NSString *name = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
                 NSString *image = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
                 NSString *url = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 3)];
+                NSString* company = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 4)];
+                NSNumber *unique_id = [NSNumber numberWithInt:(int)sqlite3_column_int(statement, 0)];
+
                 Product *product = [[Product alloc]init];
                 product.name = name;
                 product.image = image;
                 product.url = url;
-                NSString* Products_Company = [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 4)];
+                product.company = company;
+                product.unique_id = unique_id;
+                
                 ////loop through every company in your companies array,
-                ////with every row in the Product table, and if it equals a certain company, then you put it in the companies.product array
+                ////if the selected product's company property equals a certain company, then you put it in the company.products array
                 for (int i=0; i < self.companies.count; i++) {
                     Company* selectedCompany = self.companies[i];
-                    if ([selectedCompany.name isEqualToString: Products_Company]) {
-                        NSLog(@"found a match at %@ with %@", selectedCompany.name, product.name);
+                    if ([selectedCompany.name isEqualToString: product.company]) {
                         [selectedCompany.products addObject: product];
                     }
                 }
@@ -164,10 +168,11 @@
 
 - (void) deleteProduct: (Product*) product {
     NSLog(@"deleteProduct method called");
+    NSString *tempNameHolder = product.name;
     [self.selectedCompany.products removeObject:product];
     //you send the delete SQL query
-    [self deleteData:[NSString stringWithFormat:@"DELETE FROM PRODUCT WHERE NAME IS '%s'", [product.name UTF8String]]];
-    NSLog(@"Product %@ Delete successful", product.name);
+    [self deleteData:[NSString stringWithFormat:@"DELETE FROM PRODUCT WHERE ID IS %@", product.unique_id]];
+    NSLog(@"Product %@ Delete successful", tempNameHolder);
 }
 
 -(void)deleteData:(NSString *)deleteQuery {
