@@ -53,10 +53,7 @@
     ProductCoreData *moto_360 = [self TBinitProduct:@"Moto 360" image:@"moto_360.png" url:@"http://www.androidcentral.com/moto-360" company:@"Motorola" moc:context orderID:@2 uniqueID:@12];
     
     self.products = [[NSMutableArray alloc] initWithObjects:
-                     ipad, ipodTouch, iphone, s4, note, tab, m8, remix, flyer, moto_x, moto_g, moto_360, nil];
-
-    [self saveChanges];
-    
+                     ipad, ipodTouch, iphone, s4, note, tab, m8, remix, flyer, moto_x, moto_g, moto_360, nil];    
     
     return self;
 }
