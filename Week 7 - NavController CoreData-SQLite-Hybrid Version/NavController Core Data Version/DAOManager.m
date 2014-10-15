@@ -68,14 +68,14 @@
     
     self.parentTableViewController.dao = [[DAO alloc]init];
     
-    NSMutableArray *fetchedArray = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"CompanyCoreData" sortDescriptorByString:@"order_id"];
+    NSMutableArray *fetchedArrayOfCompanies = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"CompanyCoreData" sortDescriptorByString:@"order_id"];
     
     
     //in this case, you won't be using fetchedArray directly (because you don't want to use Managed Objects. Instead, you will convert them into Presentation Layer objects)
     //translate everything to Presentation Layer Companies
     NSMutableArray *convertedCompanies = [[NSMutableArray alloc]init];
-    for (int i=0; i < fetchedArray.count; i++) {
-        CompanyCoreData *selectedCompanyCoreData = fetchedArray[i];
+    for (int i=0; i < fetchedArrayOfCompanies.count; i++) {
+        CompanyCoreData *selectedCompanyCoreData = fetchedArrayOfCompanies[i];
         CompanyPresentationLayer *companyPresentationLayer = [[CompanyPresentationLayer alloc]init];
         companyPresentationLayer.name = selectedCompanyCoreData.name;
         companyPresentationLayer.image = selectedCompanyCoreData.image;
@@ -86,7 +86,28 @@
     
     self.parentTableViewController.dao.companies = convertedCompanies;
     
-    self.parentTableViewController.dao.products = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"ProductCoreData" sortDescriptorByString:@"order_id"];
+    //Now, do the same thing for Products.
+    //Fetch the Core Data Products and make Presentation Layer products out of them
+    //Then stuff self.parentTableVC.dao.products array with those converted products
+    
+    
+    NSMutableArray *fetchedArrayOfProducts = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"ProductCoreData" sortDescriptorByString:@"order_id"];
+    
+    NSMutableArray *convertedProducts = [[NSMutableArray alloc]init];
+    for (int i=0; i < fetchedArrayOfProducts.count; i++) {
+        ProductCoreData *selectedProductCoreData = fetchedArrayOfProducts[i];
+        ProductPresentationLayer *productPresentationLayer = [[ProductPresentationLayer alloc]init];
+        productPresentationLayer.company = selectedProductCoreData.company;
+        productPresentationLayer.name = selectedProductCoreData.name;
+        productPresentationLayer.image = selectedProductCoreData.image;
+        productPresentationLayer.unique_id = selectedProductCoreData.unique_id;
+        productPresentationLayer.url = selectedProductCoreData.url;
+        [convertedProducts addObject:productPresentationLayer];
+    }
+    
+    self.parentTableViewController.dao.products = convertedProducts;
+    
+    
 }
 
 
