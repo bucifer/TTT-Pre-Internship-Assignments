@@ -123,7 +123,7 @@
     
     //It's tricky because we are passing the PresentationLayer Product to this method
     //we have to find the CoreData product from our DAO.products array that matches this presentationlayer product and then run managedObjectContext delete
-    //I decided to use a unique_id property to find the match
+    //I decided to use a unique_id property to find the match using Predicate
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"unique_id == %@", product.unique_id];
     NSArray *filteredArray = [self.products filteredArrayUsingPredicate:predicate];

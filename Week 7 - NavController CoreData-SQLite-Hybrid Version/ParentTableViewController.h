@@ -22,8 +22,9 @@
 
 @property CompanyPresentationLayer *selectedCompany;
 @property (strong, nonatomic) DAO *dao;
+@property (strong, nonatomic) DAOManager *terrysDAOManager;
+
 @property (strong, nonatomic) TerrysNetworkManager *terrysNetworkManager;
 @property (strong, nonatomic) TerrysReachabilityManager *terrysReachabilityManager;
-@property (strong, nonatomic) DAOManager *terrysDAOManager;
 
 @end
