@@ -91,10 +91,10 @@
     }
     else {
         //But if we do find something already existing, then we just open it
-        NSLog(@"We found an existing db file at your dbPathString so reading from internal device database");
+        NSLog(@"We found an existing db file at your dbPathString so reading from internal device data");
         [self readCompanyFromDatabase];
         [self readProductsFromDatabase];
-        }
+    }
 }
 
 - (void) readCompanyFromDatabase {

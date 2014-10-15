@@ -51,6 +51,7 @@
 		AAA6309719EEBA2F00BAFD97 /* ProductCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA6309619EEBA2F00BAFD97 /* ProductCoreData.m */; };
 		AAA6309A19EECF0C00BAFD97 /* CompanySQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA6309919EECF0C00BAFD97 /* CompanySQLite.m */; };
 		AAA6309D19EECF1B00BAFD97 /* ProductSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA6309C19EECF1B00BAFD97 /* ProductSQLite.m */; };
+		AAA6309F19EEDB2800BAFD97 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA6309E19EEDB2800BAFD97 /* libsqlite3.0.dylib */; };
 		AAB5ED2019E86851006EDFF9 /* TerrysNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */; };
 		AAB5ED2319E86E45006EDFF9 /* TerrysReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED2219E86E45006EDFF9 /* TerrysReachabilityManager.m */; };
 		AAB5ED2619E88029006EDFF9 /* DAOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5ED2519E88029006EDFF9 /* DAOManager.m */; };
@@ -125,6 +126,7 @@
 		AAA6309919EECF0C00BAFD97 /* CompanySQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanySQLite.m; sourceTree = "<group>"; };
 		AAA6309B19EECF1B00BAFD97 /* ProductSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductSQLite.h; sourceTree = "<group>"; };
 		AAA6309C19EECF1B00BAFD97 /* ProductSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSQLite.m; sourceTree = "<group>"; };
+		AAA6309E19EEDB2800BAFD97 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		AAB5ED1E19E86851006EDFF9 /* TerrysNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrysNetworkManager.h; sourceTree = "<group>"; };
 		AAB5ED1F19E86851006EDFF9 /* TerrysNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerrysNetworkManager.m; sourceTree = "<group>"; };
 		AAB5ED2119E86E45006EDFF9 /* TerrysReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrysReachabilityManager.h; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA6309F19EEDB2800BAFD97 /* libsqlite3.0.dylib in Frameworks */,
 				AA6CA27819D21355001C4EA9 /* SystemConfiguration.framework in Frameworks */,
 				AAA1048619D1D79B005BF5A2 /* CoreGraphics.framework in Frameworks */,
 				AAA1048A19D1D79B005BF5A2 /* CoreData.framework in Frameworks */,
@@ -183,6 +186,7 @@
 		AAA1048219D1D79B005BF5A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAA6309E19EEDB2800BAFD97 /* libsqlite3.0.dylib */,
 				AA6CA27719D21355001C4EA9 /* SystemConfiguration.framework */,
 				AAA1048319D1D79B005BF5A2 /* Foundation.framework */,
 				AAA1048519D1D79B005BF5A2 /* CoreGraphics.framework */,

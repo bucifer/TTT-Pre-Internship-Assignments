@@ -23,11 +23,11 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"Mobile device makers";
-    
     
     [self initializeDAOManager];
     [self initializeReachabilityObject];
