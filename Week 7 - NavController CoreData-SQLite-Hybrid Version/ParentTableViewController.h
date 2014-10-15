@@ -20,7 +20,7 @@
 
 @interface ParentTableViewController :UITableViewController
 
-@property Company *selectedCompany;
+@property CompanyPresentationLayer *selectedCompany;
 @property (strong, nonatomic) DAO *dao;
 @property (strong, nonatomic) TerrysNetworkManager *terrysNetworkManager;
 @property (strong, nonatomic) TerrysReachabilityManager *terrysReachabilityManager;

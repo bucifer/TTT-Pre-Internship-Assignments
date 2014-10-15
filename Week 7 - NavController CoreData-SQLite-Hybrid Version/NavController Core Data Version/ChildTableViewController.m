@@ -75,7 +75,7 @@
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSArray *sortedArray = [self.productsArrayForAppropriateCompany sortedArrayUsingDescriptors:sortDescriptors];
     
-    Product *selectedProduct = [sortedArray objectAtIndex:indexPath.row];
+    ProductPresentationLayer *selectedProduct = [sortedArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@", selectedProduct.name];
     [[cell imageView] setImage: [UIImage imageNamed: selectedProduct.image]];
     return cell;
@@ -97,11 +97,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Product *productToBeDeleted = [self.productsArrayForAppropriateCompany objectAtIndex:indexPath.row];
+        ProductPresentationLayer *productToBeDeleted = [self.productsArrayForAppropriateCompany objectAtIndex:indexPath.row];
+        
         [self.dao deleteProduct:productToBeDeleted];
         
-        //gotta get rid of this line below
-//        [self.productsArrayForAppropriateCompany removeObjectAtIndex:indexPath.row];
+
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }

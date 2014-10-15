@@ -92,7 +92,7 @@
     }
     
     // Configure the cell...
-        Company * selectedCompany = [self.dao.companies objectAtIndex:indexPath.row];
+        CompanyPresentationLayer * selectedCompany = [self.dao.companies objectAtIndex:indexPath.row];
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", selectedCompany.name, selectedCompany.stockPrice];
         [[cell imageView] setImage: [UIImage imageNamed: selectedCompany.image]];
         

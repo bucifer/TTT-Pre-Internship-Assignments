@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Product.h"
+#import "ProductPresentationLayer.h"
 #import "Reachability.h"
 
 @interface ThirdViewController : UIViewController
 
 
-@property (strong, nonatomic) Product* selectedProduct;
+@property (strong, nonatomic) ProductPresentationLayer* selectedProduct;
 
 @property (strong, nonatomic) IBOutlet UIWebView *myWebView;
 

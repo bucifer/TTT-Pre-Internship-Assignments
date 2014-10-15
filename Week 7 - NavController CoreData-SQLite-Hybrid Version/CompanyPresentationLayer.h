@@ -11,9 +11,13 @@
 @interface CompanyPresentationLayer : NSObject
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSMutableArray *products;
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSString *stockSymbol;
 @property (nonatomic, strong) NSNumber *stockPrice;
+@property (strong, nonatomic) NSNumber * order_id;
+
+
+@property (nonatomic, strong) NSMutableArray *products;
+
 
 @end

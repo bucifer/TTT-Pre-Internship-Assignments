@@ -57,7 +57,7 @@
         for (int i=0; i < stockPairs.count-1; i++) {
             NSString *line = stockPairs[i];
             NSArray *pair = [line componentsSeparatedByString:@","];
-            Company *selectedCompany = self.parentTableVC.dao.companies[i];
+            CompanyPresentationLayer *selectedCompany = self.parentTableVC.dao.companies[i];
             [selectedCompany setValue: @([pair[1] floatValue]) forKey:@"stockPrice"];
         }
         [self.parentTableVC.tableView reloadData];

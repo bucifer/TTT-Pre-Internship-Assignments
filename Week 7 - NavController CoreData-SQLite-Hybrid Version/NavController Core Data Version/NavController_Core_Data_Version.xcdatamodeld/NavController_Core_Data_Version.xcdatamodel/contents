@@ -3,6 +3,7 @@
     <entity name="CompanyCoreData" representedClassName="CompanyCoreData" syncable="YES">
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stockPrice" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="stockSymbol" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -11,10 +12,11 @@
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="unique_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CompanyCoreData" positionX="0" positionY="0" width="128" height="103"/>
-        <element name="ProductCoreData" positionX="0" positionY="0" width="128" height="118"/>
+        <element name="CompanyCoreData" positionX="0" positionY="0" width="128" height="118"/>
+        <element name="ProductCoreData" positionX="0" positionY="0" width="128" height="133"/>
     </elements>
 </model>

@@ -38,20 +38,25 @@
     
     self.parentTableViewController.dao = [[DAO alloc]init];
     
-    NSMutableArray *fetchedArray = [self.parentTableViewController.dao requestCDAndFetch:@"Company"];
-    self.parentTableViewController.dao.companies = [[NSMutableArray alloc]init];
+    NSMutableArray *fetchedArray = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"CompanyCoreData" sortDescriptorByString:@"order_id"];
     
-    NSPredicate *applePredicate = [NSPredicate predicateWithFormat:@"name = 'Apple'"];
-    NSPredicate *samsungPredicate = [NSPredicate predicateWithFormat:@"name = 'Samsung'"];
-    NSPredicate *htcPredicate = [NSPredicate predicateWithFormat:@"name = 'HTC'"];
-    NSPredicate *motorolaPredicate = [NSPredicate predicateWithFormat:@"name = 'Motorola'"];
     
-    [self.parentTableViewController.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:applePredicate][0]];
-    [self.parentTableViewController.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:samsungPredicate][0]];
-    [self.parentTableViewController.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:htcPredicate][0]];
-    [self.parentTableViewController.dao.companies addObject:[fetchedArray filteredArrayUsingPredicate:motorolaPredicate][0]];
+    //in this case, you won't be using fetchedArray directly (because you don't want to use Managed Objects. Instead, you will convert them into Presentation Layer objects)
+    //translate everything to Presentation Layer Companies
+    NSMutableArray *convertedCompanies = [[NSMutableArray alloc]init];
+    for (int i=0; i < fetchedArray.count; i++) {
+        CompanyCoreData *selectedCompanyCoreData = fetchedArray[i];
+        CompanyPresentationLayer *companyPresentationLayer = [[CompanyPresentationLayer alloc]init];
+        companyPresentationLayer.name = selectedCompanyCoreData.name;
+        companyPresentationLayer.image = selectedCompanyCoreData.image;
+        companyPresentationLayer.stockPrice = selectedCompanyCoreData.stockPrice;
+        companyPresentationLayer.stockSymbol = selectedCompanyCoreData.stockSymbol;
+        [convertedCompanies addObject:companyPresentationLayer];
+    }
     
-    self.parentTableViewController.dao.products = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"Product" sortDescriptorByString:@"order_id"];
+    self.parentTableViewController.dao.companies = convertedCompanies;
+    
+    self.parentTableViewController.dao.products = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"ProductCoreData" sortDescriptorByString:@"order_id"];
 }
 
 

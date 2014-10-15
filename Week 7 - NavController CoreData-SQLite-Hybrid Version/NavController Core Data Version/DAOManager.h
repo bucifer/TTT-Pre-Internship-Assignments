@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "DAO.h"
+#import "CompanyCoreData.h"
+#import "CompanyPresentationLayer.h"
 #import "ParentTableViewController.h"
 
 
@@ -15,9 +17,9 @@
 
 @interface DAOManager : NSObject
 
-    @property ParentTableViewController *parentTableViewController;
+@property ParentTableViewController *parentTableViewController;
 
-    - (void) startUpCoreDataLaunchLogic;
-    - (void) fetchFromCoreDataAndSetYourPresentationLayerData;
+- (void) startUpCoreDataLaunchLogic;
+- (void) fetchFromCoreDataAndSetYourPresentationLayerData;
 
 @end

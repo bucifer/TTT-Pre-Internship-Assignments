@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Company.h"
-#import "Product.h"
+#import "CompanyPresentationLayer.h"
+#import "ProductPresentationLayer.h"
 #import "DAO.h"
 
 @class DAO;
 
 @interface ChildTableViewController : UITableViewController <UITableViewDataSource>
 
-@property (nonatomic) Company *selectedCompany;
-@property (nonatomic) Product *selectedProduct;
+@property (nonatomic) CompanyPresentationLayer *selectedCompany;
+@property (nonatomic) ProductPresentationLayer *selectedProduct;
 @property (nonatomic) NSMutableArray *productsArrayForAppropriateCompany;
 @property (nonatomic) DAO *dao;
 
