@@ -101,8 +101,6 @@
         
         [self.dao deleteProduct:productToBeDeleted];
         
-
-        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }

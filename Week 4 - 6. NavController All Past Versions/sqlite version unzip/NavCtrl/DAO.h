@@ -22,8 +22,8 @@
 
 - (id)init;
 - (void) copyOrOpenDB;
-- (void)deleteProduct: (Product *) product;
--(void)deleteData:(NSString *)deleteQuery;
+- (void) deleteProduct: (Product *) product;
+- (void) deleteData:(NSString *)deleteQuery;
 - (void) readCompanyFromDatabase;
 - (void) readProductsFromDatabase;
 

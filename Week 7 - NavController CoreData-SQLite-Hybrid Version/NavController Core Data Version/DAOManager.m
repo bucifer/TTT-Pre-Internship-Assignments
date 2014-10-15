@@ -11,17 +11,6 @@
 @implementation DAOManager
 
 
-//- (id) initWithAppDatabaseOption:(NSString *)databaseOption{
-//    self = [super init];
-//    if (self) {
-//        // Any custom setup work goes here
-//        self.databaseChoice = databaseOption;
-//    }
-//    return self;
-//
-//}
-
-
 - (void) startUpDataLaunchLogic {
     
     [self setDatabaseChoice:@"Core Data"]; //set to Core Data or SQLite Here
@@ -31,8 +20,9 @@
         if([userDefaults boolForKey:@"notFirstLaunch"] == false)
         {
             NSLog(@"this is first time you are running the app - create CD Data");
-            
             self.parentTableViewController.dao = [[DAO alloc] initFirstTime];
+            self.parentTableViewController.dao.daoManager = self;
+
             //after first launch, you set this NSDefaults key so that for consequent launches, this block never gets run
             [userDefaults setBool:YES forKey:@"notFirstLaunch"];
             [userDefaults synchronize];
@@ -41,75 +31,75 @@
         else {
             //if it's not the first time you are running the app, you fetch from Core Data and set your presentation layer;
             NSLog(@"not the first time you are running the app - fetching CD data");
+            self.parentTableViewController.dao = [[DAO alloc]init];
+            self.parentTableViewController.dao.daoManager = self;
             [self fetchFromCoreDataAndSetYourPresentationLayerData];
             [self.parentTableViewController.tableView reloadData];
         }
     }
     
     if ([self.databaseChoice isEqual: @"SQLite"]) {
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        if([userDefaults boolForKey:@"notFirstLaunch"] == false)
-        {
-            [self copyOrOpenSQLiteDB];
-            
-        }
-        else {
-
-        }
+        self.parentTableViewController.dao = [[DAO alloc]init];
+        self.parentTableViewController.dao.daoManager = self;
+        [self copyOrOpenSQLiteDB];
     }
-    
     
 }
 
 
 
 
+
+
+
+#pragma mark Core Data
+
 - (void) fetchFromCoreDataAndSetYourPresentationLayerData {
     
-    self.parentTableViewController.dao = [[DAO alloc]init];
-    
-    NSMutableArray *fetchedArrayOfCompanies = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"CompanyCoreData" sortDescriptorByString:@"order_id"];
-    
+    NSMutableArray *fetchedArrayOfCompanies =
+    [self requestCDAndFetchAndSort:@"CompanyCoreData" sortDescriptorByString:@"order_id"];
     
     //in this case, you won't be using fetchedArray directly (because you don't want to use Managed Objects. Instead, you will convert them into Presentation Layer objects)
     //translate everything to Presentation Layer Companies
-    NSMutableArray *convertedCompanies = [[NSMutableArray alloc]init];
-    for (int i=0; i < fetchedArrayOfCompanies.count; i++) {
-        CompanyCoreData *selectedCompanyCoreData = fetchedArrayOfCompanies[i];
-        CompanyPresentationLayer *companyPresentationLayer = [[CompanyPresentationLayer alloc]init];
-        companyPresentationLayer.name = selectedCompanyCoreData.name;
-        companyPresentationLayer.image = selectedCompanyCoreData.image;
-        companyPresentationLayer.stockPrice = selectedCompanyCoreData.stockPrice;
-        companyPresentationLayer.stockSymbol = selectedCompanyCoreData.stockSymbol;
-        [convertedCompanies addObject:companyPresentationLayer];
-    }
     
-    self.parentTableViewController.dao.companies = convertedCompanies;
+    self.parentTableViewController.dao.companies = [self convertCoreDataCompaniesInArrayToPresentationLayerCompanies:fetchedArrayOfCompanies];
     
     //Now, do the same thing for Products.
     //Fetch the Core Data Products and make Presentation Layer products out of them
     //Then stuff self.parentTableVC.dao.products array with those converted products
     
     
-    NSMutableArray *fetchedArrayOfProducts = [self.parentTableViewController.dao requestCDAndFetchAndSort:@"ProductCoreData" sortDescriptorByString:@"order_id"];
+    NSMutableArray *fetchedArrayOfProducts = [self requestCDAndFetchAndSort:@"ProductCoreData" sortDescriptorByString:@"order_id"];
     
-    NSMutableArray *convertedProducts = [[NSMutableArray alloc]init];
-    for (int i=0; i < fetchedArrayOfProducts.count; i++) {
-        ProductCoreData *selectedProductCoreData = fetchedArrayOfProducts[i];
-        ProductPresentationLayer *productPresentationLayer = [[ProductPresentationLayer alloc]init];
-        productPresentationLayer.company = selectedProductCoreData.company;
-        productPresentationLayer.name = selectedProductCoreData.name;
-        productPresentationLayer.image = selectedProductCoreData.image;
-        productPresentationLayer.unique_id = selectedProductCoreData.unique_id;
-        productPresentationLayer.url = selectedProductCoreData.url;
-        [convertedProducts addObject:productPresentationLayer];
-    }
-    
-    self.parentTableViewController.dao.products = convertedProducts;
-    
-    
+    self.parentTableViewController.dao.products = [self convertCoreDataProductsInArrayToPresentationLayerProducts:fetchedArrayOfProducts];
 }
 
+
+- (NSMutableArray *) requestCDAndFetchAndSort: (NSString *) entityName sortDescriptorByString:(NSString *)sortDescriptorString {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:entityName inManagedObjectContext:[self.parentTableViewController.dao managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortDescriptorString ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error;
+    NSArray *fetchedResult = [[self.parentTableViewController.dao managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    return [fetchedResult mutableCopy];
+}
+
+
+
+
+
+
+
+
+
+
+#pragma mark SQLite
 
 -(void)copyOrOpenSQLiteDB
 {
@@ -143,8 +133,35 @@
     }
 }
 
-- (void) readCompanyFromDatabase {
+-(void)deleteData:(NSString *)deleteQuery {
     sqlite3_stmt *statement ;
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = [path objectAtIndex:0];
+    dbPathString = [docPath stringByAppendingPathComponent:@"terry.sqlite3"];
+    const char *dbPath = [dbPathString UTF8String];
+    if (sqlite3_open(dbPath, &navctrlDB==SQLITE_OK)) {
+        if (sqlite3_prepare_v2(navctrlDB, [deleteQuery UTF8String], -1, &statement, NULL)==SQLITE_OK) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:@"Product Deleted" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+            [alert show];
+            if (sqlite3_step(statement) == SQLITE_DONE) {
+                //                    NSLog(@"Sqlite3 step done");
+            }
+        }
+        else {
+            NSLog(@"Database Error Message : %s", sqlite3_errmsg(navctrlDB));
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(navctrlDB);
+    }
+}
+
+- (void) readCompanyFromDatabase {
+    
+    //we read from SQLite AND convert them into Presentation Layer Companies and stuff them into the dao.companies array
+    
+    NSMutableArray *fetchedArray = [[NSMutableArray alloc] init];
+    
+    sqlite3_stmt *statement = NULL;
     if (sqlite3_open([dbPathString UTF8String], &navctrlDB)==SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM COMPANY"];
         const char *query_sql = [querySQL UTF8String];
@@ -160,17 +177,22 @@
                 company.image = image;
                 company.stockSymbol = stockSymbol;
                 company.products = [[NSMutableArray alloc] init];
-                [self.parentTableViewController.dao.companies addObject:company];
+                [fetchedArray addObject:company];
             }
         }
     }
     sqlite3_finalize(statement);
     sqlite3_close(navctrlDB);
-    NSLog(@"We read from the Company Table");
+    NSLog(@"We read from the Company Table SQLite");
+    
+    self.parentTableViewController.dao.companies =     [self convertSQLiteCompaniesInArrayToPresentationLayerCompanies:fetchedArray];
 }
 
+
 - (void) readProductsFromDatabase {
-    //put it in different statement
+
+    NSMutableArray *fetchedArray = [[NSMutableArray alloc] init];
+    
     sqlite3_stmt *statement = NULL;
     if (sqlite3_open([dbPathString UTF8String], &navctrlDB)==SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM PRODUCT"];
@@ -192,15 +214,99 @@
                 product.company = company;
                 product.unique_id = unique_id;
                 
-                ////loop through every company in your companies array,
-                ////if the selected product's company property equals a certain company, then you put it in the company.products array
+                [fetchedArray addObject:company];
             }
         }
     }
     sqlite3_finalize(statement);
     sqlite3_close(navctrlDB);
     NSLog(@"We read from the Product Table");
+    
+    //Then we convert to presentation Layer
+    
+    self.parentTableViewController.dao.products =  [self convertSQLiteProductsInArrayToPresentationLayerProducts:fetchedArray];
 }
+
+
+
+
+
+
+#pragma mark convert-methods from SQLite/Core to Presentation
+
+- (NSMutableArray *) convertSQLiteCompaniesInArrayToPresentationLayerCompanies: (NSMutableArray *)unconvertedArray{
+    
+    NSMutableArray *convertedResultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < unconvertedArray.count; i++) {
+        CompanySQLite *selectedCompany = unconvertedArray[i];
+        CompanyPresentationLayer *companyPresentationLayer = [[CompanyPresentationLayer alloc]init];
+        companyPresentationLayer.name = selectedCompany.name;
+        companyPresentationLayer.image = selectedCompany.image;
+        companyPresentationLayer.stockSymbol = selectedCompany.stockSymbol;
+        [convertedResultArray addObject:companyPresentationLayer];
+    }
+    
+    return convertedResultArray;
+}
+
+
+- (NSMutableArray *) convertSQLiteProductsInArrayToPresentationLayerProducts: (NSMutableArray *)unconvertedArray{
+    
+    NSMutableArray *convertedResultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < unconvertedArray.count; i++) {
+        ProductSQLite *selectedProduct = unconvertedArray[i];
+        ProductPresentationLayer *productPresentationLayer = [[ProductPresentationLayer alloc]init];
+        productPresentationLayer.company = selectedProduct.company;
+        productPresentationLayer.name = selectedProduct.name;
+        productPresentationLayer.image = selectedProduct.image;
+        productPresentationLayer.unique_id = selectedProduct.unique_id;
+        productPresentationLayer.url = selectedProduct.url;
+        [convertedResultArray addObject:productPresentationLayer];
+    }
+    
+    return convertedResultArray;
+}
+
+
+
+
+- (NSMutableArray *) convertCoreDataCompaniesInArrayToPresentationLayerCompanies: (NSMutableArray *)unconvertedArray{
+    
+    NSMutableArray *convertedResultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < unconvertedArray.count; i++) {
+        CompanyCoreData *selectedCompany = unconvertedArray[i];
+        CompanyPresentationLayer *companyPresentationLayer = [[CompanyPresentationLayer alloc]init];
+        companyPresentationLayer.name = selectedCompany.name;
+        companyPresentationLayer.image = selectedCompany.image;
+        companyPresentationLayer.stockSymbol = selectedCompany.stockSymbol;
+        [convertedResultArray addObject:companyPresentationLayer];
+    }
+    
+    return convertedResultArray;
+}
+
+- (NSMutableArray *) convertCoreDataProductsInArrayToPresentationLayerProducts: (NSMutableArray *)unconvertedArray{
+    
+    NSMutableArray *convertedResultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < unconvertedArray.count; i++) {
+        ProductCoreData *selectedProductCoreData = unconvertedArray[i];
+        ProductPresentationLayer *productPresentationLayer = [[ProductPresentationLayer alloc]init];
+        productPresentationLayer.company = selectedProductCoreData.company;
+        productPresentationLayer.name = selectedProductCoreData.name;
+        productPresentationLayer.image = selectedProductCoreData.image;
+        productPresentationLayer.unique_id = selectedProductCoreData.unique_id;
+        productPresentationLayer.url = selectedProductCoreData.url;
+        [convertedResultArray addObject:productPresentationLayer];
+    }
+    
+    return convertedResultArray;
+}
+
+
 
 
 

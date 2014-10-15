@@ -25,14 +25,14 @@
 @property ParentTableViewController *parentTableViewController;
 @property NSString* databaseChoice;
 
-- (void) startUpDataLaunchLogic;
 
+- (void) startUpDataLaunchLogic;
 - (void) fetchFromCoreDataAndSetYourPresentationLayerData;
 - (void) copyOrOpenSQLiteDB;
 - (void) readCompanyFromDatabase;
 - (void) readProductsFromDatabase;
+- (void) deleteDataFromSQLite:(NSString *)deleteQuery;
 
-//- (id) initWithAppDatabaseOption:(NSString*)databaseOption;
 
 
 

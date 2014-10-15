@@ -92,22 +92,6 @@
 }
 
 
-- (NSMutableArray *) requestCDAndFetchAndSort: (NSString *) entityName sortDescriptorByString:(NSString *)sortDescriptorString {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
-    [fetchRequest setEntity:entity];
-    // Specify how the fetched objects should be sorted
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortDescriptorString ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
-    
-    NSError *error;
-    NSArray *fetchedResult = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    
-    return [fetchedResult mutableCopy];
-}
-
-
 
 
 - (void) deleteProduct: (ProductPresentationLayer*) product {
@@ -117,25 +101,32 @@
     
     //We delete product from the DAO presentation layer
     [self.childTableViewController.productsArrayForAppropriateCompany removeObject:product];
+
+    //Then we delete product from either Core Data or SQLite
     
-    
-    //Then we delete product from Core Data layer
-    
-    //It's tricky because we are passing the PresentationLayer Product to this method
-    //we have to find the CoreData product from our DAO.products array that matches this presentationlayer product and then run managedObjectContext delete
-    //I decided to use a unique_id property to find the match using Predicate
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"unique_id == %@", product.unique_id];
-    NSArray *filteredArray = [self.products filteredArrayUsingPredicate:predicate];
-    
-    [self.managedObjectContext deleteObject:filteredArray[0]];
-    
-    //Then we save
-    [self saveChanges];
-    
-    //Just for logging
-    NSLog(@"Product %@ Deleted", tempName);
+    if ([self.daoManager.databaseChoice isEqualToString:@"Core Data"]) {
+        //It's tricky for Core Data Layer because we are passing the PresentationLayer Product to this method
+        //we have to find the CoreData product from our DAO.products array that matches this presentationlayer product and then run managedObjectContext delete
+        //I decided to use a unique_id property to find the match using Predicate
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"unique_id == %@", product.unique_id];
+        NSArray *filteredArray = [self.products filteredArrayUsingPredicate:predicate];
+        
+        [self.managedObjectContext deleteObject:filteredArray[0]];
+        
+        //Then we save
+        [self saveChanges];
+        
+        //Just for logging
+        NSLog(@"Product %@ Deleted from Core Data", tempName);
+    }
+    else if ([self.daoManager.databaseChoice isEqualToString:@"SQLite"]) {
+        [self.daoManager deleteDataFromSQLite:[NSString stringWithFormat:@"DELETE FROM PRODUCT WHERE ID IS %@", product.unique_id]];
+        NSLog(@"Product %@ Delete successful", tempName);
+    }
 }
+
+
 
 
 -(void) saveChanges

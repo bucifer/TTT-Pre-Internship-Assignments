@@ -13,7 +13,6 @@
 
 @dynamic image;
 @dynamic name;
-@dynamic stockPrice;
 @dynamic stockSymbol;
 @dynamic order_id;
 

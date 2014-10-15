@@ -10,24 +10,25 @@
 #import "CompanyCoreData.h"
 #import "ProductCoreData.h"
 #import "ChildTableViewController.h"
+#import "DAOManager.h"
 
 @class ChildTableViewController;
+@class DAOManager;
 
 @interface DAO : NSObject
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+
 @property (nonatomic, strong) NSMutableArray* companies;
 @property (nonatomic, strong) NSMutableArray* products;
 @property (nonatomic, strong) CompanyPresentationLayer* selectedCompany;
 @property (nonatomic, strong) ChildTableViewController *childTableViewController;
+@property (nonatomic, strong) DAOManager *daoManager;
 
 
-
-- (id)initFirstTime;
+- (id) initFirstTime;
 - (void) deleteProduct: (ProductPresentationLayer*) product;
--(void) saveChanges;
-
-- (NSMutableArray *) requestCDAndFetchAndSort: (NSString *) entityName sortDescriptorByString:(NSString *)sortDescriptorString;
+- (void) saveChanges;
 
 
 - (CompanyCoreData*) TBinitCompany: (NSString *)put_name image:(NSString*)put_image stockSymbol:(NSString *)put_symbol orderID:(NSNumber*)put_orderID moc:(NSManagedObjectContext*) context;
