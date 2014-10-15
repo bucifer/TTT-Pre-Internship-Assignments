@@ -96,7 +96,11 @@
     
     NSString *tempName = product.name;
     
-    //We delete product from the DAO presentation layer
+    //We delete product from the DAO presentation layer in 2 ways
+    //first from DAO.products and
+    //two from childtableviewcontroller's own array - this duplication happened due to NSPredicate usage --> check prepareForSegue between parentvc and childvc
+    
+    [self.products removeObject:product];
     [self.childTableViewController.productsArrayForAppropriateCompany removeObject:product];
 
     //Then we delete product from either Core Data or SQLite
