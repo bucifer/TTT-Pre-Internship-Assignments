@@ -1,21 +1,20 @@
 //
-//  Product.m
+//  ProductCoreData.m
 //  NavController Core Data Version
 //
-//  Created by Aditya Narayan on 9/24/14.
+//  Created by Aditya Narayan on 10/15/14.
 //  Copyright (c) 2014 NM. All rights reserved.
 //
 
-#import "Product.h"
-#import "Company.h"
+#import "ProductCoreData.h"
 
 
-@implementation Product
+@implementation ProductCoreData
 
 @dynamic company;
 @dynamic image;
 @dynamic name;
-@dynamic url;
 @dynamic order_id;
+@dynamic url;
 
 @end

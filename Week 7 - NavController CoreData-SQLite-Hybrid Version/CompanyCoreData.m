@@ -1,16 +1,15 @@
 //
-//  Company.m
+//  CompanyCoreData.m
 //  NavController Core Data Version
 //
-//  Created by Aditya Narayan on 9/24/14.
+//  Created by Aditya Narayan on 10/15/14.
 //  Copyright (c) 2014 NM. All rights reserved.
 //
 
-#import "Company.h"
-#import "Product.h"
+#import "CompanyCoreData.h"
 
 
-@implementation Company
+@implementation CompanyCoreData
 
 @dynamic image;
 @dynamic name;

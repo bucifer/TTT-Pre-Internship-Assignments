@@ -144,11 +144,11 @@
 		48A656A818163BF200746D36 = {
 			isa = PBXGroup;
 			children = (
-				48A656E318163C1B00746D36 /* qcdDemoViewController.h */,
-				48A656E418163C1B00746D36 /* qcdDemoViewController.m */,
 				AA0A90C519CB4283007C6E4A /* Reachability.h */,
 				AA0A90C619CB4283007C6E4A /* Reachability.m */,
 				48A656E518163C1B00746D36 /* qcdDemoViewController.xib */,
+				48A656E318163C1B00746D36 /* qcdDemoViewController.h */,
+				48A656E418163C1B00746D36 /* qcdDemoViewController.m */,
 				48A656E818163F8700746D36 /* ChildViewController.h */,
 				48A656E918163F8700746D36 /* ChildViewController.m */,
 				48A656EA18163F8700746D36 /* ChildViewController.xib */,
