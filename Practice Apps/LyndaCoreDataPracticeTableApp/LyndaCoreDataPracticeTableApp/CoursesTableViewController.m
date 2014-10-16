@@ -8,6 +8,7 @@
 
 #import "CoursesTableViewController.h"
 #import "Course.h"
+#import "DisplayEditViewController.h"
 
 @interface CoursesTableViewController ()
 
@@ -43,6 +44,20 @@
         
         acvc.currentCourse = newCourse;
     }
+    
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
+        DisplayEditViewController *dvc = (DisplayEditViewController *) [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Course *selectedCourse = (Course *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        dvc.currentCourse = selectedCourse;
+        
+    }
+    
+    
+    
+    
 }
 
 

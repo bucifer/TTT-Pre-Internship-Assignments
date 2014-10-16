@@ -17,6 +17,7 @@
 		AA38554D19F043EC00EFD75E /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38554C19F043EC00EFD75E /* Course.m */; };
 		AA38555019F045D500EFD75E /* CoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38554F19F045D500EFD75E /* CoursesTableViewController.m */; };
 		AA38555319F051AF00EFD75E /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38555219F051AF00EFD75E /* AddCourseViewController.m */; };
+		AA38555619F0605600EFD75E /* DisplayEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38555519F0605600EFD75E /* DisplayEditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		AA38554F19F045D500EFD75E /* CoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesTableViewController.m; sourceTree = "<group>"; };
 		AA38555119F051AF00EFD75E /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
 		AA38555219F051AF00EFD75E /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
+		AA38555419F0605600EFD75E /* DisplayEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayEditViewController.h; sourceTree = "<group>"; };
+		AA38555519F0605600EFD75E /* DisplayEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayEditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				AA38554F19F045D500EFD75E /* CoursesTableViewController.m */,
 				AA38555119F051AF00EFD75E /* AddCourseViewController.h */,
 				AA38555219F051AF00EFD75E /* AddCourseViewController.m */,
+				AA38555419F0605600EFD75E /* DisplayEditViewController.h */,
+				AA38555519F0605600EFD75E /* DisplayEditViewController.m */,
 				AA38553219F0431100EFD75E /* Images.xcassets */,
 				AA38553419F0431100EFD75E /* LaunchScreen.xib */,
 				AA38552919F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodeld */,
@@ -235,6 +240,7 @@
 				AA38552B19F0431100EFD75E /* LyndaCoreDataPracticeTableApp.xcdatamodeld in Sources */,
 				AA38555019F045D500EFD75E /* CoursesTableViewController.m in Sources */,
 				AA38552819F0431100EFD75E /* AppDelegate.m in Sources */,
+				AA38555619F0605600EFD75E /* DisplayEditViewController.m in Sources */,
 				AA38555319F051AF00EFD75E /* AddCourseViewController.m in Sources */,
 				AA38552519F0431100EFD75E /* main.m in Sources */,
 				AA38554D19F043EC00EFD75E /* Course.m in Sources */,

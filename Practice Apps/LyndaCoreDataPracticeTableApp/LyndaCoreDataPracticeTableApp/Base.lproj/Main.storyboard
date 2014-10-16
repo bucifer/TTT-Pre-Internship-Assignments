@@ -13,11 +13,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="MLv-db-Qk3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="MLv-db-Qk3">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MLv-db-Qk3" id="bxk-3o-9Qj">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="LZ4-lp-jQa" kind="push" identifier="showDetail" id="uaX-TT-JQu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,7 +38,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNW-Ex-SW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="614.39999999999998" y="289.68000000000001"/>
+            <point key="canvasLocation" x="545" y="289"/>
         </scene>
         <!--Add Course View Controller-->
         <scene sceneID="qDH-7e-Czr">
@@ -110,7 +113,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbM-hK-e84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="289"/>
+            <point key="canvasLocation" x="1111" y="136"/>
+        </scene>
+        <!--Display Edit View Controller-->
+        <scene sceneID="o8A-H7-juo">
+            <objects>
+                <viewController id="LZ4-lp-jQa" customClass="DisplayEditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kUP-mr-iul"/>
+                        <viewControllerLayoutGuide type="bottom" id="l0Q-hj-j8E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u8Z-0N-r2k">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10T-87-U8z">
+                                <rect key="frame" x="44" y="111" width="243" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-f7-DN2">
+                                <rect key="frame" x="44" y="201" width="243" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUC-8h-L4V">
+                                <rect key="frame" x="44" y="298" width="243" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uvo-Ki-VSp"/>
+                    <connections>
+                        <outlet property="authorField" destination="pSa-f7-DN2" id="Nl9-Qs-tc6"/>
+                        <outlet property="dateField" destination="XUC-8h-L4V" id="TEx-tM-hYt"/>
+                        <outlet property="titleField" destination="10T-87-U8z" id="SPU-mu-uyC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B45-YU-eWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="941" y="935"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DFu-Xs-wSC">
