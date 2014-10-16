@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "AddCourseViewController.h"
 
-@interface CoursesTableViewController : UITableViewController <AddCourseViewControllerDelegate>
+@interface CoursesTableViewController : UITableViewController <AddCourseViewControllerDelegate, NSFetchedResultsControllerDelegate>
 
 
 //you do this so that you can conveniently access the App Delegate's managedObjectContext

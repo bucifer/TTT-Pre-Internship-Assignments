@@ -17,6 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.titleField.text = self.currentCourse.title;
+    self.authorField.text = self.currentCourse.author;
+
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"yyyy-MM-dd"];
+    self.dateField.text = [dateFormat stringFromDate:self.currentCourse.releaseDate];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,8 +44,24 @@
 */
 
 - (IBAction)cancel:(id)sender {
+    
+    [self.delegate addCourseViewControllerDidCancel:[self currentCourse]];
+    
+    
 }
 
 - (IBAction)save:(id)sender {
+    
+    self.currentCourse.title = self.titleField.text;
+    self.currentCourse.author = self.authorField.text;
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"yyyy-MM-dd"];
+    self.currentCourse.releaseDate = [dateFormat dateFromString:self.dateField.text];
+    
+    [self.delegate addCourseViewControllerDidSave];
 }
+
+
+
 @end

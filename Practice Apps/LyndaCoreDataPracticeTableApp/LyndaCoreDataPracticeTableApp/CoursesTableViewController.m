@@ -43,10 +43,34 @@
         
         acvc.currentCourse = newCourse;
     }
-    
+}
 
+
+#pragma mark cancel and save
+
+- (void) addCourseViewControllerDidCancel:(Course *)courseToDelete {
+    
+    NSManagedObjectContext *context = self.managedObjectContext;
+    [context deleteObject:courseToDelete];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) addCourseViewControllerDidSave {
+    
+    NSError *error = nil;
+    NSManagedObjectContext *context = self.managedObjectContext;
+
+    if (![context save:&error]) {
+        NSLog(@"Error: %@", error);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+
+
 
 
 
@@ -74,8 +98,63 @@
     //the sectionnamekeypath option allows you to divide up the tableview into different sections. if you leave it nil there, it will come back as one section like normal.
     _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"author" cacheName:nil];
     
+    _fetchedResultsController.delegate = self;
+    
     return _fetchedResultsController;
 }
+
+
+//these delegate methods help let the CourseTableViewController know when a new object is created, and change table content/fetch request automatically
+//this is done with the NSFetchedREsultsControllerDelegate
+- (void) controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void) controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
+- (void) controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate: {
+            Course *changeCourse = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.textLabel.text = changeCourse.title;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+- (void) controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections: [NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+    
+    
+}
+
+
 
 
 
