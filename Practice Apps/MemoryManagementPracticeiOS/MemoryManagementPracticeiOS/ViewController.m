@@ -33,6 +33,9 @@
     
     
     [JuiceHolder juiceStoreFactoryMethod];
+    
+    NSLog(@"%@", [juiceHolder inventory]);
+
 }
 
 
