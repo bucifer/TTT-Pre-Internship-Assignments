@@ -7,6 +7,7 @@
 //
 
 #import "DisplayEditViewController.h"
+#import "AppDelegate.h"
 
 @interface DisplayEditViewController ()
 
@@ -42,4 +43,43 @@
 }
 */
 
+- (IBAction)startEditing:(id)sender {
+    self.titleField.enabled = YES;
+    self.authorField.enabled = YES;
+    self.dateField.enabled = YES;
+    
+    self.titleField.borderStyle = UITextBorderStyleRoundedRect;
+    self.authorField.borderStyle = UITextBorderStyleRoundedRect;
+    self.dateField.borderStyle = UITextBorderStyleRoundedRect;
+
+
+    self.editButton.hidden = YES;
+    self.doneButton.hidden = NO;
+}
+
+- (IBAction)doneEditing:(id)sender {
+    self.titleField.enabled = NO;
+    self.authorField.enabled = NO;
+    self.dateField.enabled = NO;
+    
+    self.titleField.borderStyle = UITextBorderStyleNone;
+    self.authorField.borderStyle = UITextBorderStyleNone;
+    self.dateField.borderStyle = UITextBorderStyleNone;
+    
+    
+    self.editButton.hidden = NO;
+    self.doneButton.hidden = YES;
+    
+    
+    self.currentCourse.title = self.titleField.text;
+    self.currentCourse.author = self.authorField.text;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy-MM--dd"];
+    self.currentCourse.releaseDate = [df dateFromString:self.dateField.text];
+    
+    AppDelegate *myApp = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [myApp saveContext];
+    
+}
 @end

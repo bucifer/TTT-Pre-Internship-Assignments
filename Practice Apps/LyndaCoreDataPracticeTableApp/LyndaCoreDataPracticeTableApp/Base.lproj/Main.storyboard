@@ -128,20 +128,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10T-87-U8z">
-                                <rect key="frame" x="44" y="111" width="243" height="30"/>
+                                <rect key="frame" x="39" y="175" width="243" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-f7-DN2">
-                                <rect key="frame" x="44" y="201" width="243" height="30"/>
+                                <rect key="frame" x="39" y="265" width="243" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUC-8h-L4V">
-                                <rect key="frame" x="44" y="298" width="243" height="30"/>
+                                <rect key="frame" x="39" y="362" width="243" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYG-UY-MtZ">
+                                <rect key="frame" x="115" y="123" width="30" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startEditing:" destination="LZ4-lp-jQa" eventType="touchUpInside" id="71z-2O-l7E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmM-cv-QCI">
+                                <rect key="frame" x="184" y="123" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneEditing:" destination="LZ4-lp-jQa" eventType="touchUpInside" id="Ph8-qd-eG8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -149,6 +167,8 @@
                     <connections>
                         <outlet property="authorField" destination="pSa-f7-DN2" id="Nl9-Qs-tc6"/>
                         <outlet property="dateField" destination="XUC-8h-L4V" id="TEx-tM-hYt"/>
+                        <outlet property="doneButton" destination="BmM-cv-QCI" id="ZE3-6K-lng"/>
+                        <outlet property="editButton" destination="nYG-UY-MtZ" id="39n-WU-Vcb"/>
                         <outlet property="titleField" destination="10T-87-U8z" id="SPU-mu-uyC"/>
                     </connections>
                 </viewController>

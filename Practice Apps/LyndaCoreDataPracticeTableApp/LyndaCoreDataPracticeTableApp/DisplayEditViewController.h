@@ -20,4 +20,14 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *dateField;
 
+
+@property (strong, nonatomic) IBOutlet UIButton *editButton;
+@property (strong, nonatomic) IBOutlet UIButton *doneButton;
+
+
+
+- (IBAction)startEditing:(id)sender;
+- (IBAction)doneEditing:(id)sender;
+
+
 @end
