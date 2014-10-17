@@ -42,23 +42,17 @@
     self.availableCardsInDeck= myIntegers;
     
     
-    CustomCardImage *playerFirstCardRandomGenerated = [[CustomCardImage alloc]init];
-    playerFirstCardRandomGenerated = (CustomCardImage *)[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
-    playerFirstCardRandomGenerated.cardValue = 3;
+    self.playerCardOne.cardValue = 3;
+
     
-    CustomCardImage *playerSecondCardRandomGenerated = (CustomCardImage *) [UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
+    [self.playerCardOne setBackgroundImage:[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]] forState:UIControlStateNormal  ];
+    [self.playerCardTwo setBackgroundImage:[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]] forState:UIControlStateNormal  ];
     
-    [self.playerCardOne setImage:playerFirstCardRandomGenerated];
-    [self.playerCardTwo setImage:playerSecondCardRandomGenerated];
-    
-    self.playerScore.text = [NSString stringWithFormat:@"%ld", (long)playerFirstCardRandomGenerated.cardValue];
+    self.playerScore.text = [NSString stringWithFormat:@"%ld", (long)self.playerCardOne.cardValue];
     
     
-    UIImage *dealerFirstCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
-    UIImage *dealerSecondCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
-    
-    [self.dealerCardOne setImage:dealerFirstCardRandomGenerated];
-    [self.dealerCardTwo setImage:dealerSecondCardRandomGenerated];
+    [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]] forState:UIControlStateNormal  ];
+    [self.dealerCardTwo setBackgroundImage:[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]] forState:UIControlStateNormal  ];
     
 }
 

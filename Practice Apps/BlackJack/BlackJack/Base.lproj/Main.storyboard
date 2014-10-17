@@ -16,18 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardback" translatesAutoresizingMaskIntoConstraints="NO" id="aAk-NW-HXs">
-                                <rect key="frame" x="128" y="438" width="64" height="92"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardback" translatesAutoresizingMaskIntoConstraints="NO" id="wov-0w-iQW">
-                                <rect key="frame" x="200" y="438" width="64" height="92"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardback" translatesAutoresizingMaskIntoConstraints="NO" id="Qai-g5-103">
-                                <rect key="frame" x="128" y="50" width="64" height="92"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardback" translatesAutoresizingMaskIntoConstraints="NO" id="ARw-mI-bIv">
-                                <rect key="frame" x="200" y="50" width="64" height="92"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSp-Vd-oGh">
                                 <rect key="frame" x="50" y="473" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -63,16 +51,40 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gc9-TN-KzX" customClass="CustomCardButton">
+                                <rect key="frame" x="128" y="438" width="64" height="92"/>
+                                <state key="normal" backgroundImage="cardback">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1q-K6-xcg" customClass="CustomCardButton">
+                                <rect key="frame" x="128" y="50" width="64" height="92"/>
+                                <state key="normal" backgroundImage="cardback">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ral-kY-zzx" customClass="CustomCardButton">
+                                <rect key="frame" x="200" y="50" width="64" height="92"/>
+                                <state key="normal" backgroundImage="cardback">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ib-NA-iVf" customClass="CustomCardButton">
+                                <rect key="frame" x="200" y="438" width="64" height="92"/>
+                                <state key="normal" backgroundImage="cardback">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="dealerCardOne" destination="Qai-g5-103" id="4qW-yZ-TnZ"/>
-                        <outlet property="dealerCardTwo" destination="ARw-mI-bIv" id="XjC-u5-FXe"/>
+                        <outlet property="dealerCardOne" destination="P1q-K6-xcg" id="Hp9-2A-yjm"/>
+                        <outlet property="dealerCardTwo" destination="ral-kY-zzx" id="2Cv-dF-j1c"/>
                         <outlet property="dealerScore" destination="xfz-oP-Hr3" id="7Il-8Q-sma"/>
                         <outlet property="playButton" destination="OIH-5B-jv8" id="8C0-Za-7kb"/>
-                        <outlet property="playerCardOne" destination="aAk-NW-HXs" id="eLM-l0-z1M"/>
-                        <outlet property="playerCardTwo" destination="wov-0w-iQW" id="gN1-Lo-sic"/>
+                        <outlet property="playerCardOne" destination="gc9-TN-KzX" id="4MG-mI-YtJ"/>
+                        <outlet property="playerCardTwo" destination="8ib-NA-iVf" id="JZG-4M-6jG"/>
                         <outlet property="playerScore" destination="1dx-Fs-6zb" id="t9w-HY-bDK"/>
                     </connections>
                 </viewController>

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomCardImage.h"
+#import "CustomCardButton.h"
 
 @interface ViewController : UIViewController
 
@@ -16,10 +16,10 @@
 
 @property (strong, nonatomic) NSMutableArray* availableCardsInDeck;
 
-@property (strong, nonatomic) IBOutlet UIImageView *dealerCardOne;
-@property (strong, nonatomic) IBOutlet UIImageView *dealerCardTwo;
-@property (strong, nonatomic) IBOutlet UIImageView *playerCardOne;
-@property (strong, nonatomic) IBOutlet UIImageView *playerCardTwo;
+@property (strong, nonatomic) IBOutlet CustomCardButton *dealerCardOne;
+@property (strong, nonatomic) IBOutlet CustomCardButton *dealerCardTwo;
+@property (strong, nonatomic) IBOutlet CustomCardButton *playerCardOne;
+@property (strong, nonatomic) IBOutlet CustomCardButton *playerCardTwo;
 
 @property (strong, nonatomic) IBOutlet UILabel *dealerScore;
 @property (strong, nonatomic) IBOutlet UILabel *playerScore;

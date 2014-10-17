@@ -1,13 +1,15 @@
 //
-//  CustomCardImage.m
+//  CustomCardButton.h
 //  BlackJack
 //
 //  Created by Aditya Narayan on 10/17/14.
 //  Copyright (c) 2014 TerrysCompany. All rights reserved.
 //
 
-#import "CustomCardImage.h"
+#import <UIKit/UIKit.h>
 
-@implementation CustomCardImage
+@interface CustomCardButton : UIButton
+
+@property NSInteger cardValue;
 
 @end
