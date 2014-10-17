@@ -21,9 +21,6 @@
     
     self.playButton.layer.cornerRadius = 10;
     
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,19 +32,27 @@
 
 
 - (IBAction)playButtonPressAction:(id)sender {
-
     
-    int r = arc4random_uniform(54);
-    NSString *cardRandomNumber = [NSString stringWithFormat:@"%d", r];
-    
-    
-    UIImage *playerFirstCardRandomGenerated = [UIImage imageNamed:cardRandomNumber];
+    UIImage *playerFirstCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGenerator]];
+    UIImage *playerSecondCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGenerator]];
     
     [self.playerCardOne setImage:playerFirstCardRandomGenerated];
-
-
+    [self.playerCardTwo setImage:playerSecondCardRandomGenerated];
+    
+    
+    
+    UIImage *dealerFirstCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGenerator]];
+    UIImage *dealerSecondCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGenerator]];
+    
+    [self.dealerCardOne setImage:dealerFirstCardRandomGenerated];
+    [self.dealerCardTwo setImage:dealerSecondCardRandomGenerated];
+    
 }
 
 
+- (NSString *) randomCardNumberStringGenerator {
+    int r = arc4random_uniform(52);
+    return [NSString stringWithFormat:@"%d", r];
+}
 
 @end
