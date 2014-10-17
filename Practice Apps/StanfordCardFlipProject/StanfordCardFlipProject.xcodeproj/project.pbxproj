@@ -14,7 +14,7 @@
 		AAB9C27E19F1816800F4341F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB9C27D19F1816800F4341F /* Images.xcassets */; };
 		AAB9C28119F1816800F4341F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB9C27F19F1816800F4341F /* LaunchScreen.xib */; };
 		AAB9C28D19F1816800F4341F /* StanfordCardFlipProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C28C19F1816800F4341F /* StanfordCardFlipProjectTests.m */; };
-		AAB9C29819F18F7100F4341F /* myCustomCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C29719F18F7100F4341F /* myCustomCardButton.m */; };
+		AAB9C30A19F1E01A00F4341F /* myCustomCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C30919F1E01A00F4341F /* myCustomCardButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		AAB9C28619F1816800F4341F /* StanfordCardFlipProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StanfordCardFlipProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB9C28B19F1816800F4341F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB9C28C19F1816800F4341F /* StanfordCardFlipProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StanfordCardFlipProjectTests.m; sourceTree = "<group>"; };
-		AAB9C29619F18F7100F4341F /* myCustomCardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCustomCardButton.h; sourceTree = "<group>"; };
-		AAB9C29719F18F7100F4341F /* myCustomCardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCustomCardButton.m; sourceTree = "<group>"; };
+		AAB9C30819F1E01A00F4341F /* myCustomCardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCustomCardButton.h; sourceTree = "<group>"; };
+		AAB9C30919F1E01A00F4341F /* myCustomCardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCustomCardButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +88,9 @@
 				AAB9C27519F1816800F4341F /* AppDelegate.m */,
 				AAB9C27719F1816800F4341F /* ViewController.h */,
 				AAB9C27819F1816800F4341F /* ViewController.m */,
+				AAB9C30819F1E01A00F4341F /* myCustomCardButton.h */,
+				AAB9C30919F1E01A00F4341F /* myCustomCardButton.m */,
 				AAB9C27A19F1816800F4341F /* Main.storyboard */,
-				AAB9C29619F18F7100F4341F /* myCustomCardButton.h */,
-				AAB9C29719F18F7100F4341F /* myCustomCardButton.m */,
 				AAB9C27D19F1816800F4341F /* Images.xcassets */,
 				AAB9C27F19F1816800F4341F /* LaunchScreen.xib */,
 				AAB9C27019F1816800F4341F /* Supporting Files */,
@@ -226,7 +226,7 @@
 			files = (
 				AAB9C27919F1816800F4341F /* ViewController.m in Sources */,
 				AAB9C27619F1816800F4341F /* AppDelegate.m in Sources */,
-				AAB9C29819F18F7100F4341F /* myCustomCardButton.m in Sources */,
+				AAB9C30A19F1E01A00F4341F /* myCustomCardButton.m in Sources */,
 				AAB9C27319F1816800F4341F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +418,7 @@
 				AAB9C29219F1816800F4341F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAB9C29319F1816800F4341F /* Build configuration list for PBXNativeTarget "StanfordCardFlipProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +427,7 @@
 				AAB9C29519F1816800F4341F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

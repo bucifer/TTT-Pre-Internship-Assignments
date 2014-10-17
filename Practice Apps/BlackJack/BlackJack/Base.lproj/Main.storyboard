@@ -51,15 +51,29 @@
                                     <action selector="playButtonPressAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CDh-YC-5gb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfz-oP-Hr3">
+                                <rect key="frame" x="179" y="165" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dx-Fs-6zb">
+                                <rect key="frame" x="179" y="392" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="dealerCardOne" destination="Qai-g5-103" id="4qW-yZ-TnZ"/>
                         <outlet property="dealerCardTwo" destination="ARw-mI-bIv" id="XjC-u5-FXe"/>
+                        <outlet property="dealerScore" destination="xfz-oP-Hr3" id="7Il-8Q-sma"/>
                         <outlet property="playButton" destination="OIH-5B-jv8" id="8C0-Za-7kb"/>
                         <outlet property="playerCardOne" destination="aAk-NW-HXs" id="eLM-l0-z1M"/>
                         <outlet property="playerCardTwo" destination="wov-0w-iQW" id="gN1-Lo-sic"/>
+                        <outlet property="playerScore" destination="1dx-Fs-6zb" id="t9w-HY-bDK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

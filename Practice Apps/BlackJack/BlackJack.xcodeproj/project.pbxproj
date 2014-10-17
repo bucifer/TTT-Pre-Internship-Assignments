@@ -14,6 +14,7 @@
 		AAB9C2E719F19C7000F4341F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB9C2E619F19C7000F4341F /* Images.xcassets */; };
 		AAB9C2EA19F19C7000F4341F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB9C2E819F19C7000F4341F /* LaunchScreen.xib */; };
 		AAB9C2F619F19C7000F4341F /* BlackJackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2F519F19C7000F4341F /* BlackJackTests.m */; };
+		AAB9C30719F1DDB300F4341F /* CustomCardImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C30619F1DDB300F4341F /* CustomCardImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		AAB9C2EF19F19C7000F4341F /* BlackJackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackJackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB9C2F419F19C7000F4341F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB9C2F519F19C7000F4341F /* BlackJackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackJackTests.m; sourceTree = "<group>"; };
+		AAB9C30519F1DDB300F4341F /* CustomCardImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCardImage.h; path = BlackJackTests/CustomCardImage.h; sourceTree = SOURCE_ROOT; };
+		AAB9C30619F1DDB300F4341F /* CustomCardImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCardImage.m; path = BlackJackTests/CustomCardImage.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				AAB9C2DE19F19C7000F4341F /* AppDelegate.m */,
 				AAB9C2E019F19C7000F4341F /* ViewController.h */,
 				AAB9C2E119F19C7000F4341F /* ViewController.m */,
+				AAB9C30519F1DDB300F4341F /* CustomCardImage.h */,
+				AAB9C30619F1DDB300F4341F /* CustomCardImage.m */,
 				AAB9C2E319F19C7000F4341F /* Main.storyboard */,
 				AAB9C2E619F19C7000F4341F /* Images.xcassets */,
 				AAB9C2E819F19C7000F4341F /* LaunchScreen.xib */,
@@ -229,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAB9C30719F1DDB300F4341F /* CustomCardImage.m in Sources */,
 				AAB9C2F619F19C7000F4341F /* BlackJackTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

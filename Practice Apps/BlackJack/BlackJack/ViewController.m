@@ -42,11 +42,16 @@
     self.availableCardsInDeck= myIntegers;
     
     
-    UIImage *playerFirstCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
-    UIImage *playerSecondCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
+    CustomCardImage *playerFirstCardRandomGenerated = (CustomCardImage *)[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
+    
+    playerFirstCardRandomGenerated.cardValue = 3;
+    
+    CustomCardImage *playerSecondCardRandomGenerated = (CustomCardImage *) [UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
     
     [self.playerCardOne setImage:playerFirstCardRandomGenerated];
     [self.playerCardTwo setImage:playerSecondCardRandomGenerated];
+    
+    self.playerScore.text = [NSString stringWithFormat:@"%ld", (long)playerFirstCardRandomGenerated.cardValue];
     
     
     UIImage *dealerFirstCardRandomGenerated = [UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
