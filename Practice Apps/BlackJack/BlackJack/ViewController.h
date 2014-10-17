@@ -12,8 +12,11 @@
 
 
 
-@property (strong, nonatomic) IBOutlet UIImageView *dealerCardOne;
 
+@property (strong, nonatomic) NSMutableArray* availableCardsInDeck;
+
+
+@property (strong, nonatomic) IBOutlet UIImageView *dealerCardOne;
 @property (strong, nonatomic) IBOutlet UIImageView *dealerCardTwo;
 
 
@@ -24,7 +27,6 @@
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *playerCardOne;
-
 @property (strong, nonatomic) IBOutlet UIImageView *playerCardTwo;
 
 

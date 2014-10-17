@@ -14,7 +14,6 @@
 		AAB9C2E719F19C7000F4341F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB9C2E619F19C7000F4341F /* Images.xcassets */; };
 		AAB9C2EA19F19C7000F4341F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAB9C2E819F19C7000F4341F /* LaunchScreen.xib */; };
 		AAB9C2F619F19C7000F4341F /* BlackJackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C2F519F19C7000F4341F /* BlackJackTests.m */; };
-		AAB9C30119F19CD300F4341F /* myCustomCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB9C30019F19CD300F4341F /* myCustomCardButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +40,6 @@
 		AAB9C2EF19F19C7000F4341F /* BlackJackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackJackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB9C2F419F19C7000F4341F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB9C2F519F19C7000F4341F /* BlackJackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackJackTests.m; sourceTree = "<group>"; };
-		AAB9C2FF19F19CD300F4341F /* myCustomCardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myCustomCardButton.h; path = ../../StanfordCardFlipProject/StanfordCardFlipProject/myCustomCardButton.h; sourceTree = "<group>"; };
-		AAB9C30019F19CD300F4341F /* myCustomCardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myCustomCardButton.m; path = ../../StanfordCardFlipProject/StanfordCardFlipProject/myCustomCardButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +86,6 @@
 				AAB9C2E019F19C7000F4341F /* ViewController.h */,
 				AAB9C2E119F19C7000F4341F /* ViewController.m */,
 				AAB9C2E319F19C7000F4341F /* Main.storyboard */,
-				AAB9C2FF19F19CD300F4341F /* myCustomCardButton.h */,
-				AAB9C30019F19CD300F4341F /* myCustomCardButton.m */,
 				AAB9C2E619F19C7000F4341F /* Images.xcassets */,
 				AAB9C2E819F19C7000F4341F /* LaunchScreen.xib */,
 				AAB9C2D919F19C7000F4341F /* Supporting Files */,
@@ -226,7 +221,6 @@
 			files = (
 				AAB9C2E219F19C7000F4341F /* ViewController.m in Sources */,
 				AAB9C2DF19F19C7000F4341F /* AppDelegate.m in Sources */,
-				AAB9C30119F19CD300F4341F /* myCustomCardButton.m in Sources */,
 				AAB9C2DC19F19C7000F4341F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +412,7 @@
 				AAB9C2FB19F19C7000F4341F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAB9C2FC19F19C7000F4341F /* Build configuration list for PBXNativeTarget "BlackJackTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +421,7 @@
 				AAB9C2FE19F19C7000F4341F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
