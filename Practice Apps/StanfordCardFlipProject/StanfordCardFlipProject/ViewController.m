@@ -48,5 +48,23 @@
     
 }
 
+- (IBAction)realCardImageButtonPressed:(myCustomCardButton *)sender {
+    
+    if (sender.flipped == FALSE) {
+        UIImage *cardback = [UIImage imageNamed:@"cardbackresized"];
+        [sender setBackgroundImage:cardback
+                          forState:UIControlStateNormal];
+        sender.flipped = TRUE;
+    }
+    else {
+        UIImage *cardfront = [UIImage imageNamed:@"1"];
+        [sender setBackgroundImage:cardfront forState:UIControlStateNormal];
+        sender.flipped = FALSE;
+
+    }
+    
+    
+}
+
 
 @end

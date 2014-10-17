@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "myCustomCardButton.h"
 
 @interface ViewController : UIViewController
 
@@ -23,6 +24,7 @@
 
 - (IBAction)cardButtonPressedAction:(UIButton *)sender;
 
+- (IBAction)realCardImageButtonPressed:(myCustomCardButton *)sender;
 
 
 @end
