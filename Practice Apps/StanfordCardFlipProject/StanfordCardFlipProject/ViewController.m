@@ -30,11 +30,23 @@
 
 - (IBAction)cardButtonPressedAction:(UIButton *)sender {
     
-    
+    if ([sender currentTitle]) {
     UIImage *cardback = [UIImage imageNamed:@"cardbackresized"];
-    [sender setBackgroundImage:cardback forState:UIControlStateNormal];
-    [sender setTitle:@"" forState:UIControlStateNormal];
+    [sender setBackgroundImage:cardback
+                      forState:UIControlStateNormal];
+    [sender setTitle:nil
+            forState:UIControlStateNormal];
+    }
+    else {
+        UIImage *cardfront = [UIImage imageNamed:@"cardfront"];
+        [sender setBackgroundImage:cardfront forState:UIControlStateNormal];
+        [sender setTitle:@"A♣︎" forState:UIControlStateNormal];
+    }
     
+    self.flipCount++;
+    self.flipCountLabel.text = [NSString stringWithFormat:@"Flipped Label Count: %d", self.flipCount];
     
 }
+
+
 @end

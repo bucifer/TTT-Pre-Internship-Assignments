@@ -13,7 +13,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *myCardButton;
 
 
+@property (strong, nonatomic) IBOutlet UILabel *flipCountLabel;
 
+@property int flipCount;
 
 
 
