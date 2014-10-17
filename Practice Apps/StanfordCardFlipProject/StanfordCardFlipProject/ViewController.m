@@ -50,17 +50,21 @@
 
 - (IBAction)realCardImageButtonPressed:(myCustomCardButton *)sender {
     
-    if (sender.flipped == FALSE) {
+    if (sender.cardIsShowingBack == NO) {
         UIImage *cardback = [UIImage imageNamed:@"cardbackresized"];
         [sender setBackgroundImage:cardback
                           forState:UIControlStateNormal];
-        sender.flipped = TRUE;
+        sender.cardIsShowingBack = YES;
     }
     else {
-        UIImage *cardfront = [UIImage imageNamed:@"1"];
+        
+        int r = arc4random_uniform(54);
+        NSString *cardRandomNumber = [NSString stringWithFormat:@"%d", r];
+        
+        
+        UIImage *cardfront = [UIImage imageNamed:cardRandomNumber];
         [sender setBackgroundImage:cardfront forState:UIControlStateNormal];
-        sender.flipped = FALSE;
-
+        sender.cardIsShowingBack = FALSE;
     }
     
     

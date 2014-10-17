@@ -21,7 +21,7 @@
 
 -(id)init {
     if (self = [super init])  {
-        self.flipped = NO;
+        self.cardIsShowingBack = NO;
     }
     return self;
 }

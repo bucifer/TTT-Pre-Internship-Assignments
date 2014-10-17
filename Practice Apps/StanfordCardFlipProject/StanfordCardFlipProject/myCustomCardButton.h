@@ -10,6 +10,6 @@
 
 @interface myCustomCardButton : UIButton
 
-@property BOOL flipped;
+@property BOOL cardIsShowingBack;
 
 @end
