@@ -11,5 +11,26 @@
 @interface ViewController : UIViewController
 
 
+
+@property (strong, nonatomic) IBOutlet UIImageView *dealerCardOne;
+
+@property (strong, nonatomic) IBOutlet UIImageView *dealerCardTwo;
+
+
+
+
+@property (strong, nonatomic) IBOutlet UIButton *playButton;
+
+
+
+@property (strong, nonatomic) IBOutlet UIImageView *playerCardOne;
+
+@property (strong, nonatomic) IBOutlet UIImageView *playerCardTwo;
+
+
+- (IBAction)playButtonPressAction:(id)sender;
+
+
+
 @end
 
