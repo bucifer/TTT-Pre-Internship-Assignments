@@ -42,8 +42,8 @@
     self.availableCardsInDeck= myIntegers;
     
     
-    CustomCardImage *playerFirstCardRandomGenerated = (CustomCardImage *)[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
-    
+    CustomCardImage *playerFirstCardRandomGenerated = [[CustomCardImage alloc]init];
+    playerFirstCardRandomGenerated = (CustomCardImage *)[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
     playerFirstCardRandomGenerated.cardValue = 3;
     
     CustomCardImage *playerSecondCardRandomGenerated = (CustomCardImage *) [UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]];
