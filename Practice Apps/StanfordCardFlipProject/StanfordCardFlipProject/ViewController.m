@@ -67,7 +67,8 @@
         sender.cardIsShowingBack = FALSE;
     }
     
-    
+    self.flipCount++;
+    self.flipCountLabel.text = [NSString stringWithFormat:@"Flipped Label Count: %d", self.flipCount];
 }
 
 
