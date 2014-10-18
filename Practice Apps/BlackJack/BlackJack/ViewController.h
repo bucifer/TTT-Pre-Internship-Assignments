@@ -21,8 +21,14 @@
 @property (strong, nonatomic) IBOutlet CustomCardButton *playerCardOne;
 @property (strong, nonatomic) IBOutlet CustomCardButton *playerCardTwo;
 
-@property (strong, nonatomic) IBOutlet UILabel *dealerScore;
-@property (strong, nonatomic) IBOutlet UILabel *playerScore;
+
+
+@property (nonatomic) NSInteger playerScore;
+@property (nonatomic) NSInteger dealerScore;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *dealerScoreLabel;
+@property (strong, nonatomic) IBOutlet UILabel *playerScoreLabel;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *playButton;

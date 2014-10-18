@@ -41,19 +41,53 @@
     
     self.availableCardsInDeck= myIntegers;
     
-    
-    self.playerCardOne.cardValue = 3;
+    [self setImageAndCardValue:self.playerCardOne];
+    [self setImageAndCardValue:self.playerCardTwo];
 
-    
-    [self.playerCardOne setBackgroundImage:[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]] forState:UIControlStateNormal  ];
-    [self.playerCardTwo setBackgroundImage:[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]] forState:UIControlStateNormal  ];
-    
-    self.playerScore.text = [NSString stringWithFormat:@"%ld", (long)self.playerCardOne.cardValue];
+    self.playerScore = self.playerCardOne.cardValue + self.playerCardTwo.cardValue;
+    self.playerScoreLabel.text = [NSString stringWithFormat:@"%ld", (long)self.playerCardOne.cardValue];
     
     
-    [self.dealerCardOne setBackgroundImage:[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]] forState:UIControlStateNormal  ];
-    [self.dealerCardTwo setBackgroundImage:[UIImage imageNamed:[self randomCardNumberStringGeneratorUnique]] forState:UIControlStateNormal  ];
     
+    [self setImageAndCardValue:self.dealerCardOne];
+    [self setImageAndCardValue:self.dealerCardTwo];
+    
+    self.dealerScoreLabel.text = [NSString stringWithFormat:@"%ld", (long)self.playerCardOne.cardValue];
+    self.dealerScore = self.dealerCardOne.cardValue + self.dealerCardTwo.cardValue;
+
+
+
+}
+
+
+- (void) setImageAndCardValue: (CustomCardButton *) yourCardButton{
+    
+    NSString *myCardNumberString = [self randomCardNumberStringGeneratorUnique];
+    NSInteger rawCardNameValue = [myCardNumberString integerValue];
+    NSInteger myCardValue;
+    
+    if (rawCardNameValue <= 20) {
+        myCardValue = 10;
+    }
+    else {
+        //21,22,23,24 are all 9s
+        //25,26,27,28 are all 8s
+        int n = 9;
+
+        for (int j = 21; j <= 49; j = j + 4) {
+            for (int i = j; i <= j+3; i++) {
+                if (rawCardNameValue == i) {
+                    myCardValue = n;
+                }
+            }
+            n = n - 1;
+            if (n == 0) break;
+        }
+        
+    }
+    [yourCardButton setBackgroundImage:[UIImage imageNamed:myCardNumberString] forState:UIControlStateNormal  ];
+    
+    yourCardButton.cardValue = myCardValue;
 }
 
 
