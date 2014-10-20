@@ -16,5 +16,6 @@
 @dynamic name;
 @dynamic order_id;
 @dynamic url;
+@dynamic unique_id;
 
 @end

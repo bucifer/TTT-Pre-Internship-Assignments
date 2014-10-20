@@ -117,12 +117,12 @@
 			isa = PBXGroup;
 			children = (
 				AA9AA34619D472F800621939 /* Main.storyboard */,
+				AA9AA34319D472F800621939 /* AppDelegate.h */,
+				AA9AA34419D472F800621939 /* AppDelegate.m */,
 				AA9AA34919D472F800621939 /* MapViewController.h */,
 				AA9AA34A19D472F800621939 /* MapViewController.m */,
 				AA9F1E4D19D4CAB2005C0066 /* WebViewController.h */,
 				AA9F1E4E19D4CAB2005C0066 /* WebViewController.m */,
-				AA9AA34319D472F800621939 /* AppDelegate.h */,
-				AA9AA34419D472F800621939 /* AppDelegate.m */,
 				AAA1032719D5ADCF00A95CDC /* RestaurantPointAnnotation.h */,
 				AAA1032819D5ADCF00A95CDC /* RestaurantPointAnnotation.m */,
 				AA9AA34C19D472F800621939 /* Images.xcassets */,

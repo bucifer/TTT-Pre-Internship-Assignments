@@ -24,7 +24,9 @@
 @property (nonatomic, strong) CompanyPresentationLayer* selectedCompany;
 @property (nonatomic, strong) ChildTableViewController *childTableViewController;
 @property (nonatomic, strong) DAOManager *daoManager;
-//this DAOManager property is for SETTING DATABASE OPTION logic - DAO does something different according to Core Data or SQLite
+
+//DAOManager property is for SETTING DATABASE OPTION logic
+//DAO does something different according to Core Data or SQLite
 
 
 - (id) initFirstTime;

@@ -107,9 +107,12 @@
     //When we open up the keyboard,
     //we create UIEdgeInsets, basically padding for the ScrollView. We set the padding as high as the keyboard
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
-    //we apply the padding to the scrollview so that nothing gets hidden beneath the keyboard
+    
+    //now, when the keyboard is shown,
+    //we apply the padding to the scrollview so that the keyboard takes up that space
     self.myScrollView.contentInset = contentInsets;
-    //this is to adjust the scroll functionality to the padding - without this, scroll doesn't detect the padding
+    
+    //this step is to adjust the scroll functionality to the padding - without this, scroll doesn't detect the padding
     self.myScrollView.scrollIndicatorInsets = contentInsets;
     
     //*** CHECK IF YOUR TEXTFIELD EVER GETS COVERED BY THE KEYBOARD LOGIC ***//
@@ -120,8 +123,8 @@
     aRect.size.height -= keyboardSize.height;
     //now this rectangle symbolizes the area of the screen NOT UNDER THE KEYBOARD WHEN IT IS SHOWING
     
-    //So if this rectangle covers the textfield coordinates, then we are safe - no adjustment needs to be made
-    //BUT if this rectangle DOESN'T COVER the textfield, then we scroll to the active textfield's y coordinate
+    //So if this rectangle DOES cover the textfield coordinates, then we are safe - no adjustment needs to be made
+    //BUT if this rectangle DOESN'T COVER the textfield, then we scroll down to the active textfield's y coordinate
     
     if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
         CGPoint scrollPoint = CGPointMake(0.0, activeField.frame.origin.y);

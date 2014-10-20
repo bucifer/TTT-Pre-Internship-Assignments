@@ -105,15 +105,23 @@
 
     //Then we delete product from either Core Data or SQLite
     
-    if ([self.daoManager.databaseChoice isEqualToString:@"Core Data"]) {
+    if (self.daoManager.databaseChoice == CoreData) {
         //It's tricky for Core Data Layer because we are passing the PresentationLayer Product to this method
-        //we have to find the CoreData product from our DAO.products array that matches this presentationlayer product and then run managedObjectContext delete
-        //I decided to use a unique_id property to find the match using Predicate
+        //right now, self.products is filled with PresentationLayer objects. We need to find the right CoreDataLayer objects that correspond to them
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"unique_id == %@", product.unique_id];
-        NSArray *filteredArray = [self.products filteredArrayUsingPredicate:predicate];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription
+                                       entityForName:@"ProductCoreData" inManagedObjectContext:[self managedObjectContext]];
+        [fetchRequest setEntity:entity];
         
-        [self.managedObjectContext deleteObject:filteredArray[0]];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"unique_id = %@", product.unique_id];
+        [fetchRequest setPredicate:predicate];
+        NSError *error;
+        NSArray *fetchedResult = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+        
+        ProductCoreData *correspondingProductCoreDataToDelete = fetchedResult[0];
+        
+        [self.managedObjectContext deleteObject:correspondingProductCoreDataToDelete];
         
         //Then we save
         [self saveChanges];
@@ -121,7 +129,7 @@
         //Just for logging
         NSLog(@"Product %@ Deleted from Core Data", tempName);
     }
-    else if ([self.daoManager.databaseChoice isEqualToString:@"SQLite"]) {
+    else if (self.daoManager.databaseChoice == SQLite) {
         [self.daoManager deleteDataFromSQLite:[NSString stringWithFormat:@"DELETE FROM PRODUCT WHERE ID IS %@", product.unique_id]];
         NSLog(@"Product %@ Delete successful", tempName);
     }

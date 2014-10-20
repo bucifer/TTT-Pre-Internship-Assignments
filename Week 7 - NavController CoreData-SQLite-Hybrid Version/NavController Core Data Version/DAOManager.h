@@ -17,13 +17,18 @@
 
 @class ParentTableViewController;
 
+typedef enum {SQLite, CoreData} DatabaseChoice;
+
+
+
 @interface DAOManager : NSObject {
     sqlite3 *navctrlDB;
     NSString *dbPathString;
 }
 
+
 @property ParentTableViewController *parentTableViewController;
-@property NSString* databaseChoice;
+@property DatabaseChoice databaseChoice;
 
 
 - (void) startUpDataLaunchLogic;

@@ -13,9 +13,11 @@
 
 - (void) startUpDataLaunchLogic {
     
-    [self setDatabaseChoice:@"SQLite"]; //set to Core Data or SQLite Here
+    [self setDatabaseChoice:CoreData]; //set to Core Data or SQLite Here
     
-    if ([self.databaseChoice  isEqual: @"Core Data"]) {
+    if (self.databaseChoice  == CoreData) {
+        NSLog(@"Running Core Data version of your app");
+
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         if([userDefaults boolForKey:@"notFirstLaunch"] == false)
         {
@@ -38,7 +40,8 @@
             [self.parentTableViewController.tableView reloadData];
         }
     }
-    else if ([self.databaseChoice isEqual: @"SQLite"]) {
+    else if (self.databaseChoice == SQLite) {
+        NSLog(@"Running SQLite version of your app");
         self.parentTableViewController.dao = [[DAO alloc]init];
         self.parentTableViewController.dao.daoManager = self;
         [self copyOrOpenSQLiteDB];
@@ -63,6 +66,7 @@
     //translate everything to Presentation Layer Companies
     
     self.parentTableViewController.dao.companies = [self convertCoreDataCompaniesInArrayToPresentationLayerCompanies:fetchedArrayOfCompanies];
+    
     
     //Now, do the same thing for Products.
     //Fetch the Core Data Products and make Presentation Layer products out of them
@@ -220,7 +224,7 @@
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:@"Product Deleted" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
             [alert show];
             if (sqlite3_step(statement) == SQLITE_DONE) {
-                //                    NSLog(@"Sqlite3 step done");
+                //NSLog(@"Sqlite3 step done");
             }
         }
         else {
