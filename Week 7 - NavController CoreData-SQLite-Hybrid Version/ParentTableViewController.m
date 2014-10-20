@@ -43,7 +43,7 @@
 
 
 - (void) initializeDAOManager {
-    self.terrysDAOManager = [[DAOManager alloc]init];
+    self.terrysDAOManager = [[DatabaseCustomManager alloc]init];
     self.terrysDAOManager.parentTableViewController = self;
     [self.terrysDAOManager startUpDataLaunchLogic];
     

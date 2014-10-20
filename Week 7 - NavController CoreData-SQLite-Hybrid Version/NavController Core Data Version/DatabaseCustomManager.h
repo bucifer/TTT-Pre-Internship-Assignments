@@ -21,7 +21,7 @@ typedef enum {SQLite, CoreData} DatabaseChoice;
 
 
 
-@interface DAOManager : NSObject {
+@interface DatabaseCustomManager : NSObject {
     sqlite3 *navctrlDB;
     NSString *dbPathString;
 }
@@ -32,10 +32,12 @@ typedef enum {SQLite, CoreData} DatabaseChoice;
 
 
 - (void) startUpDataLaunchLogic;
+
 - (void) fetchFromCoreDataAndSetYourPresentationLayerData;
+
 - (void) copyOrOpenSQLiteDB;
-- (void) readCompanyFromDatabase;
-- (void) readProductsFromDatabase;
+- (void) readCompanyFromSQLDatabase;
+- (void) readProductsFromSQLDatabase;
 - (void) deleteDataFromSQLite:(NSString *)deleteQuery;
 
 - (NSMutableArray *) convertSQLiteCompaniesInArrayToPresentationLayerCompanies: (NSMutableArray *)unconvertedArray;

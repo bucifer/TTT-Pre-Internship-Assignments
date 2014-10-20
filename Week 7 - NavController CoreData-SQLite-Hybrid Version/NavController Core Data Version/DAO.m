@@ -24,33 +24,33 @@
 
 
 
-- (id)initFirstTime {
+- (id)coreDataInitFirstTime {
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    CompanyCoreData *apple = [self TBinitCompany:@"Apple" image:@"apple.png" stockSymbol:@"AAPL" orderID:@0 moc:context];
-    CompanyCoreData *samsung = [self TBinitCompany:@"Samsung" image:@"samsung.png" stockSymbol:@"SSNLF" orderID:@1 moc:context];
-    CompanyCoreData *htc = [self TBinitCompany:@"HTC" image:@"htc.jpg" stockSymbol:@"HTCXF" orderID:@2 moc:context];
-    CompanyCoreData *motorola = [self TBinitCompany:@"Motorola" image:@"motorola.gif" stockSymbol:@"MSI" orderID:@3 moc:context];
+    CompanyCoreData *apple = [self coreDataInitCustomCDCompany:@"Apple" image:@"apple.png" stockSymbol:@"AAPL" orderID:@0 moc:context];
+    CompanyCoreData *samsung = [self coreDataInitCustomCDCompany:@"Samsung" image:@"samsung.png" stockSymbol:@"SSNLF" orderID:@1 moc:context];
+    CompanyCoreData *htc = [self coreDataInitCustomCDCompany:@"HTC" image:@"htc.jpg" stockSymbol:@"HTCXF" orderID:@2 moc:context];
+    CompanyCoreData *motorola = [self coreDataInitCustomCDCompany:@"Motorola" image:@"motorola.gif" stockSymbol:@"MSI" orderID:@3 moc:context];
     
     self.companies = [[NSMutableArray alloc] initWithObjects:
                       apple, samsung, htc, motorola, nil];
     
-    ProductCoreData *ipad = [self TBinitProduct:@"iPad" image:@"ipad.png" url:@"https://www.apple.com/ipad/" company:@"Apple" moc:context orderID:@0 uniqueID:@0];
-    ProductCoreData *ipodTouch = [self TBinitProduct:@"iPod Touch" image:@"ipod_touch.png" url:@"http://www.apple.com/ipod-touch" company:@"Apple" moc:context orderID:@1 uniqueID:@1];
-    ProductCoreData *iphone = [self TBinitProduct:@"iPhone" image:@"iphone.png" url:@"http://www.apple.com/iphone" company:@"Apple" moc:context orderID:@2 uniqueID:@3];
+    ProductCoreData *ipad = [self coreDataInitCustomCDProduct:@"iPad" image:@"ipad.png" url:@"https://www.apple.com/ipad/" company:@"Apple" moc:context orderID:@0 uniqueID:@0];
+    ProductCoreData *ipodTouch = [self coreDataInitCustomCDProduct:@"iPod Touch" image:@"ipod_touch.png" url:@"http://www.apple.com/ipod-touch" company:@"Apple" moc:context orderID:@1 uniqueID:@1];
+    ProductCoreData *iphone = [self coreDataInitCustomCDProduct:@"iPhone" image:@"iphone.png" url:@"http://www.apple.com/iphone" company:@"Apple" moc:context orderID:@2 uniqueID:@3];
     
-    ProductCoreData *s4 = [self TBinitProduct:@"Galaxy S4" image:@"galaxy_s4.png" url:@"http://www.samsung.com/global/microsite/galaxys4/" company:@"Samsung" moc:context orderID:@0 uniqueID:@4];
-    ProductCoreData *note = [self TBinitProduct:@"Galaxy Note" image:@"galaxy_note.jpg_256" url:@"http://www.samsung.com/global/microsite/galaxynote/note/index.html?type=find" company:@"Samsung" moc:context orderID:@1 uniqueID:@5];
-    ProductCoreData *tab = [self TBinitProduct:@"Galaxy Tab" image:@"galaxy_tab.jpg" url:@"http://www.samsung.com/us/mobile/galaxy-tab/" company:@"Samsung" moc:context orderID:@2 uniqueID:@6];
+    ProductCoreData *s4 = [self coreDataInitCustomCDProduct:@"Galaxy S4" image:@"galaxy_s4.png" url:@"http://www.samsung.com/global/microsite/galaxys4/" company:@"Samsung" moc:context orderID:@0 uniqueID:@4];
+    ProductCoreData *note = [self coreDataInitCustomCDProduct:@"Galaxy Note" image:@"galaxy_note.jpg_256" url:@"http://www.samsung.com/global/microsite/galaxynote/note/index.html?type=find" company:@"Samsung" moc:context orderID:@1 uniqueID:@5];
+    ProductCoreData *tab = [self coreDataInitCustomCDProduct:@"Galaxy Tab" image:@"galaxy_tab.jpg" url:@"http://www.samsung.com/us/mobile/galaxy-tab/" company:@"Samsung" moc:context orderID:@2 uniqueID:@6];
 
-    ProductCoreData *m8 = [self TBinitProduct:@"HTC One M8" image:@"htc_m8.jpg" url:@"http://www.htc.com/us/smartphones/htc-one-m8/" company:@"HTC" moc:context orderID:@0 uniqueID:@7];
-    ProductCoreData *remix = [self TBinitProduct:@"HTC One Remix" image:@"htc_one_remix.png" url:@"http://www.htc.com/us/smartphones/htc-one-remix/" company:@"HTC" moc:context orderID:@1 uniqueID:@8];
-    ProductCoreData *flyer = [self TBinitProduct:@"HTC Flyer" image:@"htc_flyer.png" url:@"http://www.amazon.com/HTC-Flyer-Android-Tablet-16/dp/B0053RJ3F8" company:@"HTC" moc:context orderID:@2 uniqueID:@9];
+    ProductCoreData *m8 = [self coreDataInitCustomCDProduct:@"HTC One M8" image:@"htc_m8.jpg" url:@"http://www.htc.com/us/smartphones/htc-one-m8/" company:@"HTC" moc:context orderID:@0 uniqueID:@7];
+    ProductCoreData *remix = [self coreDataInitCustomCDProduct:@"HTC One Remix" image:@"htc_one_remix.png" url:@"http://www.htc.com/us/smartphones/htc-one-remix/" company:@"HTC" moc:context orderID:@1 uniqueID:@8];
+    ProductCoreData *flyer = [self coreDataInitCustomCDProduct:@"HTC Flyer" image:@"htc_flyer.png" url:@"http://www.amazon.com/HTC-Flyer-Android-Tablet-16/dp/B0053RJ3F8" company:@"HTC" moc:context orderID:@2 uniqueID:@9];
 
 
-    ProductCoreData *moto_x = [self TBinitProduct:@"Moto X" image:@"moto_x.png" url:@"https://www.motorola.com/us/motomaker?pid=FLEXR2" company:@"Motorola" moc:context orderID:@0 uniqueID:@1];
-    ProductCoreData *moto_g = [self TBinitProduct:@"Moto G" image:@"moto_g.jpg" url:@"http://www.motorola.com/us/moto-g-pdp-1/Moto-G-(1st-Gen.)/moto-g-pdp.html" company:@"Motorola" moc:context orderID:@1 uniqueID:@11];
-    ProductCoreData *moto_360 = [self TBinitProduct:@"Moto 360" image:@"moto_360.png" url:@"http://www.androidcentral.com/moto-360" company:@"Motorola" moc:context orderID:@2 uniqueID:@12];
+    ProductCoreData *moto_x = [self coreDataInitCustomCDProduct:@"Moto X" image:@"moto_x.png" url:@"https://www.motorola.com/us/motomaker?pid=FLEXR2" company:@"Motorola" moc:context orderID:@0 uniqueID:@1];
+    ProductCoreData *moto_g = [self coreDataInitCustomCDProduct:@"Moto G" image:@"moto_g.jpg" url:@"http://www.motorola.com/us/moto-g-pdp-1/Moto-G-(1st-Gen.)/moto-g-pdp.html" company:@"Motorola" moc:context orderID:@1 uniqueID:@11];
+    ProductCoreData *moto_360 = [self coreDataInitCustomCDProduct:@"Moto 360" image:@"moto_360.png" url:@"http://www.androidcentral.com/moto-360" company:@"Motorola" moc:context orderID:@2 uniqueID:@12];
     
     self.products = [[NSMutableArray alloc] initWithObjects:
                      ipad, ipodTouch, iphone, s4, note, tab, m8, remix, flyer, moto_x, moto_g, moto_360, nil];    
@@ -58,7 +58,7 @@
     return self;
 }
 
-- (CompanyCoreData*) TBinitCompany: (NSString *)put_name image:(NSString*)put_image stockSymbol:(NSString *)put_symbol orderID:(NSNumber *)put_orderID moc:(NSManagedObjectContext *)context {
+- (CompanyCoreData*) coreDataInitCustomCDCompany: (NSString *)put_name image:(NSString*)put_image stockSymbol:(NSString *)put_symbol orderID:(NSNumber *)put_orderID moc:(NSManagedObjectContext *)context {
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CompanyCoreData" inManagedObjectContext:context];
     CompanyCoreData *company = [[CompanyCoreData alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
@@ -73,7 +73,7 @@
     return company;
 }
 
-- (ProductCoreData*) TBinitProduct: (NSString *)put_name image:(NSString*)put_image url:(NSString *)put_url company:(NSString *)put_company moc:(NSManagedObjectContext*) context orderID:(NSNumber *)put_order_id uniqueID:(NSNumber *)put_unique_id  {
+- (ProductCoreData*) coreDataInitCustomCDProduct: (NSString *)put_name image:(NSString*)put_image url:(NSString *)put_url company:(NSString *)put_company moc:(NSManagedObjectContext*) context orderID:(NSNumber *)put_order_id uniqueID:(NSNumber *)put_unique_id  {
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ProductCoreData" inManagedObjectContext:context];
     ProductCoreData *product = [[ProductCoreData alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
@@ -105,7 +105,7 @@
 
     //Then we delete product from either Core Data or SQLite
     
-    if (self.daoManager.databaseChoice == CoreData) {
+    if (self.databaseManager.databaseChoice == CoreData) {
         //It's tricky for Core Data Layer because we are passing the PresentationLayer Product to this method
         //right now, self.products is filled with PresentationLayer objects. We need to find the right CoreDataLayer objects that correspond to them
         
@@ -129,8 +129,8 @@
         //Just for logging
         NSLog(@"Product %@ Deleted from Core Data", tempName);
     }
-    else if (self.daoManager.databaseChoice == SQLite) {
-        [self.daoManager deleteDataFromSQLite:[NSString stringWithFormat:@"DELETE FROM PRODUCT WHERE ID IS %@", product.unique_id]];
+    else if (self.databaseManager.databaseChoice == SQLite) {
+        [self.databaseManager deleteDataFromSQLite:[NSString stringWithFormat:@"DELETE FROM PRODUCT WHERE ID IS %@", product.unique_id]];
         NSLog(@"Product %@ Delete successful", tempName);
     }
 }

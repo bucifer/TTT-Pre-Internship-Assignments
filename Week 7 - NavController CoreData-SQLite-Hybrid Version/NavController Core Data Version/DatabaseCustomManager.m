@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 NM. All rights reserved.
 //
 
-#import "DAOManager.h"
+#import "DatabaseCustomManager.h"
 
-@implementation DAOManager
+@implementation DatabaseCustomManager
 
 
 - (void) startUpDataLaunchLogic {
@@ -22,9 +22,9 @@
         if([userDefaults boolForKey:@"notFirstLaunch"] == false)
         {
             NSLog(@"this is first time you are running the app - create CD Data");
-            self.parentTableViewController.dao = [[DAO alloc] initFirstTime];
+            self.parentTableViewController.dao = [[DAO alloc] coreDataInitFirstTime];
             [self.parentTableViewController.dao saveChanges];
-            self.parentTableViewController.dao.daoManager = self;
+            self.parentTableViewController.dao.databaseManager = self;
 
             //after first launch, you set this NSDefaults key so that for consequent launches, this block never gets run
             [userDefaults setBool:YES forKey:@"notFirstLaunch"];
@@ -35,7 +35,7 @@
             //if it's not the first time you are running the app, you fetch from Core Data and set your presentation layer;
             NSLog(@"not the first time you are running the app - fetching CD data");
             self.parentTableViewController.dao = [[DAO alloc]init];
-            self.parentTableViewController.dao.daoManager = self;
+            self.parentTableViewController.dao.databaseManager = self;
             [self fetchFromCoreDataAndSetYourPresentationLayerData];
             [self.parentTableViewController.tableView reloadData];
         }
@@ -43,7 +43,7 @@
     else if (self.databaseChoice == SQLite) {
         NSLog(@"Running SQLite version of your app");
         self.parentTableViewController.dao = [[DAO alloc]init];
-        self.parentTableViewController.dao.daoManager = self;
+        self.parentTableViewController.dao.databaseManager = self;
         [self copyOrOpenSQLiteDB];
     }
     
@@ -123,8 +123,8 @@
             BOOL copySuccess;
             copySuccess = [fileManager copyItemAtPath:desktopDBPath toPath:dbPathString error:&copyError];
             NSLog(@"Copied database from desktop to internal device location!");
-            [self readCompanyFromDatabase];
-            [self readProductsFromDatabase];
+            [self readCompanyFromSQLDatabase];
+            [self readProductsFromSQLDatabase];
             if (!copySuccess) NSAssert1(0, @"Failed with message '%@'.", [copyError localizedDescription]);
         }
         else {
@@ -134,13 +134,13 @@
     else {
         //But if we do find something already existing, then we just open it
         NSLog(@"We found an existing db file at your dbPathString so reading from internal device data");
-        [self readCompanyFromDatabase];
-        [self readProductsFromDatabase];
+        [self readCompanyFromSQLDatabase];
+        [self readProductsFromSQLDatabase];
     }
 }
 
 
-- (void) readCompanyFromDatabase {
+- (void) readCompanyFromSQLDatabase {
     
     //we read from SQLite AND convert them into Presentation Layer Companies and stuff them into the dao.companies array
     
@@ -174,7 +174,7 @@
 }
 
 
-- (void) readProductsFromDatabase {
+- (void) readProductsFromSQLDatabase {
 
     NSMutableArray *fetchedArray = [[NSMutableArray alloc] init];
     

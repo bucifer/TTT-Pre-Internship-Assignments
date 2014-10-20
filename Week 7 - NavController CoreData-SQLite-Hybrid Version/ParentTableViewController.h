@@ -11,18 +11,18 @@
 #import "ChildTableViewController.h"
 #import "TerrysNetworkManager.h"
 #import "TerrysReachabilityManager.h"
-#import "DAOManager.h"
+#import "DatabaseCustomManager.h"
 
 @class TerrysNetworkManager;
 @class TerrysReachabilityManager;
 @class DAO;
-@class DAOManager;
+@class DatabaseCustomManager;
 
 @interface ParentTableViewController :UITableViewController
 
 @property CompanyPresentationLayer *selectedCompany;
 @property (strong, nonatomic) DAO *dao;
-@property (strong, nonatomic) DAOManager *terrysDAOManager;
+@property (strong, nonatomic) DatabaseCustomManager *terrysDAOManager;
 
 @property (strong, nonatomic) TerrysNetworkManager *terrysNetworkManager;
 @property (strong, nonatomic) TerrysReachabilityManager *terrysReachabilityManager;
