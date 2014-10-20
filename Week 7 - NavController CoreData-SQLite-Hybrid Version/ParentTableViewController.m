@@ -29,7 +29,7 @@
     [super viewDidLoad];
     self.title = @"Mobile device makers";
     
-    [self initializeDAOManager];
+    [self initializeDatabaseCustomManager];
     [self initializeReachabilityObject];
 }
 
@@ -42,10 +42,10 @@
 
 
 
-- (void) initializeDAOManager {
-    self.terrysDAOManager = [[DatabaseCustomManager alloc]init];
-    self.terrysDAOManager.parentTableViewController = self;
-    [self.terrysDAOManager startUpDataLaunchLogic];
+- (void) initializeDatabaseCustomManager {
+    self.terrysDatabaseCustomManager = [[DatabaseCustomManager alloc]init];
+    self.terrysDatabaseCustomManager.parentTableViewController = self;
+    [self.terrysDatabaseCustomManager startUpDatabaseLaunchLogic];
     
 }
 
@@ -125,7 +125,6 @@
         self.dao.childTableViewController = childVC;
         childVC.dao = self.dao;
         
-        //try using predicate instead
         NSPredicate *selectedCompanyPredicate = [NSPredicate predicateWithFormat:@"company = %@", self.selectedCompany.name];
         childVC.productsArrayForAppropriateCompany = [[self.dao.products filteredArrayUsingPredicate:selectedCompanyPredicate]mutableCopy];
         

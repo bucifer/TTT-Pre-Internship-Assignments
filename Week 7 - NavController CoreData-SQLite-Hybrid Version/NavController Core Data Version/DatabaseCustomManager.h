@@ -31,9 +31,7 @@ typedef enum {SQLite, CoreData} DatabaseChoice;
 @property DatabaseChoice databaseChoice;
 
 
-- (void) startUpDataLaunchLogic;
-
-- (void) fetchFromCoreDataAndSetYourPresentationLayerData;
+- (void) startUpDatabaseLaunchLogic;
 
 - (void) copyOrOpenSQLiteDB;
 - (void) readCompanyFromSQLDatabase;
@@ -43,7 +41,6 @@ typedef enum {SQLite, CoreData} DatabaseChoice;
 - (NSMutableArray *) convertSQLiteCompaniesInArrayToPresentationLayerCompanies: (NSMutableArray *)unconvertedArray;
 - (NSMutableArray *) convertSQLiteProductsInArrayToPresentationLayerProducts: (NSMutableArray *)unconvertedArray;
 
-- (NSMutableArray *) convertCoreDataCompaniesInArrayToPresentationLayerCompanies: (NSMutableArray *)unconvertedArray;
-- (NSMutableArray *) convertCoreDataProductsInArrayToPresentationLayerProducts: (NSMutableArray *)unconvertedArray;
+
 
 @end

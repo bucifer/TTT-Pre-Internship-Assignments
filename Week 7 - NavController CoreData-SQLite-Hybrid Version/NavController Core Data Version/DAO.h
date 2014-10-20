@@ -28,9 +28,15 @@
 
 
 - (id) coreDataInitFirstTime;
+- (void) fetchFromCoreDataAndSetYourPresentationLayerData;
+
 - (void) deleteProduct: (ProductPresentationLayer*) product;
 - (void) saveChanges;
 
+
+
+- (NSMutableArray *) convertCoreDataCompaniesInArrayToPresentationLayerCompanies: (NSMutableArray *)unconvertedArray;
+- (NSMutableArray *) convertCoreDataProductsInArrayToPresentationLayerProducts: (NSMutableArray *)unconvertedArray;
 
 - (CompanyCoreData*) coreDataInitCustomCDCompany: (NSString *)put_name image:(NSString*)put_image stockSymbol:(NSString *)put_symbol orderID:(NSNumber*)put_orderID moc:(NSManagedObjectContext*) context;
 

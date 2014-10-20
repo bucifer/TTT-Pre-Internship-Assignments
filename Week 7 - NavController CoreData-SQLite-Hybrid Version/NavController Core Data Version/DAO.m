@@ -58,6 +58,82 @@
     return self;
 }
 
+#pragma mark Core Data
+
+- (void) fetchFromCoreDataAndSetYourPresentationLayerData {
+    
+    NSMutableArray *fetchedArrayOfCompanies =
+    [self requestCDAndFetchAndSort:@"CompanyCoreData" sortDescriptorByString:@"order_id"];
+    
+    //in this case, you won't be using fetchedArray directly (because you don't want to use Managed Objects. Instead, you will convert them into Presentation Layer objects)
+    //translate everything to Presentation Layer Companies
+    
+    self.companies = [self convertCoreDataCompaniesInArrayToPresentationLayerCompanies:fetchedArrayOfCompanies];
+    
+    
+    //Now, do the same thing for Products.
+    //Fetch the Core Data Products and make Presentation Layer products out of them
+    //Then stuff self.parentTableVC.dao.products array with those converted products
+    
+    
+    NSMutableArray *fetchedArrayOfProducts = [self requestCDAndFetchAndSort:@"ProductCoreData" sortDescriptorByString:@"order_id"];
+    
+    self.products = [self convertCoreDataProductsInArrayToPresentationLayerProducts:fetchedArrayOfProducts];
+}
+
+
+- (NSMutableArray *) requestCDAndFetchAndSort: (NSString *) entityName sortDescriptorByString:(NSString *)sortDescriptorString {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:entityName inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortDescriptorString ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error;
+    NSArray *fetchedResult = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    
+    return [fetchedResult mutableCopy];
+}
+
+- (NSMutableArray *) convertCoreDataCompaniesInArrayToPresentationLayerCompanies: (NSMutableArray *)unconvertedArray{
+    
+    NSMutableArray *convertedResultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < unconvertedArray.count; i++) {
+        CompanyCoreData *selectedCompany = unconvertedArray[i];
+        CompanyPresentationLayer *companyPresentationLayer = [[CompanyPresentationLayer alloc]init];
+        companyPresentationLayer.name = selectedCompany.name;
+        companyPresentationLayer.image = selectedCompany.image;
+        companyPresentationLayer.stockSymbol = selectedCompany.stockSymbol;
+        [convertedResultArray addObject:companyPresentationLayer];
+    }
+    
+    return convertedResultArray;
+}
+
+- (NSMutableArray *) convertCoreDataProductsInArrayToPresentationLayerProducts: (NSMutableArray *)unconvertedArray{
+    
+    NSMutableArray *convertedResultArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < unconvertedArray.count; i++) {
+        ProductCoreData *selectedProductCoreData = unconvertedArray[i];
+        ProductPresentationLayer *productPresentationLayer = [[ProductPresentationLayer alloc]init];
+        productPresentationLayer.company = selectedProductCoreData.company;
+        productPresentationLayer.name = selectedProductCoreData.name;
+        productPresentationLayer.image = selectedProductCoreData.image;
+        productPresentationLayer.unique_id = selectedProductCoreData.unique_id;
+        productPresentationLayer.url = selectedProductCoreData.url;
+        [convertedResultArray addObject:productPresentationLayer];
+    }
+    
+    return convertedResultArray;
+}
+
+
+
+
 - (CompanyCoreData*) coreDataInitCustomCDCompany: (NSString *)put_name image:(NSString*)put_image stockSymbol:(NSString *)put_symbol orderID:(NSNumber *)put_orderID moc:(NSManagedObjectContext *)context {
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CompanyCoreData" inManagedObjectContext:context];
