@@ -23,7 +23,6 @@
 }
 
 
-
 - (NSMutableArray *) requestCDAndFetch: (NSString *) entityName {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription
