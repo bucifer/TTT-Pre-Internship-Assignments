@@ -396,6 +396,7 @@
 				GCC_PREFIX_HEADER = "Digital Leash/Digital Leash - Parent App-Prefix.pch";
 				INFOPLIST_FILE = "Digital Leash/Digital Leash - Parent App-Info.plist";
 				PRODUCT_NAME = "Digital Leash - Parent App";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -409,6 +410,7 @@
 				GCC_PREFIX_HEADER = "Digital Leash/Digital Leash - Parent App-Prefix.pch";
 				INFOPLIST_FILE = "Digital Leash/Digital Leash - Parent App-Info.plist";
 				PRODUCT_NAME = "Digital Leash - Parent App";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

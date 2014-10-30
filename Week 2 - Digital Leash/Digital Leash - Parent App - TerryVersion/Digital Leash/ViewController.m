@@ -28,6 +28,22 @@
     
     [self setUpScrollViewAndRegisterForKeyboardNotifications];
     [self setTextFieldDelegatesAndAddTapOutClearKeyBoard];
+    
+    self.createNewUserButton.layer.cornerRadius = 5;
+    self.createNewUserButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.createNewUserButton.layer.borderWidth = 1;
+    
+    self.updateExistingUserButton.layer.cornerRadius = 5;
+    self.updateExistingUserButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.updateExistingUserButton.layer.borderWidth = 1;
+    
+    self.checkLocationButton.layer.cornerRadius = 5;
+    self.checkLocationButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.checkLocationButton.layer.borderWidth = 1;
+    
+    self.usernameTextfield.borderStyle = UITextBorderStyleLine;
+    self.usernameTextfield.layer.borderWidth = 2;
+    
 }
 
 

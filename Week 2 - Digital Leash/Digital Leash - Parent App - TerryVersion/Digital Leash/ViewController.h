@@ -23,6 +23,9 @@
 @property (strong, nonatomic) NSMutableURLRequest *myURLRequest;
 
 
+
+
+
 //For Input Username and Create New User
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextfield;
 @property (strong, nonatomic) NSString *tempStringHolder;
@@ -34,6 +37,14 @@
 @property (strong, nonatomic) IBOutlet UITextField *longitudeTextfield;
 @property (strong, nonatomic) IBOutlet UITextField *latitudeTextfield;
 @property (strong, nonatomic) IBOutlet UITextField *radiusTextfield;
+
+
+//Propertys for buttons
+@property (strong, nonatomic) IBOutlet UIButton *createNewUserButton;
+@property (strong, nonatomic) IBOutlet UIButton *updateExistingUserButton;
+@property (strong, nonatomic) IBOutlet UIButton *checkLocationButton;
+
+
 
 
 //Action buttons
