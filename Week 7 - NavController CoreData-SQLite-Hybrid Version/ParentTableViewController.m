@@ -96,7 +96,7 @@
         CompanyPresentationLayer * selectedCompany = [self.dao.companies objectAtIndex:indexPath.row];
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", selectedCompany.name, selectedCompany.stockPrice];
         [[cell imageView] setImage: [UIImage imageNamed: selectedCompany.image]];
-        
+    
         if (self.terrysReachabilityManager.connectionLost != YES){
             cell.textLabel.backgroundColor = [UIColor whiteColor];
         } else {

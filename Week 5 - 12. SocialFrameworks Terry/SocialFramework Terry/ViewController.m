@@ -36,6 +36,9 @@
         [fbPreview addImage:[UIImage imageNamed:@"bulbasaur"]];
         [self presentViewController:fbPreview animated:YES completion:Nil];
     }
+    else {
+        NSLog(@"unavailable");
+    }
     
 }
 

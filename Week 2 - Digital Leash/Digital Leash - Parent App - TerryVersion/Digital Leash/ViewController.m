@@ -26,6 +26,7 @@
     [self initTerrysLocationManagerCustomObject];
     [self initTerrysNetworkManagerCustomObject];
     
+    [self.myScrollView setScrollEnabled:YES];
     [self setUpScrollViewAndRegisterForKeyboardNotifications];
     [self setTextFieldDelegatesAndAddTapOutClearKeyBoard];
     
@@ -43,7 +44,6 @@
     
     self.usernameTextfield.borderStyle = UITextBorderStyleLine;
     self.usernameTextfield.layer.borderWidth = 2;
-    
 }
 
 
@@ -82,9 +82,6 @@
 
 - (void)setUpScrollViewAndRegisterForKeyboardNotifications
 {
-    [self.myScrollView setScrollEnabled:YES];
-    [self.myScrollView setContentSize:(CGSizeMake(320, 800))];
-    
     //viewcontroller starts listening for the keyboard events (keyboard show and keyboard hide) through this notificationCenter command
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)

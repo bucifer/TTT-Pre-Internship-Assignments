@@ -50,7 +50,7 @@
         self.myURLRequest.HTTPMethod = @"POST";
         [self.myURLRequest setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         [self.myURLRequest setHTTPBody: myJSONrequest];
-        
+
         //create url connection and fire the request you made above
         NSURLConnection *connect = [[NSURLConnection alloc] initWithRequest: self.myURLRequest delegate: self];
         connect = nil;

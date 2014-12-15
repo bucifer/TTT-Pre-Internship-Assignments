@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1dd-za-3qg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1dd-za-3qg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - 1st View-->
+        <!--1st View-->
         <scene sceneID="92D-pu-6at">
             <objects>
                 <viewController id="m7y-Rn-5gC" customClass="FirstViewController" sceneMemberID="viewController">
@@ -18,25 +19,21 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Naruto Button Counter" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="120" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-GB-dAw">
                                 <rect key="frame" x="48" y="238" width="120" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sasuke Counter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgI-2x-VdM">
                                 <rect key="frame" x="176" y="254" width="123" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uwr-cw-1Kf">
                                 <rect key="frame" x="48" y="283" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PPI-HR-BOk">
                                 <rect key="frame" x="189" y="283" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
@@ -53,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="1278" y="-636"/>
         </scene>
-        <!--Second View Controller - 2nd View -->
+        <!--2nd View -->
         <scene sceneID="bMq-kW-RaD">
             <objects>
                 <viewController id="E9C-9q-snv" customClass="SecondViewController" sceneMemberID="viewController">
@@ -67,13 +64,11 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Press Below Buttons for Notify" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lO9-j4-K7v">
                                 <rect key="frame" x="42" y="207" width="236" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMI-Y1-zNg">
                                 <rect key="frame" x="80" y="245" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Naruto">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -83,7 +78,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbn-BK-cK7">
                                 <rect key="frame" x="203" y="245" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sasuke">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -93,13 +87,11 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRr-B5-4yh">
                                 <rect key="frame" x="26" y="346" width="274" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notify Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skt-n6-bcW">
                                 <rect key="frame" x="100" y="317" width="120" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -115,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="1278" y="48"/>
         </scene>
-        <!--Third View Controller - 3rd View-->
+        <!--3rd View-->
         <scene sceneID="yHl-0v-2dT">
             <objects>
                 <viewController id="HqG-s7-A2K" customClass="ThirdViewController" sceneMemberID="viewController">
@@ -129,11 +121,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tt" translatesAutoresizingMaskIntoConstraints="NO" id="M1V-Eu-c0u">
                                 <rect key="frame" x="91" y="66" width="138" height="92"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" keyboardDismissMode="interactive" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAd-To-MIa">
                                 <rect key="frame" x="0.0" y="212" width="320" height="307"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Technologies change daily. Android. iOS. Ruby on rails. Node.js. .NET Java Clojure AWS etc. etc. etc. are all in flux. What they are today won’t be what they are tomorrow. Should one even specialize in any of these?
@@ -152,7 +142,6 @@ We know Google has most of the answers – and in a few short months, we’ll ma
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Our Philosophy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIA-4Q-nW3">
                                 <rect key="frame" x="99" y="174" width="123" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -180,11 +169,9 @@ We know Google has most of the answers – and in a few short months, we’ll ma
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="masterworks.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="VKR-xc-tko">
                                 <rect key="frame" x="0.0" y="63" width="320" height="456"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="elegance.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="s8N-JK-orp">
                                 <rect key="frame" x="0.0" y="63" width="167" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -195,7 +182,7 @@ We know Google has most of the answers – and in a few short months, we’ll ma
             </objects>
             <point key="canvasLocation" x="1272" y="1475"/>
         </scene>
-        <!--Navigation Controller - First-->
+        <!--First-->
         <scene sceneID="5we-oI-Wbz">
             <objects>
                 <navigationController title="First" automaticallyAdjustsScrollViewInsets="NO" id="cJs-ni-rrb" sceneMemberID="viewController">
@@ -235,7 +222,7 @@ We know Google has most of the answers – and in a few short months, we’ll ma
             </objects>
             <point key="canvasLocation" x="288" y="-308"/>
         </scene>
-        <!--Navigation Controller - Second-->
+        <!--Second-->
         <scene sceneID="pgs-2z-blc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CFt-gV-siV" sceneMemberID="viewController">
@@ -254,7 +241,7 @@ We know Google has most of the answers – and in a few short months, we’ll ma
             </objects>
             <point key="canvasLocation" x="794" y="36"/>
         </scene>
-        <!--Navigation Controller - Third-->
+        <!--Third-->
         <scene sceneID="Ha5-6G-izO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K0H-Us-WpN" sceneMemberID="viewController">
@@ -273,7 +260,7 @@ We know Google has most of the answers – and in a few short months, we’ll ma
             </objects>
             <point key="canvasLocation" x="794" y="771"/>
         </scene>
-        <!--Navigation Controller - 4th-->
+        <!--4th-->
         <scene sceneID="FnQ-oE-7Eq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="boQ-l0-Y33" sceneMemberID="viewController">
@@ -291,6 +278,23 @@ We know Google has most of the answers – and in a few short months, we’ll ma
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDa-Vg-ctU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="794" y="1487"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yzu-Lc-wPE">
+            <objects>
+                <viewController id="3XA-N8-u6o" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="deW-Ma-yZq"/>
+                        <viewControllerLayoutGuide type="bottom" id="vyw-Oi-p5Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KzL-Dm-o3c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwh-Ih-XGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
